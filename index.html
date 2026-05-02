@@ -29,6 +29,7 @@
 <nav class="tabs" id="tabs">
   <button class="tab active" data-target="upcoming">Upcoming</button>
   <button class="tab" data-target="calendar">Calendar</button>
+  <button class="tab" data-target="map">Map</button>
   <button class="tab" data-target="lodging">Lodging</button>
   <button class="tab" data-target="tournaments">Tournaments</button>
   <button class="tab" data-target="docs">Docs</button>
@@ -50,6 +51,23 @@
     <div id="calendar-june" class="month"></div>
     <div id="calendar-july" class="month"></div>
     <div class="legend" id="calendar-legend"></div>
+  </section>
+
+  <section id="map" class="panel">
+    <h2>MAP</h2>
+    <p class="hint">All summer venues on one map. Tap any pin for details, drag to pan, pinch to zoom.</p>
+    <div class="map-wrap">
+      <iframe
+        class="map-iframe"
+        src="https://www.google.com/maps/d/embed?mid=1vFhDtR8sD3vMK-mGliNLQEF8ybNYmgM&ehbc=2E312F"
+        title="Lacrosse 2026 venues map"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="map-actions">
+      <a class="map-action-btn" href="https://www.google.com/maps/d/viewer?mid=1vFhDtR8sD3vMK-mGliNLQEF8ybNYmgM" target="_blank" rel="noopener">↗ Open full map in Google Maps</a>
+    </div>
   </section>
 
   <section id="lodging" class="panel">
