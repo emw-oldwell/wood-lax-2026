@@ -176,12 +176,12 @@ const DATA = {
 
   // Tournaments — chronological, one entry per day
   events: [
-    { date: "2026-06-10", name: "Philly's Phinest Showcase – Day 1", venue: "William Penn Charter School", venueAddress: "3000 W School House Ln, Philadelphia PA 19144", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "35 min", isHHH: false },
-    { date: "2026-06-11", name: "Philly's Phinest Showcase – Day 2", venue: "William Penn Charter School", venueAddress: "3000 W School House Ln, Philadelphia PA 19144", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "35 min", isHHH: false },
+    { date: "2026-06-10", name: "Philly's Phinest Showcase – Day 1", venue: "Center Square Park (Yost Rd fields)", venueAddress: "1527 Yost Rd, Blue Bell PA 19422", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "30 min", isHHH: false },
+    { date: "2026-06-11", name: "Philly's Phinest Showcase – Day 2", venue: "Center Square Park (Yost Rd fields)", venueAddress: "1527 Yost Rd, Blue Bell PA 19422", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "30 min", isHHH: false },
     { date: "2026-06-14", name: "Northeast Premier — Albany", venue: "Afrim's Sports Park – Colonie", venueAddress: "969 Watervliet Shaker Rd, Colonie NY 12205", girls: "Both", lodgingKey: "STAYBRIDGE", driveFromLodging: "2 min", isHHH: true },
     { date: "2026-06-17", name: "BIC – Wilmington (Day 1)", venue: "Chase Fieldhouse", venueAddress: "401 Garasches Lane, Wilmington DE 19801", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "29 min", isHHH: false },
     { date: "2026-06-18", name: "BIC – Wilmington (Day 2)", venue: "Chase Fieldhouse", venueAddress: "401 Garasches Lane, Wilmington DE 19801", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "29 min", isHHH: false },
-    { date: "2026-06-21", name: "HHH Philly Classic", venue: "Centre Square Park (Yost Rd fields)", venueAddress: "1527 & 1528 Yost Rd, Blue Bell PA 19422 (verify)", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "30 min", isHHH: true },
+    { date: "2026-06-21", name: "HHH Philly Classic", venue: "Center Square Park (Yost Rd fields)", venueAddress: "1527 & 1528 Yost Rd, Blue Bell PA 19422 (verify)", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "30 min", isHHH: true },
     { date: "2026-06-23", name: "Jr. Open – Iron Peak (Day 1)", venue: "Iron Peak Sports & Events", venueAddress: "137 Mountain View Rd, Hillsborough NJ 08844", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "1h 13m", isHHH: false, note: "Day trip from VRBO (Princeton hotel canceled)" },
     { date: "2026-06-24", name: "Jr. Open – Iron Peak (Day 2)", venue: "Iron Peak Sports & Events", venueAddress: "137 Mountain View Rd, Hillsborough NJ 08844", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "1h 13m", isHHH: false, note: "Day trip from VRBO" },
     { date: "2026-06-26", name: "HHH – Lax for the Cure (Day 1)", venue: "New Egypt High School", venueAddress: "117 Evergreen Rd, New Egypt NJ 08533", girls: "Both", lodgingKey: "WEST_CHESTER", driveFromLodging: "1h 09m", isHHH: true },
