@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#422593" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="HHH Summer 26" />
+<title>HHH Philly Girls Lacrosse — Summer 2026 Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('public/hero.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner container">
+    <div class="hero-tag">Summer 2026 Events</div>
+    <h1 class="hero-title">HHH PHILLY<br/>GIRLS<br/>LACROSSE</h1>
+    <div class="hero-sub">Kate &amp; Rachel · 22 tournament days · 9 lodging stops</div>
+  </div>
+</section>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-target="upcoming">Upcoming</button>
+  <button class="tab" data-target="calendar">Calendar</button>
+  <button class="tab" data-target="lodging">Lodging</button>
+  <button class="tab" data-target="tournaments">Tournaments</button>
+  <button class="tab" data-target="docs">Docs</button>
+  <button class="tab" data-target="players">Players</button>
+</nav>
+
+<main class="container">
+
+  <section id="upcoming" class="panel active">
+    <h2>UPCOMING</h2>
+    <div id="upcoming-list" class="list"></div>
+    <h3 class="subhead">SEASON AT A GLANCE</h3>
+    <div id="stats" class="stats"></div>
+  </section>
+
+  <section id="calendar" class="panel">
+    <h2>CALENDAR</h2>
+    <div id="calendar-june" class="month"></div>
+    <div id="calendar-july" class="month"></div>
+    <div class="legend" id="calendar-legend"></div>
+  </section>
+
+  <section id="lodging" class="panel">
+    <h2>LODGING</h2>
+    <p class="hint">All reservations in chronological order. Tap any address for directions, tap a phone number to call.</p>
+    <div id="lodging-list" class="list"></div>
+  </section>
+
+  <section id="tournaments" class="panel">
+    <h2>TOURNAMENTS</h2>
+    <p class="hint">All games with venue map links, drive time from the lodging that covers it, and which girl(s) play. <strong>Bold = HHH club tournament.</strong></p>
+    <div id="tournament-list" class="list"></div>
+  </section>
+
+  <section id="docs" class="panel">
+    <h2>DOCS</h2>
+    <p class="hint">Tournament packets, hotel confirmations, registration forms, and other useful files. Files are organized by folder under <code>/docs/</code>.</p>
+    <div id="doc-list" class="list"></div>
+  </section>
+
+  <section id="players" class="panel">
+    <h2>PLAYERS</h2>
+    <div class="players-grid">
+      <div class="player-card">
+        <div class="player-photo" style="background-image: url('public/kate.jpg')"></div>
+        <div class="player-meta">
+          <div class="player-name">KATE WOOD</div>
+          <div class="player-team">Lake Norman / HHH Philly 2028</div>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-photo" style="background-image: url('public/rachel.jpg')"></div>
+        <div class="player-meta">
+          <div class="player-name">RACHEL WOOD</div>
+          <div class="player-team">Lake Norman / HHH Philly 2028 · Goalie</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <p>HHH Philly Girls Lacrosse · Summer 2026 · Last updated <span id="lastUpdated"></span></p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
