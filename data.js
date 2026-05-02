@@ -230,4 +230,37 @@ const DATA = {
 
   // Document attachments — drop files into /docs and add entries here
   documents: [],
+
+  // HHH Philly 2028 — Summer 2026 full roster (29 players)
+  roster: [
+    { num: 1,  name: "Kendall Chan",        parents: "Charlie and Michelle" },
+    { num: 2,  name: "Sailor Campbell",     parents: "Zac and Maura" },
+    { num: 3,  name: "Avery Sinnes",        parents: "David and Keri" },
+    { num: 4,  name: "Lauren Notaro",       parents: "Mark and Kristen" },
+    { num: 5,  name: "Sealeigh Campbell",   parents: "Zac and Maura" },
+    { num: 6,  name: "Camilla Lutte",       parents: "Scot and Deanna" },
+    { num: 7,  name: "Anna McVeigh",        parents: "Ian and Denise" },
+    { num: 8,  name: "Riley O'Donnell",     parents: "Danny and Eryn" },
+    { num: 9,  name: "Sadie Banks",         parents: "Liam and Renee" },
+    { num: 10, name: "Liv Coffey",          parents: "Drew and Amy" },
+    { num: 11, name: "Nora Schmalbach",     parents: "Rob and Denise" },
+    { num: 12, name: "Eva Lemieux",         parents: "Tom and Kristy" },
+    { num: 13, name: "Makenna Myers",       parents: "Chris and Jenny" },
+    { num: 14, name: "Lucy Mallgrave",      parents: "Matt and Genevieve" },
+    { num: 15, name: "Kate Wood",           parents: "Eric and Jennifer" },
+    { num: 16, name: "Neely Lesovitz",      parents: "Joe and Anna" },
+    { num: 17, name: "Elise Hanna",         parents: "Duffy and Dana" },
+    { num: 18, name: "Blythe Hoffman",      parents: "Christian and Jane" },
+    { num: 19, name: "Addison DiGiovanni",  parents: "Mark and Stephanie" },
+    { num: 20, name: "Penny Heckler",       parents: "Peter and Robyn" },
+    { num: 21, name: "Mia Wainwright",      parents: "Bill and Maria" },
+    { num: 22, name: "Lila McGrath",        parents: "John and Lexi" },
+    { num: 23, name: "Rachel Wood",         parents: "Eric and Jennifer" },
+    { num: 24, name: "Charlotte Cook",      parents: "Tony and Jennifer" },
+    { num: 25, name: "Reese Nepereny",      parents: "Scott and Brooke" },
+    { num: 26, name: "Maeve Irish",         parents: "Ryan and Megan" },
+    { num: 27, name: "Grace Minnich",       parents: "John and Amy" },
+    { num: 28, name: "Shea Burns",          parents: "Jason and Dyanna" },
+    { num: 33, name: "Ella Andrews",        parents: "Jimmy and Deana" },
+  ],
 };

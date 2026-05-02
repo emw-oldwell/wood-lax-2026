@@ -265,6 +265,36 @@ function emptyDocsCard() {
   </div>`;
 }
 
+// --- Roster ---
+function renderRoster() {
+  const container = $("#roster-list");
+  if (!container || !DATA.roster) return;
+  const total = DATA.roster.length;
+  const woodNames = ["Kate Wood", "Rachel Wood"];
+
+  const html = `
+    <div class="roster-stats">
+      <div class="roster-stat-num">${total}</div>
+      <div class="roster-stat-label">PLAYERS · HHH PHILLY 2028</div>
+    </div>
+    <div class="roster-grid">
+      ${DATA.roster.map(p => {
+        const isWood = woodNames.includes(p.name);
+        return `
+          <div class="roster-card${isWood ? " is-wood" : ""}">
+            <div class="roster-num">${p.num}</div>
+            <div class="roster-info">
+              <div class="roster-player-name">${p.name}${isWood ? " 🏑" : ""}</div>
+              <div class="roster-parents">${p.parents}</div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+  container.innerHTML = html;
+}
+
 // --- In-app document viewer modal ---
 function openDocModal(file, name) {
   const modal = $("#doc-modal");
@@ -314,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderLodging();
   renderTournaments();
   renderDocs();
+  renderRoster();
   setupDocModal();
   $("#lastUpdated").textContent = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 });
