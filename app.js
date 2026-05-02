@@ -236,7 +236,7 @@ async function renderDocs() {
       <div class="doc-folder">
         <div class="doc-folder-name">${cat.name} <span style="color:#999;font-weight:500">· ${cat.items.length} file${cat.items.length === 1 ? '' : 's'}</span></div>
         ${cat.items.map(item => `
-          <a class="doc-card" href="${item.file}" target="_blank" rel="noopener">
+          <a class="doc-card" href="${item.file}" data-file="${item.file}" data-name="${item.name}" data-ext="${item.ext}">
             <span class="doc-icon">${item.icon}</span>
             <span>
               <span class="doc-name">${item.name}</span>
@@ -265,6 +265,47 @@ function emptyDocsCard() {
   </div>`;
 }
 
+// --- In-app document viewer modal ---
+function openDocModal(file, name) {
+  const modal = $("#doc-modal");
+  const iframe = $("#doc-modal-iframe");
+  const title = $("#doc-modal-title");
+  const openBtn = $("#doc-modal-open");
+  iframe.src = file;
+  title.textContent = name || "";
+  if (openBtn) openBtn.href = file;
+  modal.classList.remove("hidden");
+  document.body.classList.add("doc-modal-open");
+}
+
+function closeDocModal() {
+  const modal = $("#doc-modal");
+  const iframe = $("#doc-modal-iframe");
+  modal.classList.add("hidden");
+  iframe.src = "about:blank"; // free memory + stop video/audio
+  document.body.classList.remove("doc-modal-open");
+}
+
+function setupDocModal() {
+  // Intercept doc card clicks → open modal
+  document.addEventListener("click", e => {
+    const card = e.target.closest(".doc-card");
+    if (card && card.dataset.file) {
+      e.preventDefault();
+      openDocModal(card.dataset.file, card.dataset.name);
+    }
+  });
+  // Close button
+  const closeBtn = $("#doc-modal-close");
+  if (closeBtn) closeBtn.addEventListener("click", closeDocModal);
+  // ESC key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !$("#doc-modal").classList.contains("hidden")) {
+      closeDocModal();
+    }
+  });
+}
+
 // --- Boot ---
 document.addEventListener("DOMContentLoaded", () => {
   setupTabs();
@@ -273,5 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderLodging();
   renderTournaments();
   renderDocs();
+  setupDocModal();
   $("#lastUpdated").textContent = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 });

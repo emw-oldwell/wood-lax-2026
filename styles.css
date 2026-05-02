@@ -423,6 +423,84 @@ h3.subhead {
   margin-top: 2px;
 }
 
+/* ===== DOC MODAL (in-app PDF viewer) ===== */
+.doc-modal {
+  position: fixed;
+  inset: 0;
+  background: #1a1a1a;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: modalIn 0.2s ease-out;
+}
+.doc-modal.hidden { display: none; }
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.doc-modal-header {
+  background: var(--hhh-purple);
+  color: #fff;
+  padding: 12px 14px;
+  padding-top: calc(12px + env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.doc-modal-title {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.doc-modal-close {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px 8px 10px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.doc-modal-close:active { background: rgba(255,255,255,0.35); }
+.doc-modal-close .close-arrow {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 400;
+}
+.doc-modal-open {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.doc-modal-open:active { background: rgba(255,255,255,0.35); }
+.doc-modal-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+}
+body.doc-modal-open { overflow: hidden; }
+
 /* ===== FOOTER ===== */
 .foot {
   text-align: center; color: var(--muted);

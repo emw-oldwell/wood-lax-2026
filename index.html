@@ -97,6 +97,18 @@
   </div>
 </footer>
 
+<!-- In-app document viewer modal -->
+<div id="doc-modal" class="doc-modal hidden" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title">
+  <div class="doc-modal-header">
+    <button class="doc-modal-close" id="doc-modal-close" aria-label="Close document">
+      <span class="close-arrow">‹</span><span class="close-label">Back</span>
+    </button>
+    <span class="doc-modal-title" id="doc-modal-title"></span>
+    <a class="doc-modal-open" id="doc-modal-open" href="#" target="_blank" rel="noopener" aria-label="Open in new tab">↗</a>
+  </div>
+  <iframe class="doc-modal-iframe" id="doc-modal-iframe" src="about:blank" title="Document"></iframe>
+</div>
+
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>
