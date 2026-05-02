@@ -284,7 +284,7 @@ function renderRoster() {
           <div class="roster-card${isWood ? " is-wood" : ""}">
             <div class="roster-num">${p.num}</div>
             <div class="roster-info">
-              <div class="roster-player-name">${p.name}${isWood ? " 🏑" : ""}</div>
+              <div class="roster-player-name">${p.name}${isWood ? " 🥍" : ""}</div>
               <div class="roster-parents">${p.parents}</div>
             </div>
           </div>
