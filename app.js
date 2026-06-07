@@ -165,6 +165,7 @@ function shortenEvent(name) {
   return name
     .replace("Philly's Phinest Showcase – ", "Phinest ")
     .replace("BIC – Wilmington ", "BIC ")
+    .replace("HHH – Apex Tournament", "Apex Tournament")
     .replace("HHH Philly Classic", "Philly Classic")
     .replace("Jr. Open – Iron Peak ", "Jr. Open ")
     .replace("HHH – Lax for the Cure ", "Lax 4 Cure ")
