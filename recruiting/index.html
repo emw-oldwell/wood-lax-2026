@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a19">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rachel Lax">
+<title>Rachel Wood · Recruiting Workbook · Class of 2028</title>
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+  --grid:#e1e0d9; --line:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b; --blue:#2a78d6;
+  --t1:#2a78d6; --t2:#eb6834; --t3:#898781;
+}
+@media (prefers-color-scheme: dark){ :root:where(:not([data-theme="light"])){
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; --t3:#898781; } }
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; --t3:#898781; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 20px 110px}
+a{color:var(--blue)}
+h1{font-size:31px;line-height:1.14;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+h3{font-size:16px;margin:0 0 4px}
+.sub{color:var(--ink2);margin:0;font-size:15px}
+.stamp{color:var(--mut);font-size:12.5px;margin:10px 0 0;max-width:66ch}
+header.top{border-bottom:1px solid var(--grid);padding-bottom:22px;margin-bottom:24px;
+ display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.hdbtns{display:flex;gap:8px;flex-wrap:wrap}
+.toggle{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 13px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.toggle:hover{border-color:var(--ink2)}
+nav.jump{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+nav.jump a{font-size:12.5px;text-decoration:none;border:1px solid var(--line);color:var(--ink2);
+ border-radius:999px;padding:6px 13px}
+nav.jump a:hover{border-color:var(--ink);color:var(--ink)}
+
+.howto{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--blue);
+ border-radius:10px;padding:20px 22px;margin:0 0 12px}
+.howto ol{margin:10px 0 0;padding-left:20px;color:var(--ink2);font-size:14.5px}
+.howto li{margin-bottom:7px}
+.alert{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--blue);
+ border-radius:10px;padding:17px 20px;margin:0 0 12px}
+.alert.go{border-left-color:var(--good)} .alert.warn{border-left-color:var(--warn)}
+.alert h2{font-size:17px} .alert p{margin:6px 0 0;color:var(--ink2);font-size:14.5px}
+.countdown{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;font-weight:650;margin:0 0 4px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0 8px}
+.stat{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:15px 17px}
+.stat .v{font-size:29px;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+.stat .k{font-size:12.5px;color:var(--ink2);margin-top:3px}
+.v.c1{color:var(--t1)} .v.c2{color:var(--t2)} .v.c3{color:var(--t3)}
+
+section.block{margin:52px 0 0;scroll-margin-top:14px}
+.lede{color:var(--ink2);font-size:15px;margin:0 0 18px;max-width:78ch}
+
+/* ---- calendar ---- */
+.day{background:var(--surface);border:1px solid var(--ring);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.day.hasgoing{border-left:3px solid var(--good)}
+.day.clash{border-left:3px solid var(--crit)}
+.dayhead{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--grid);flex-wrap:wrap}
+.dayname{font-weight:650;font-size:15px;min-width:96px}
+.dayname small{color:var(--mut);font-weight:500;font-size:12px;display:block;text-transform:uppercase;letter-spacing:.07em}
+.daymeta{font-size:12.5px;color:var(--mut);margin-left:auto;text-align:right}
+.clashmsg{color:var(--crit);font-weight:650;font-size:12.5px}
+.okmsg{color:var(--good);font-weight:650;font-size:12.5px}
+.camp{display:flex;gap:12px;padding:11px 16px;border-top:1px solid var(--grid);align-items:flex-start;flex-wrap:wrap}
+.camp:first-of-type{border-top:none}
+.camp.st-going{background:color-mix(in srgb, var(--good) 7%, transparent)}
+.camp.st-maybe{background:color-mix(in srgb, var(--warn) 8%, transparent)}
+.camp.st-skip{opacity:.42}
+.campmain{flex:1;min-width:260px}
+.camptop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.campschool{font-weight:650;font-size:14.5px}
+.campname{color:var(--ink2);font-size:13.5px}
+.campmeta{font-size:12.5px;color:var(--mut);margin-top:2px}
+.campnote{font-size:13px;color:var(--ink2);margin:5px 0 0;max-width:72ch}
+.tchip{font-size:10px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:999px;color:#fff}
+.tchip.k1{background:var(--t1)} .tchip.k2{background:var(--t2)} .tchip.k3{background:var(--t3)}
+.flag{font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:4px;
+ border:1px solid currentColor;white-space:nowrap}
+.flag.paid{color:var(--good)} .flag.close{color:var(--crit)} .flag.only{color:var(--blue)}
+.setgrp{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;flex:none}
+.setgrp button{background:none;border:none;color:var(--mut);font-family:inherit;font-size:11.5px;
+ font-weight:650;padding:5px 10px;cursor:pointer}
+.setgrp button + button{border-left:1px solid var(--line)}
+.setgrp button:hover{color:var(--ink)}
+.setgrp button.on{color:#fff}
+.setgrp button.on[data-s="going"]{background:var(--good)}
+.setgrp button.on[data-s="maybe"]{background:var(--warn);color:#0b0b0b}
+.setgrp button.on[data-s="skip"]{background:var(--t3)}
+.gap{padding:9px 16px;font-size:13px;color:var(--mut);background:var(--surface);
+ border:1px dashed var(--line);border-radius:10px;margin-bottom:9px}
+.totalbar{position:sticky;bottom:0;background:var(--surface);border:1px solid var(--ring);
+ border-radius:10px;padding:12px 18px;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;
+ align-items:center;box-shadow:0 -2px 12px rgba(0,0,0,.06);z-index:5}
+.totalbar b{font-size:17px} .totalbar span{font-size:13px;color:var(--ink2)}
+
+/* ---- table ---- */
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 8px}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 13px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.chip.act{border-style:dashed}
+.hint{font-size:12.5px;color:var(--mut);margin:0 0 14px;max-width:76ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--ring);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:1040px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);
+ font-weight:650;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
+ cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface);z-index:1}
+th:hover{color:var(--ink)} th.nosort{cursor:default}
+th .car{opacity:.3;font-size:9px;margin-left:3px}
+th[data-sorted] .car{opacity:1}
+td{padding:11px 12px;border-bottom:1px solid var(--grid);vertical-align:top}
+tr.det td{background:color-mix(in srgb, var(--blue) 5%, var(--surface));border-bottom:1px solid var(--line)}
+tr.tier-1 td:first-child{box-shadow:inset 3px 0 0 var(--t1)}
+tr.tier-2 td:first-child{box-shadow:inset 3px 0 0 var(--t2)}
+tr.tier-3 td:first-child{box-shadow:inset 3px 0 0 var(--t3)}
+.sch{font-weight:650;font-size:14px;white-space:nowrap}
+.bkt{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.dot{font-size:11px;line-height:1;margin-right:5px}
+.g{color:var(--good)} .w{color:var(--warn)} .s{color:var(--serious)} .c{color:var(--crit)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tiersel{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.tiersel button{background:none;border:none;color:var(--mut);font-family:inherit;font-size:12px;
+ font-weight:700;padding:4px 9px;cursor:pointer;line-height:1.3}
+.tiersel button + button{border-left:1px solid var(--line)}
+.tiersel button:hover{color:var(--ink)} .tiersel button.on{color:#fff}
+.tiersel button.on[data-t="1"]{background:var(--t1)}
+.tiersel button.on[data-t="2"]{background:var(--t2)}
+.tiersel button.on[data-t="3"]{background:var(--t3)}
+.moved{display:inline-block;font-size:10px;color:var(--warn);margin-left:6px;font-weight:700}
+.gkbar{display:inline-flex;gap:3px;margin-right:7px;vertical-align:middle}
+.gkbar i{width:7px;height:7px;border-radius:2px;background:var(--line);display:block}
+.gkbar i.on{background:var(--blue)}
+.badge{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:4px;
+ border:1px solid var(--ring);color:var(--ink2);white-space:nowrap}
+.badge.now{border-color:var(--good);color:var(--good);font-weight:650}
+.badge.mail{border-color:var(--blue);color:var(--blue);font-weight:650}
+.badge.warn{border-color:var(--warn);color:var(--warn)}
+.expand{background:none;border:none;color:var(--blue);font-size:12px;cursor:pointer;padding:0;font-family:inherit}
+.detgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:4px 0 6px}
+.detgrid h4{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 4px;font-weight:650}
+.detgrid p{margin:0;font-size:13px;color:var(--ink2)}
+.detgrid ul{margin:0;padding-left:16px;font-size:13px;color:var(--ink2)}
+
+.qblock{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:20px 22px;margin-bottom:12px}
+.qblock h3{display:flex;align-items:center;gap:10px;font-size:16.5px}
+.qnum{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:none}
+.qblurb{color:var(--ink2);font-size:14px;margin:0 0 14px}
+.qlist{margin:0;padding-left:20px} .qlist li{margin-bottom:16px}
+.qlist li::marker{color:var(--mut);font-size:12px}
+ol.plain{list-style:none;padding:0;margin:0}
+ol.plain li{border-top:1px solid var(--grid);padding:12px 0}
+.q{margin:0;font-weight:600;font-size:14.5px}
+.a{margin:3px 0 0;color:var(--ink2);font-size:13.5px}
+textarea.ans{width:100%;max-width:640px;margin-top:7px;background:var(--plane);color:var(--ink);
+ border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-family:inherit;font-size:13.5px;
+ resize:vertical}
+textarea.ans:focus{outline:2px solid var(--blue);outline-offset:-1px;border-color:transparent}
+
+.feed{background:var(--surface);border:1px solid var(--ring);border-radius:10px;overflow:hidden}
+.feeditem{display:flex;gap:12px;padding:10px 16px;border-top:1px solid var(--grid);font-size:13.5px;align-items:baseline}
+.feeditem:first-child{border-top:none}
+.feedtime{color:var(--mut);font-size:12px;min-width:88px;font-variant-numeric:tabular-nums;flex:none}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--grid);color:var(--mut);font-size:12.5px}
+footer p{margin:0 0 8px;max-width:86ch}
+@media(max-width:640px){h1{font-size:24px} .wrap{padding:22px 14px 90px} .daymeta{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1>Rachel's Recruiting Workbook</h1>
+    <p class="sub">Class of 2028 · Goalie · Lake Norman HS / Big 4 HHH Philly</p>
+    <p class="stamp">Rosters, 2027 commits, camp dates and the NCAA calendar verified July 31, 2026. Everything you change saves automatically on this device and syncs to the family view.</p>
+  </div>
+  <div class="hdbtns">
+    <span class="toggle" id="sync" style="cursor:default">…</span>
+    <button class="toggle" id="save">Copy my link</button>
+    <button class="toggle" id="tg">Dark / light</button>
+  </div>
+</header>
+
+<nav class="jump">
+  <a href="#how">How to use this</a>
+  <a href="#cal">Camp calendar</a>
+  <a href="#board">The full board</a>
+  <a href="#email">Email, no camp</a>
+  <a href="#quest">Your questions</a>
+  <a href="#activity" id="navact" style="display:none">Activity</a>
+</nav>
+
+<div id="dadbar" class="alert" style="display:none;border-left-color:var(--t2)">
+  <p class="countdown">Parent view</p>
+  <h2>Live view of Rachel's workbook</h2>
+  <p>This page updates automatically as she works — <span id="lastseen">no changes yet</span>. Anything you change here syncs back to her too.</p>
+</div>
+
+<div class="howto" id="how">
+  <h2>Rachel — start here</h2>
+  <p class="a">This is a working document, not a report. Three things to do, in this order:</p>
+  <ol>
+    <li><strong>Work the calendar.</strong> Every women's lacrosse camp between Aug 15 and Oct 4 that you're eligible for is listed by day. Mark each one <em>Going</em>, <em>Maybe</em> or <em>Skip</em>. The page flags days where you've picked two camps that overlap, and keeps a running cost total at the bottom.</li>
+    <li><strong>Set your own tiers.</strong> The board has a 1 · 2 · 3 toggle on every school. Move them as you learn things. Nothing here is fixed.</li>
+    <li><strong>Answer the questions at the bottom.</strong> Not tonight, and not all at once. Each answer moves schools between tiers, and a shorter Tier 1 makes a much better September.</li>
+  </ol>
+  <p class="a" style="margin-top:11px">One thing to carry into every camp: ask the staff <strong>“are you taking a goalie in 2028?”</strong> Not “are you recruiting keepers” — your specific class. That one answer is worth more than the rest of the day.</p>
+</div>
+
+<div class="alert warn">
+  <p class="countdown">September 1, 2026</p>
+  <h2>The date the whole calendar points at</h2>
+  <p>Sept 1 of junior year is the first day D1 coaches can contact you and the first day you can take visits. In the class of 2027, girls' commitments went from about 6 in August to <strong>595 in September</strong> — roughly ninety percent of a class goes in the first month. August exists so you're a name with a face attached when the phones open. Also: <strong>Aug 1–14 is an NCAA recruiting shutdown</strong> (no contact of any kind, so nobody will answer email) and <strong>Aug 28–Sep 3 is a dead period</strong>.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="v c1" id="s1">15</div><div class="k">Tier 1</div></div>
+  <div class="stat"><div class="v c2" id="s2">10</div><div class="k">Tier 2</div></div>
+  <div class="stat"><div class="v c3" id="s3">7</div><div class="k">Tier 3</div></div>
+  <div class="stat"><div class="v g" id="s4">6</div><div class="k">Tier 1 with the 2028 slot open</div></div>
+</div>
+
+<section class="block" id="cal">
+  <h2>Camp calendar</h2>
+  <p class="lede">Every verified women's lacrosse prospect day, ID clinic and elite camp you're eligible for, Aug 15 through Oct 4. Mark each one and the page will flag time conflicts and total the cost. Tier colours follow whatever you set on the board below.</p>
+  <div class="controls">
+    <button class="chip" data-c="all" aria-pressed="true">All camps</button>
+    <button class="chip" data-c="t1" aria-pressed="false">Tier 1 only</button>
+    <button class="chip" data-c="t12" aria-pressed="false">Tier 1 + 2</button>
+    <button class="chip" data-c="open" aria-pressed="false">No 2027 GK</button>
+    <button class="chip" data-c="going" aria-pressed="false">My picks</button>
+    <button class="chip act" id="clearcal">Clear picks</button>
+  </div>
+  <div id="calendar"></div>
+  <div class="totalbar">
+    <span><b id="cGoing">0</b> going</span>
+    <span><b id="cMaybe">0</b> maybe</span>
+    <span>Committed cost <b id="cCost">$0</b></span>
+    <span>If maybes go too <b id="cCostMax">$0</b></span>
+    <span id="cClash" class="clashmsg"></span>
+  </div>
+</section>
+
+<section class="block" id="board">
+  <h2>The full board — all 32 schools</h2>
+  <p class="lede">Your note is verbatim from the coach-feedback doc. <strong>2027 GK</strong> asks whether a program already signed the keeper in the class just ahead of yours. Use the <strong>1 / 2 / 3</strong> control to move schools between tiers — the calendar, counts and filters all follow. Click <em>Details</em> for rosters, goalie coaches and sourcing.</p>
+  <div class="controls">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="t1" aria-pressed="false">Tier 1</button>
+    <button class="chip" data-f="t2" aria-pressed="false">Tier 2</button>
+    <button class="chip" data-f="t3" aria-pressed="false">Tier 3</button>
+    <button class="chip" data-f="open" aria-pressed="false">No 2027 GK</button>
+    <button class="chip" data-f="ivy" aria-pressed="false">No athletic money</button>
+    <button class="chip" data-f="close" aria-pressed="false">Within 500 miles</button>
+    <button class="chip act" id="copy">Copy tiering</button>
+    <button class="chip act" id="reset">Reset tiers</button>
+  </div>
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead><tr>
+        <th data-k="tier">Tier<span class="car">▲</span></th>
+        <th data-k="name">School<span class="car">▲</span></th>
+        <th data-k="note">Coach feedback<span class="car">▲</span></th>
+        <th data-k="gk27">2027 GK<span class="car">▲</span></th>
+        <th data-k="conf">Conference<span class="car">▲</span></th>
+        <th data-k="dist" class="num">Miles<span class="car">▲</span></th>
+        <th data-k="undergrad" class="num">Undergrad<span class="car">▲</span></th>
+        <th data-k="admit" class="num">Admit<span class="car">▲</span></th>
+        <th data-k="ret" class="num">GK room 2029<span class="car">▲</span></th>
+        <th class="nosort"></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="email">
+  <h2>Nothing to book — email these instead</h2>
+  <p class="lede">Seven schools on the board have no bookable camp at all. That is not a reason to drop them; it is a reason to write this week, before Sept 1 turns every coach's inbox into a firehose.</p>
+  <ol class="plain"><li><p class="q">Dartmouth</p><p class="a">Mountaindog Lax Camps confirms ‘no upcoming events.’ Their summer prospect clinic ran July 21–22 and the winter clinic hasn&#x27;t been posted since Dec 2024. Email the staff — and mention Shea Dolce, the new goalie coach.</p></li>
+<li><p class="q">Cornell</p><p class="a">Rising Red Lacrosse reads ‘no items currently available for purchase.’ Nothing for August, fall or winter. Worth re-checking in September. Warning: the ‘Cornell College Top Prospect Day’ in search results is a D3 school in Iowa.</p></li>
+<li><p class="q">Princeton</p><p class="a">Princeton Sports Camps&#x27; lacrosse page is frozen at December 2023. The 2026 Elite Camps ran in June and July and are past. Historically they run a January or February clinic — ask.</p></li>
+<li><p class="q">USC</p><p class="a">Nothing published anywhere — no Ryzer, TotalCamps, Active or athletics listing. The staff turned over in June 2026, which likely explains it. Email the new staff. Careful: ‘USC lacrosse camp’ results are usually University of South Carolina.</p></li>
+<li><p class="q">West Point</p><p class="a">Summer camp is past. The academies recruit ahead of the NCAA calendar, so direct contact now beats waiting for a camp — but they signed keepers in both 2026 and 2027.</p></li>
+<li><p class="q">North Carolina</p><p class="a">Three goalies in front. Nothing bookable found. In-state and 2.5 hours away, so a game visit in the spring may be worth more than a camp.</p></li>
+<li><p class="q">Penn</p><p class="a">On her old list and missing from the new feedback doc. No goalie in eight 2027 commits. Worth an email to find out where it stands.</p></li></ol>
+  <h3 style="margin:26px 0 4px">What to say, by school</h3>
+  <ol class="plain"><li><p class="q">Dartmouth</p><p class="a">Tier 1. No 2027 goalie in a nine-player class, and they just hired Shea Dolce — two-time National Goalkeeper of the Year — to coach keepers. On paper the best development fit anywhere on the board. There is nothing to register for: Mountaindog shows no upcoming events and their clinics run June/July and winter. An email is the only way in.</p></li>
+<li><p class="q">Pittsburgh</p><p class="a">Tier 1. No goalie in seven 2027 commits. Their prospect day is a January event, so August can&#x27;t help. One caveat worth naming: they took two keepers in 2026, which may be why they skipped 2027 — that could mean a hungry 2028 or a full room.</p></li>
+<li><p class="q">Vanderbilt</p><p class="a">Tier 1. No goalie in nine 2027 commits, and they signed one in 2024, 2025 and 2026 — a genuine gap is out of character. Their Aug 23 date collides with Brown, so email and ask for a fall or winter look instead.</p></li>
+<li><p class="q">West Point</p><p class="a">Tier 1, and it works on a different clock. The academies recruit ahead of the NCAA calendar, so Sept 1 is not the gate it is everywhere else. Their summer camp is past and they signed keepers in both 2026 and 2027 — which makes direct contact now the only real move, and makes the honest question whether the five-year service commitment is a yes.</p></li>
+<li><p class="q">James Madison</p><p class="a">Tier 1. Camps run through Laxology with no published dates, so start with the recruiting questionnaire on their site and follow with an email. Worth knowing going in: they filled the keeper slot in both 2026 (Cecilia Ryan) and 2027 (Brynn Howes).</p></li>
+<li><p class="q">Colorado, Denver, Oregon, St. Joe&#x27;s, Cornell</p><p class="a">Tier 1 by preference, but none has a bookable August option — Colorado&#x27;s June camp is past and they sometimes add a September session; Denver, Oregon and St. Joe&#x27;s publish no dates; Cornell&#x27;s Rising Red day runs in July. All five signed a 2027 keeper, so these are relationship emails now and campus visits after Sept 1, not camp registrations.</p></li>
+<li><p class="q">Penn and North Carolina</p><p class="a">Tier 2, and both are on her old 20-school list but missing entirely from the new feedback doc. Penn shows no goalie in eight 2027 commits and has taken exactly one keeper in each of 2024, 2025 and 2026. UNC is in-state, two and a half hours away, and last year&#x27;s national runner-up, with a 2027 class picture too thin to read. Find out whether they never replied or she dropped them.</p></li></ol>
+</section>
+
+<section class="block" id="activity" style="display:none">
+  <h2>Activity</h2>
+  <p class="lede">Everything that's changed, newest first — tier moves, camp picks, and answered questions.</p>
+  <div class="feed" id="feed"><div class="feeditem"><span class="feedtime">—</span><span>No changes yet.</span></div></div>
+</section>
+
+<section class="block" id="quest">
+  <h2>Your questions</h2>
+  <p class="lede">Four things to work out. Type your answers straight into the boxes — they save into the page's link along with everything else, so use <em>Copy my link</em> when you're done.</p>
+  
+    <section class="qblock">
+      <h3><span class="qnum">1</span>Non-negotiables</h3>
+      <p class="qblurb">Answer these first — each one cuts the board before anything else does.</p>
+      <ol class="qlist"><li><p class="q">Is West Point really a yes? Are you interested in the service academies — how do you feel about them?</p><p class="a">Army is in Tier 1, coming off the best season in program history. It also comes with a service commitment after graduation. There's no wrong answer — but a real one changes how much of September gets spent there.</p>
+        <textarea class="ans" data-q="1-0" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">How far from home is too far?</p><p class="a">Tier 1 alone runs from Clemson at 130 miles to Oregon at 2,700. Ask for a number of hours, not a feeling.</p>
+        <textarea class="ans" data-q="1-1" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Big school or small school?</p><p class="a">Tier 1 spans 4,400 at West Point to 32,200 at Colorado. That is not a detail — it is two different lives.</p>
+        <textarea class="ans" data-q="1-2" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">If lacrosse ended after freshman year, would you still want to be there?</p><p class="a">Ask it about every school before spending a Saturday and $375 at its camp.</p>
+        <textarea class="ans" data-q="1-3" rows="2" placeholder="Rachel's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">2</span>Academics and major</h3>
+      <p class="qblurb">Tier 1 contains schools that admit 3.7% of applicants and schools that admit 88%. That spread is the widest thing on the board.</p>
+      <ol class="qlist"><li><p class="q">What do you want to study, or what three things are you closest to sure about?</p><p class="a">Hopkins, Vanderbilt, JMU and Oregon draw completely different maps. This question sorts Tier 1 faster than anything else on this page.</p>
+        <textarea class="ans" data-q="2-0" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Where do your grades and scores actually sit right now?</p><p class="a">Ivy and academy admissions run on an academic index. Coach support is a boost, not a bypass. Better to know before the Harvard clinic than after.</p>
+        <textarea class="ans" data-q="2-1" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Do you want a place where lacrosse is the identity, or one thing you do?</p><p class="a">Rutgers and Clemson versus Dartmouth and Brown. Both are good answers; they are not the same answer.</p>
+        <textarea class="ans" data-q="2-2" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Would you take a top academic school with a losing program over a weaker school winning titles?</p><p class="a">Harvard went 6–9 last season. Make her rank that trade out loud.</p>
+        <textarea class="ans" data-q="2-3" rows="2" placeholder="Rachel's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">3</span>The goalie math</h3>
+      <p class="qblurb">Of the 32 schools here, 23 have already signed a 2027 goalie — including nine now sitting in Tier 1. That does not make them wrong choices; it makes the ask different.</p>
+      <ol class="qlist"><li><p class="q">For the nine Tier 1 schools that already took a 2027 keeper, what is the actual pitch?</p><p class="a">Clemson, Colorado, Cornell, Denver, Harvard, JMU, Oregon, St. Joe's and West Point all have theirs. Going to their camps is about being the known name if that keeper decommits, if they take two, or if 2029 opens — all real, none guaranteed. Worth deciding deliberately rather than by momentum.</p>
+        <textarea class="ans" data-q="3-0" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">At every camp, ask one question: are you taking a goalie in 2028?</p><p class="a">Not “are you recruiting keepers.” The specific class. A straight yes or no there is worth more than the whole day, and it is the fastest way to re-sort these tiers with real information instead of inference.</p>
+        <textarea class="ans" data-q="3-1" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Compete immediately, or develop behind someone for two years?</p><p class="a">Hopkins, Cornell, St. Joe's and West Point have nothing rostered in front of her by 2029. Northwestern carries five keepers and just won a national title.</p>
+        <textarea class="ans" data-q="3-2" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">How much does the goalie coach matter to you?</p><p class="a">Devon Wills runs Harvard. Shea Dolce just took over keepers at Dartmouth. Both are Tier 1. Nobody else on this board offers that level of position coaching.</p>
+        <textarea class="ans" data-q="3-3" rows="2" placeholder="Rachel's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">4</span>Campus and life</h3>
+      <p class="qblurb">The part nobody asks until April of senior year.</p>
+      <ol class="qlist"><li><p class="q">City, college town, or campus in the woods?</p><p class="a">Philadelphia and Pittsburgh versus Clemson and Boulder versus Hanover and Ithaca — all Tier 1.</p>
+        <textarea class="ans" data-q="4-0" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">Does weather matter to you?</p><p class="a">Boulder, Eugene, Hanover and Nashville are all in Tier 1.</p>
+        <textarea class="ans" data-q="4-1" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">How often do you want family at games?</p><p class="a">That one answer reshuffles Tier 1 immediately — Clemson at 130 miles reads very differently from Oregon at 2,700.</p>
+        <textarea class="ans" data-q="4-2" rows="2" placeholder="Rachel's answer…"></textarea></li><li><p class="q">What should a Saturday in October look like?</p><p class="a">A Rutgers football weekend and a Dartmouth fall are not the same product.</p>
+        <textarea class="ans" data-q="4-3" rows="2" placeholder="Rachel's answer…"></textarea></li></ol>
+    </section>
+</section>
+
+<footer>
+  <p><strong>Sources.</strong> Rachel's coach-feedback screenshots (July 2026), <em>WoodCampTrackerAug2026</em>, her existing 20-school list, and Inside Lacrosse class compilations for Penn, Rutgers, Yale, Michigan and Army. Rosters, conferences, enrollment, admit rates and program results verified against official athletics sites. 2027 commitments cross-checked against the ClubLax public commitments database and PrepGirlsLacrosse. Camp dates verified directly on each program's registration host — Ryzer, TotalCamps, Active, Ideal-Logic, TeamSportsInfo — on July 31, 2026. Recruiting rules and periods from the NCAA D1 women's lacrosse calendar updated July 30, 2026.</p>
+  <p><strong>Where this could be wrong.</strong> The public commitment databases have a coverage gap from roughly January to early March 2026, and goalie commitments get announced less reliably than attackers'. "No 2027 GK" at Brown, Dartmouth, Vanderbilt and Pitt is a well-supported read, not a certainty; Johns Hopkins, Penn, UNC and Virginia are marked unclear because too few commits surfaced to judge. Notre Dame's Aug 23 start time and Clemson's exact grad-year eligibility are not published. Several official camp pages are stale and were deliberately ignored in favour of the live registration hosts — Maryland's terpslacrosse.com still shows 2024 dates, and Princeton's page is frozen at December 2023. "GK room 2029" counts only keepers currently rostered who would still be there when she arrives; it cannot see 2027-class keepers.</p>
+  <p><strong>Scholarships.</strong> The old 12-scholarship cap in women's lacrosse was replaced under the House settlement by a 38-player roster limit, and opted-in schools may fund more. The Ivy League did not opt in — Brown, Harvard, Princeton, Cornell, Dartmouth, Yale and Penn are need-based aid only. West Point awards no athletic aid at all.</p>
+</footer>
+</div>
+
+<script>
+const ROWS = [{"name": "Brown", "tier0": 1, "bucket": "Top 10", "note": "YES \u2014 TOP", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 9 known commits \u2014 all field players. Their 2027 class filled almost entirely inside September 2025 and still has no keeper.", "conf": "Ivy League", "loc": "Providence, RI", "dist": 780, "undergrad": 7196, "admit": 5.4, "rank": "NR", "aid": "Need-based only (Ivy)", "gkcoach": "Jason Frezza (GK)", "gks": ["Claire Mahoney (Sr)", "Tara Reilly (Jr)", "Anne Booth (So)", "Mackenzie Conway (Fr)"], "ngk": 4, "ret": 1, "camp": "College ID / Prospect Day via Katrina Dowd Lacrosse Camps. The tracker has her down for Aug 23, not yet registered.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://www.bearswlaxcamps.com/", "prog": "HC Katrina Dowd. 2026: Ivy tournament semifinalist. No NCAA bid."}, {"name": "Clemson", "tier0": 1, "bucket": "Top 10", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Emily Ciesinski (GK, Niskayuna HS NY / Salt City Snipers) committed 9/4/25.", "conf": "ACC", "loc": "Clemson, SC", "dist": 130, "undergrad": 24060, "admit": 42.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Gigi Adamson (Jr)", "Tessa DeLuca (So)", "Dylan Meagher (Fr)"], "ngk": 3, "ret": 1, "camp": "Tiger LC Sunday Session, Aug 16 \u2014 REGISTERED & PAID $375. Closest school on the board (130 mi). Go, but manage expectations.", "wlabel": "Booked & paid", "wtone": "book", "campurl": "https://clemsonlaxcamps.com/", "prog": "HC Allison Kwolek. Launched 2023; ranked as high as No. 8 in 2026, NCAA second round."}, {"name": "Colorado", "tier0": 1, "bucket": "Top 10", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Courtney Smock (GK, Conestoga PA / Philly Blast) committed 9/7/25.", "conf": "Big 12", "loc": "Boulder, CO", "dist": 1500, "undergrad": 32200, "admit": 78.0, "rank": "5", "aid": "Athletic scholarships (Big 12)", "gkcoach": "Fenton (Assoc) / McGee (Asst) \u2014 confirm GK", "gks": ["Jillian Kane (Grad)", "Caity Brower (Jr)", "Elena Oh (So)"], "ngk": 3, "ret": 0, "camp": "Summer camp ran June 12. They have added a September session in past years \u2014 worth asking.", "wlabel": "2026 camps done", "wtone": "past", "campurl": "https://cubuffs.com/sports/2026/1/14/2025-lacrosse-summer-camp", "prog": "HC Ann Elliott Whidden. 2026 NCAA quarterfinal \u2014 lost to eventual champ Northwestern 10\u20138."}, {"name": "Cornell", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Rachel Train (GK, Noble & Greenough MA / Laxachusetts) committed 9/7/25.", "conf": "Ivy League", "loc": "Ithaca, NY", "dist": 650, "undergrad": 16000, "admit": 8.8, "rank": "RV", "aid": "Need-based only (Ivy)", "gkcoach": "Ashley O'Brien (GK); Burlingame (D)", "gks": ["Mackenzie Clark (Sr)", "Lucy Gomez (Jr)", "Angelia Oechsle (So)"], "ngk": 3, "ret": 0, "camp": "\u2018Rising Red\u2019 Prospect Day, typically July. 2026 dates unconfirmed \u2014 a fall email is the move.", "wlabel": "Summer camp", "wtone": "later", "campurl": "https://risingredlacrosse.totalcamps.com/", "prog": "HC Jenny Graap. 2026: 9\u20136; ended Yale's unbeaten Ivy run."}, {"name": "Dartmouth", "tier0": 1, "bucket": "Other", "note": "YES", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 9 commits, all field players. Paired with a brand-new elite GK coach, this is the strongest development fit on the board.", "conf": "Ivy League", "loc": "Hanover, NH", "dist": 830, "undergrad": 4637, "admit": 6.0, "rank": "NR", "aid": "Need-based only (Ivy)", "gkcoach": "Shea Dolce (GK) \u2014 2\u00d7 National Goalkeeper of the Year, hired 2026", "gks": ["Julia Fortier (Sr)", "Jordan Healy (Sr)", "Riley Harrington (Jr)", "Ruby Lucken (Fr)"], "ngk": 4, "ret": 1, "camp": "Nothing to register for \u2014 Mountaindog Lax Camps shows no upcoming events, and their clinics run June/July and winter, never August. Email the staff to get on a fall list.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://www.mountaindoglaxcamps.com/", "prog": "HC Alex McFadden. 2026: 8\u20137, 2\u20135 Ivy \u2014 missed the Ivy tournament."}, {"name": "Denver", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Paige Fenner (GK, Pinkerton Academy NH / NH Tomahawks) committed 9/6/25.", "conf": "Big East (lacrosse affiliate)", "loc": "Denver, CO", "dist": 1450, "undergrad": 6613, "admit": 78.0, "rank": "\u2014", "aid": "Athletic scholarships", "gkcoach": "Confirm with program", "gks": ["Lauren Hall (R-So)", "Lexi Gwaku (So)", "Chloe Silverstein (Fr)"], "ngk": 3, "ret": 1, "camp": "Dates unconfirmed. Note the \u2018DU Ascension Prospect Camp\u2019 listing is the MEN'S program \u2014 don't book it by mistake.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://www.duwlaxcamps.com/", "prog": "HC Liza Kelly. 2026: 16\u20134, sixth straight Big East title, eighth straight NCAA appearance."}, {"name": "Harvard", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Madelyn Brouwer (GK, Blessed Trinity ON / Team 180) committed 9/8/25.", "conf": "Ivy League", "loc": "Cambridge, MA", "dist": 830, "undergrad": 7600, "admit": 3.7, "rank": "NR", "aid": "Need-based only (Ivy)", "gkcoach": "Devon Wills \u2014 head coach, Hall of Fame goalie", "gks": ["Rebecca Arpano (Jr)", "Emma Barkauskas (So)"], "ngk": 2, "ret": 0, "camp": "Crimson Elite ID Clinic, Aug 15 per the tracker \u2014 not yet registered. Only two keepers rostered, and the best goalie coach in the sport. Worth a day even at long odds.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://gocrimson.com/sports/2020/5/5/information-camps-index.aspx", "prog": "HC Devon Wills. 2026 was down: 6\u20139, 1\u20136 Ivy."}, {"name": "James Madison", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Brynn Howes (GK, Maryvale Prep MD / Hero's) in 2027, plus Cecilia Ryan in 2026. Both keeper slots filled.", "conf": "American (lacrosse affiliate; Sun Belt otherwise)", "loc": "Harrisonburg, VA", "dist": 330, "undergrad": 21358, "admit": 72.0, "rank": "\u2014", "aid": "Athletic scholarships", "gkcoach": "Confirm with program", "gks": ["Emily Evans (Jr)", "Abigail Beattie (So)"], "ngk": 2, "ret": 0, "camp": "Camps via Laxology; dates unpublished. Fill in the recruiting questionnaire first.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://jmusports.com/sports/2020/7/5/lacrosse-recruiting", "prog": "HC Shelley Klaes. 2018 national champion; beat Notre Dame in the 2026 NCAA first round."}, {"name": "Johns Hopkins", "tier0": 1, "bucket": "Top 10", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "unknown", "glabel": "Unclear", "gtone": "warning", "gk27d": "No 2027 goalie found, but only 5 total commits surfaced \u2014 a thin picture. They took a keeper in 2024 and 2026 and skipped 2025; that every-other-class rhythm points to a 2028 need.", "conf": "Big Ten (lacrosse-only affiliate)", "loc": "Baltimore, MD", "dist": 410, "undergrad": 6350, "admit": 6.4, "rank": "3", "aid": "Athletic scholarships (one of JHU's few funded sports)", "gkcoach": "Graziano / Van Dyke (Assoc HCs); HC has a GK background", "gks": ["Morgan Giardina (Sr)", "Heidi Rosely (Jr)", "Ashley Langdon (So)"], "ngk": 3, "ret": 0, "camp": "Hopkins Elite Clinic \u2014 Aug 22, 11:30a\u20132:30p, Homewood Field, open to grad years 2028\u20132029. Aug 22 is the day Ohio State frees up.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://www.heritagelacrossecamps.com/", "prog": "HC Tim McCormack. 2026 NCAA Final Four \u2014 best run in program history."}, {"name": "Oregon", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Quinn Hall (GK, Hotchkiss CT / True CO) committed 9/26/25.", "conf": "Big Ten", "loc": "Eugene, OR", "dist": 2700, "undergrad": 20500, "admit": 88.0, "rank": "NR", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Sophie McLaughlin (GK); Carrera (DC)", "gks": ["Francesca Viteritti (R-Jr)", "Kate Shields (So)", "Kaley Gunning (Fr)"], "ngk": 3, "ret": 1, "camp": "Camp site content is stale (2020 dates). Nothing confirmed for 2026.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://www.ducklacrossecamps.com/", "prog": "HC Jessica Drummond. 2026: 6\u201310 overall, 0\u20138 in the Big Ten."}, {"name": "Pittsburgh", "tier0": 1, "bucket": "Other", "note": "YES", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 7 commits. Caveat: they took TWO keepers in 2026 (Moag, Thuman), which may be why they skipped 2027 \u2014 that cuts both ways for 2028.", "conf": "ACC", "loc": "Pittsburgh, PA", "dist": 400, "undergrad": 21388, "admit": 58.0, "rank": "RV", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm \u2014 HC has a defensive background", "gks": ["Molly Cain (Sr)", "Katelyn Hicks (Jr)", "Shaye Gluckman (So)", "Catie Borger (Fr)"], "ngk": 4, "ret": 1, "camp": "Elite Prospect Day is a January event at the Pitt Sports Dome ($250). No August option \u2014 email now, register for winter.", "wlabel": "Winter camp", "wtone": "later", "campurl": "https://www.pittlacrossecamp.com/", "prog": "HC Emily Boissonneault, founding coach. 2026: first-ever national top-25 ranking."}, {"name": "Rutgers", "tier0": 1, "bucket": "Other", "note": "Yes \u2014 THEY WANT YOU AT CAMP", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 8 commits. They took Madelyn Morris in 2026 and nobody since \u2014 which is exactly why they asked for her.", "conf": "Big Ten", "loc": "Piscataway, NJ", "dist": 570, "undergrad": 37750, "admit": 58.0, "rank": "16", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Evan Mager (D/GK, recruiting coordinator)", "gks": ["Simone Koryszewski (Grad)", "Sophia Rowell (Jr)", "Stella Quilty (So)", "Ellie Racki (Fr)"], "ngk": 4, "ret": 1, "camp": "Summer Elite Prospect Clinic 2 \u2014 Aug 21, Piscataway, grades 9\u201312, $165. Currently sitting in your ALTERNATES column.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://www.scarletknightswlaxcamps.com/prospect-day.cfm", "prog": "HC Melissa Lehman. 2026: upset No. 17 Princeton in the NCAA first round."}, {"name": "St. Joseph's", "tier0": 1, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Grace Rongaus (GK, West Chester Henderson PA / Phantastix) committed 10/11/25.", "conf": "Atlantic 10", "loc": "Philadelphia, PA", "dist": 530, "undergrad": 5044, "admit": 83.0, "rank": "NR", "aid": "Athletic scholarships", "gkcoach": "Nikki Grote (Assoc HC) \u2014 confirm GK", "gks": ["Liana Moli (Grad)", "Annalise Thaler (Jr)", "Tess Talbot (So)"], "ngk": 3, "ret": 0, "camp": "Hawk Women's Lacrosse Camps; dates unpublished. Call 610-660-2585.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://www.hawkslacrossecamp.com/", "prog": "HC Alexandra Kahoe. 2026: 7\u201310 overall, 6\u20133 in the A-10."}, {"name": "Vanderbilt", "tier0": 1, "bucket": "Other", "note": "YES", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 9 commits \u2014 and they took one in 2024, 2025 AND 2026. A genuine 2027 gap is out of pattern, which means 2028 is likely a priority.", "conf": "American (lacrosse affiliate; SEC otherwise)", "loc": "Nashville, TN", "dist": 410, "undergrad": 7366, "admit": 5.3, "rank": "NR", "aid": "Athletic scholarships", "gkcoach": "Sophie Leva (Defensive Coordinator)", "gks": ["Molly Joyce (Sr)", "Caelan Jones (Jr)", "Emme Martin (So)", "Cristina Love (Fr)"], "ngk": 4, "ret": 1, "camp": "Aug 23 in Nashville \u2014 but that collides with Brown, and Brown is her top school. Email instead and ask for a fall or winter look.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://vucommodores.com/vanderbilt-lacrosse-camps", "prog": "HC Beth Hewitt. 2026: 8\u20139, 3\u20133 American, no NCAA berth."}, {"name": "West Point (Army)", "tier0": 1, "bucket": "Other", "note": "YES", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Sadie Belle Small (GK, St Anne's-Belfield VA / Cav Lax Elite) in 2027, and Kylie Heimbach in 2026. Two straight classes with a keeper.", "conf": "Patriot League", "loc": "West Point, NY", "dist": 620, "undergrad": 4400, "admit": 9.0, "rank": "13", "aid": "No athletic $ \u2014 tuition-free, 5-yr active duty + 3 reserve", "gkcoach": "Confirm with program", "gks": ["Lindsey Serafine (Sr)", "Sherry Feng (Sr)", "Anderson Strange (Jr)"], "ngk": 3, "ret": 0, "camp": "Elite/prospect camp is historically late June. Like Navy, they work outside the NCAA calendar \u2014 direct contact beats waiting for a camp.", "wlabel": "2026 camps done", "wtone": "past", "campurl": "https://goarmywestpoint.com/staff-directory/army-womens-lacrosse-camps/1084", "prog": "HC Michelle Tumolo. Best year ever in 2026: 15\u20135, first PL regular-season title, NCAA round of 8."}, {"name": "Georgetown", "tier0": 2, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Olivia Franco (GK, Sacred Heart Greenwich NY / Prime Time) committed 9/9/25.", "conf": "Big East", "loc": "Washington, DC", "dist": 400, "undergrad": 7833, "admit": 12.9, "rank": "\u2014", "aid": "Athletic scholarships (Big East)", "gkcoach": "Confirm with program", "gks": ["Leah Warehime (Grad)", "Olivia Shinsato (Jr)"], "ngk": 2, "ret": 0, "camp": "Prospect Night Aug 20, 6\u20139p, Cooper Field \u2014 explicitly targets grad year 2028.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://www.hoyaslacrossecamps.com/", "prog": "HC Caitlyn Phipps (yr 2). 2026: 12\u20136, Big East finalist."}, {"name": "Maryland", "tier0": 2, "bucket": "Other", "note": "Yes \u2014 not top, but prospect day matters", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Mia Brown (GK, Westhampton Beach NY / LI Top Guns) committed 9/3/25.", "conf": "Big Ten", "loc": "College Park, MD", "dist": 400, "undergrad": 31133, "admit": 45.0, "rank": "4", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Confirm with program", "gks": ["Carly Peterson (Sr)", "Caitlin Boden (Sr)", "JJ Suriano (Jr)"], "ngk": 3, "ret": 0, "camp": "Prospect Clinic Aug 17, College Park, grad 2028/29, $150 \u2014 the only fully open day in the window and the cheapest thing on the board.", "wlabel": "Register \u2014 Aug window", "wtone": "now", "campurl": "https://terpslacrosse.com/prospect-elite-day-camp", "prog": "HC Cathy Reese. 2026: 18\u20134, No. 3 seed, national semifinalist."}, {"name": "Michigan", "tier0": 2, "bucket": "Top 10", "note": "2nd list", "vlabel": "Second list", "vtone": "serious", "vglyph": "\u25d0", "verdict": "soft", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Sydney Kiernan (GK, Rumson-Fair Haven NJ / STEPS Elite) in the 2027 class.", "conf": "Big Ten", "loc": "Ann Arbor, MI", "dist": 600, "undergrad": 35358, "admit": 15.6, "rank": "10", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Ana Heneberry (Assoc HC \u2014 D/GK)", "gks": ["Emileigh Goodloe (Jr)", "Madeline Jensen (So)", "Elizabeth Johnson (Fr)"], "ngk": 3, "ret": 1, "camp": "August Elite Camp Aug 21 \u2014 registration closes Aug 14. Same day as Rutgers, who actually asked for her. Note Michigan recruits Big 4 HHH hard (four commits), so her club relationship is real.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://camps.mgoblue.com/womenslacrosse/", "prog": "HC Hannah Nielsen. 2026 NCAA quarterfinal; hosted the Big Ten Tournament."}, {"name": "North Carolina", "tier0": 2, "bucket": "Old list only", "note": "3 goalies in front", "vlabel": "Unresolved", "vtone": "warning", "vglyph": "\u25cb", "verdict": "tbd", "gk27": "unknown", "glabel": "Unclear", "gtone": "warning", "gk27d": "Three goalies in front of her. Only 6 commits surfaced against a typical class of 8\u201311, so the 2027 picture is too thin to call \u2014 but they took 2 keepers in 2024, 2 in 2025 and 1 in 2026.", "conf": "ACC", "loc": "Chapel Hill, NC", "dist": 140, "undergrad": 20000, "admit": 17.0, "rank": "2", "aid": "Athletic scholarships (ACC)", "gkcoach": "Phil Barnes (D/GK); Giacolone (GK)", "gks": ["3 goalies in front"], "ngk": 1, "ret": 0, "camp": "In-state, ~2.5 hours, 2026 national runner-up, and on her old Tier 3 \u2014 but absent from the new coach feedback. Find out where it stands.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://goheels.com/sports/womens-lacrosse", "prog": "HC Jenny Levy. 2026 national runner-up."}, {"name": "Northwestern", "tier0": 2, "bucket": "Top 10", "note": "Would want you at camp", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Avery Albers (GK, East Grand Rapids MI / Pure Summit) committed 9/11/25.", "conf": "Big Ten", "loc": "Evanston, IL", "dist": 740, "undergrad": 9000, "admit": 7.4, "rank": "1", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Alexis Venechanos (GK)", "gks": ["Jenika Cuocco (Grad)", "Cara Nugent (Grad)", "Francesca Argentieri (R-Jr)", "Kate Keller (R-Fr)", "Liz Carlson (Fr)"], "ngk": 5, "ret": 2, "camp": "Camps via Amonte Sports; an Evanston session dated Aug 16 was listed but conflicts with Clemson, which is paid.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://amontesports.com/", "prog": "HC Kelly Amonte Hiller. 2026 NATIONAL CHAMPIONS. Five keepers rostered \u2014 the deepest room on the board."}, {"name": "Notre Dame", "tier0": 2, "bucket": "Top 10", "note": "Watching more \u2014 would want you at camp", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Macyn Callahan (GK, New Canaan CT / Gold Coast) committed 9/14/25.", "conf": "ACC", "loc": "South Bend, IN", "dist": 690, "undergrad": 8923, "admit": 9.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Isabel Pithie (Grad)", "Avery Gawronski (Sr)", "Ceci Patterson (Fr)"], "ngk": 3, "ret": 1, "camp": "\u2018Last Stop\u2019 Prospect Camp Aug 23, $175 \u2014 same day as Brown. Email them for a fall look rather than burning her top school's date.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://fightingirish.com/womens-lacrosse-camps/", "prog": "HC Christine Halfpenny. 2026 NCAA first round \u2014 lost 13\u201312 to JMU."}, {"name": "Penn", "tier0": 2, "bucket": "Old list only", "note": "Not in the new doc", "vlabel": "Unresolved", "vtone": "warning", "vglyph": "\u25cb", "verdict": "tbd", "gk27": "open", "glabel": "No 2027 GK", "gtone": "good", "gk27d": "No 2027 goalie across 8 commits (low confidence \u2014 a keeper could sit in the Jan\u2013Jul 2026 data gap). They took exactly one GK in each of 2024, 2025 and 2026.", "conf": "Ivy League", "loc": "Philadelphia, PA", "dist": 530, "undergrad": 10500, "admit": 5.4, "rank": "RV", "aid": "Need-based only (Ivy)", "gkcoach": "Nicole Spencer (Assoc HC) \u2014 confirm GK", "gks": ["\u2014"], "ngk": 1, "ret": 0, "camp": "On her Tier 2 list from the old board but absent from the new coach feedback. Worth finding out whether they never replied or she dropped them.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://pennathletics.com/sports/womens-lacrosse", "prog": "HC Karin Corbett. Received votes in the final 2026 poll."}, {"name": "Princeton", "tier0": 2, "bucket": "Other", "note": "TBD", "vlabel": "Unresolved", "vtone": "warning", "vglyph": "\u25cb", "verdict": "tbd", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Carlee Mullins (GK, St. Catherine's VA / YJ South) committed 9/11/25.", "conf": "Ivy League", "loc": "Princeton, NJ", "dist": 590, "undergrad": 5700, "admit": 4.4, "rank": "\u2014", "aid": "Need-based only (Ivy)", "gkcoach": "Confirm with program", "gks": ["Amelia Hughes (Sr)", "Ellie Nicklas (Jr)", "Elizabeth Gonnella (So)", "Jackie Feldman (Fr)"], "ngk": 4, "ret": 1, "camp": "Elite Camps late June/July plus Jan\u2013Feb winter clinics.", "wlabel": "Winter camp", "wtone": "later", "campurl": "https://princetonsportscamps.com/Page433.aspx", "prog": "HC Jenn Cook. 2026 Ivy League Tournament champion."}, {"name": "Stanford", "tier0": 2, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Audrey Getz (GK, Marple Newtown PA / Dynasty Elite) committed 9/15/25.", "conf": "ACC", "loc": "Stanford, CA", "dist": 2650, "undergrad": 7550, "admit": 3.6, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Lucy Pearson (Sr)", "Ella Morton (So)", "Shae Lembo (R-So)"], "ngk": 3, "ret": 0, "camp": "Aug 14\u201317 residential summer camp, ~$525 \u2014 collides with Clemson and Maryland, and it is 2,650 miles away.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://stanfordgirlslacrossecamps.totalcamps.com/", "prog": "HC Danielle Spencer, 2026 ACC Coach of the Year. Best season ever: 15\u20134, NCAA quarterfinal."}, {"name": "USC", "tier0": 2, "bucket": "Other", "note": "Yes", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Brea Barker (GK, The Governor's Academy MA / Laxachusetts) committed 9/10/25.", "conf": "Big Ten", "loc": "Los Angeles, CA", "dist": 2400, "undergrad": 20450, "admit": 9.8, "rank": "NR", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Jenika Cuocco (GK background); Scales (D)", "gks": ["Annie Shields (Sr)*", "Ellie Thomas (Jr)*", "Charlotte Morton (Jr)*"], "ngk": 3, "ret": 0, "camp": "No prospect day published \u2014 the staff turned over in June 2026. Email the new staff directly.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://usctrojans.com/sports/womens-lacrosse/coaches", "prog": "NEW HC Sam Apuzzo (June 2026). 2026: 8\u20139, 1\u20137 Big Ten. *Class years are off the 2027 roster."}, {"name": "Boston College", "tier0": 3, "bucket": "Other", "note": "No GK", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Jessica McKelvey (GK, Hillsborough NJ / Triple Threat Elite) committed 9/3/25 \u2014 a top-2 national 2027 keeper.", "conf": "ACC", "loc": "Chestnut Hill, MA", "dist": 840, "undergrad": 10085, "admit": 16.4, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Shea Dolce (Sr)", "Bella Abbott (Jr)", "Grace Holland (Fr)"], "ngk": 3, "ret": 1, "camp": "Moot. Note their 2026 senior keeper Shea Dolce is now Dartmouth's GK coach.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://bostoncollegewomenslacrosse.totalcamps.com/", "prog": "HC Acacia Walker-Weinstein, 2021 national champion. 2026: 10\u20138, NCAA second round."}, {"name": "Navy", "tier0": 3, "bucket": "Top 10", "note": "YES", "vlabel": "Interested", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Inna Erbe (GK, Douglas Freeman VA / Team 91 Virginia) committed 7/18/25 \u2014 and Navy already has a 2028 commit on the board, so they recruit ahead of the NCAA clock.", "conf": "Patriot League", "loc": "Annapolis, MD", "dist": 430, "undergrad": 4400, "admit": 9.3, "rank": "\u2014", "aid": "No athletic $ \u2014 tuition-free, 5-yr active duty", "gkcoach": "Confirm with program", "gks": ["Felicia Giglio (Jr)", "Lila Stachowski (So)", "Cam Rohner (So)", "Angelina Price (Fr)"], "ngk": 4, "ret": 1, "camp": "Eliminated \u2014 not going there.", "wlabel": "Off the board", "wtone": "past", "campurl": "https://navysports.com/sports/2018/5/23/camps-navy-w-lacrosse-camps-html.aspx", "prog": "HC Cindy Timchal. Repeat Patriot League champs 2026; NCAA quarterfinal."}, {"name": "Ohio State", "tier0": 3, "bucket": "Top 10", "note": "NO GK", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Alyssa Brackley (GK, Milton GA / EagleStix) committed 9/8/25 \u2014 which is exactly why the answer is no GK.", "conf": "Big Ten", "loc": "Columbus, OH", "dist": 430, "undergrad": 46800, "admit": 55.0, "rank": "RV", "aid": "Athletic scholarships (Big Ten)", "gkcoach": "Confirm (Kimel / Carrasquillo / Wallpher)", "gks": ["Camille Samarasinghe (So)", "Jocelyn Torres (Sr)", "Emmalynn Francis (Fr)"], "ngk": 3, "ret": 1, "camp": "Summer Send Off Aug 22 \u2014 REGISTERED & PAID $180.25 on a goalie registration. Refund cutoff Aug 8, full minus $30. Cancel it.", "wlabel": "Refunded", "wtone": "past", "campurl": "https://ohiostatebuckeyes.com/sports/2023/5/31/ohio-state-womens-lacrosse-camps", "prog": "HC Amanda Moore. 2026: 9\u20138, no NCAA berth."}, {"name": "Syracuse", "tier0": 3, "bucket": "Other", "note": "No GK", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Piper Dalsemer (GK, Mira Costa CA / Alliance) committed 9/18/25.", "conf": "ACC", "loc": "Syracuse, NY", "dist": 700, "undergrad": 15480, "admit": 46.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Daniella Guyette (Sr)", "Allie Hanlon (So)", "Kalena Mandeville (Fr)"], "ngk": 3, "ret": 1, "camp": "Elite Prospect Camps run late August (~$275/day). Kate is registered for Aug 15; Rachel should not be.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://cusewlax.totalcamps.com", "prog": "HC Regy Thorpe (yr 1). 2026: 14\u20136, No. 9 national seed."}, {"name": "Virginia", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "unknown", "glabel": "Unclear", "gtone": "warning", "gk27d": "Only 5 commits surfaced against a typical class of 10 \u2014 too thin to call. They took a keeper in both 2025 and 2026.", "conf": "ACC", "loc": "Charlottesville, VA", "dist": 270, "undergrad": 18000, "admit": 16.5, "rank": "RV", "aid": "Athletic scholarships (ACC)", "gkcoach": "Shanna Brady (DC); Kady Glynn (GK)", "gks": ["Mel Josephson (Sr)", "Elyse Finnelle (Grad)", "Serena Reiter (Fr)"], "ngk": 3, "ret": 1, "camp": "UVA ID Elite via LaMonica Sports. Moot \u2014 they told her she is not on their list.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://www.lamonicasports.com/", "prog": "HC Sonia LaMonica. 2026: 8\u20139, missed NCAAs."}, {"name": "Virginia Tech", "tier0": 3, "bucket": "Other", "note": "NO GK", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Molly Robison (GK, Broadneck MD / SkyWalkers) committed 9/13/25.", "conf": "ACC", "loc": "Blacksburg, VA", "dist": 220, "undergrad": 31536, "admit": 55.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "gkcoach": "Confirm with program", "gks": ["Aaliyah Jones (Grad)", "Malie Follet (Grad)", "Jody Chu (Sr)", "Maeve Obrist (So)", "Emma Bingler (Fr)"], "ngk": 5, "ret": 1, "camp": "Was penciled in for Aug 15, not booked. Drop it \u2014 five keepers rostered and a 2027 already signed.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://skieralacrossecamps.com/", "prog": "HC Kristen Skiera. 2026: 9\u20138, 3\u20137 ACC."}, {"name": "Yale", "tier0": 3, "bucket": "Other", "note": "No", "vlabel": "Ruled out", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "gk27": "closed", "glabel": "2027 GK signed", "gtone": "critical", "gk27d": "Blake Alise (GK, Saint Andrew's FL / Florida Select) in the 2027 class.", "conf": "Ivy League", "loc": "New Haven, CT", "dist": 720, "undergrad": 6760, "admit": 3.9, "rank": "\u2014", "aid": "Need-based only (Ivy)", "gkcoach": "Confirm with program", "gks": ["Laura O'Connor (Jr)", "Niamh Pfaff (So)", "Olivia Smit (Fr)"], "ngk": 3, "ret": 1, "camp": "Blue Dogs Girls' Summer Camp Aug 23 \u2014 skip it. They said no and the keeper slot is gone.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://yalebulldogs.com/sports/womens-lacrosse", "prog": "HC Erica Bamford. 2026: 13\u20135, Ivy regular-season champion."}];
+const CAMPS = [{"d": "2026-08-15", "school": "Clemson", "name": "August Elite Camp (day 1 of 2)", "time": "all day", "loc": "Clemson, SC", "elig": "Grades 8\u201311", "price": 375, "elig2028": true, "status": "open", "url": "https://apps.ideal-logic.com/cuathletics", "note": "She is booked for the Aug 16 session instead. $550 covers both days.", "dow": "Sat", "label": "Aug 15"}, {"d": "2026-08-15", "school": "Harvard", "name": "Crimson August Elite ID Clinic (day 1 of 2)", "time": "3:00\u20138:00p", "loc": "Cumnock Field, Boston, MA", "elig": "Grad 2027\u20132031", "price": 595, "elig2028": true, "status": "open", "url": "https://www.willslax.com/page/show/7294190-crimson-august-elite-id-clinic", "note": "$595 covers both days, but day 2 collides with the paid Clemson session. Page frames it as exposure \u2018prior to the September 1st contact opening.\u2019", "dow": "Sat", "label": "Aug 15"}, {"d": "2026-08-15", "school": "Stanford", "name": "Summer Camp \u2014 HS session (day 1 of 3)", "time": "check-in 9\u201311a", "loc": "Stanford, CA", "elig": "Grades 9\u201312", "price": 525, "elig2028": true, "status": "open", "url": "https://stanfordgirlslacrossecamps.totalcamps.com/shop/product/579744", "note": "Not a prospect day \u2014 a three-day residential camp, and Stanford's only offering. Runs through Aug 17, so it eats Clemson and Maryland.", "dow": "Sat", "label": "Aug 15"}, {"d": "2026-08-16", "school": "Clemson", "name": "Tiger LC Sunday Session", "time": "all day", "loc": "Clemson, SC", "elig": "Grades 8\u201311", "price": 375, "elig2028": true, "status": "booked", "url": "https://apps.ideal-logic.com/cuathletics", "note": "REGISTERED AND PAID. Closest school on the board at 130 miles.", "dow": "Sun", "label": "Aug 16"}, {"d": "2026-08-16", "school": "Harvard", "name": "Crimson August Elite ID Clinic (day 2 of 2)", "time": "9:00a\u20131:00p", "loc": "Harvard Stadium, Boston, MA", "elig": "Grad 2027\u20132031", "price": 0, "elig2028": true, "status": "open", "url": "https://www.willslax.com/page/show/7294190-crimson-august-elite-id-clinic", "note": "Included in the $595. Direct conflict with the paid Clemson session.", "dow": "Sun", "label": "Aug 16"}, {"d": "2026-08-16", "school": "Northwestern", "name": "Late Summer Prospect Day", "time": "12:00\u20133:00p", "loc": "Ryan Indoor Fieldhouse, Evanston, IL", "elig": "Rising grades 10\u201312", "price": 175, "elig2028": true, "status": "open", "url": "https://amontesports.sportngin.com/register/form/179301134", "note": "Conflicts with Clemson. They said they'd want her at camp \u2014 but they signed 2027 keeper Avery Albers and carry five goalies.", "dow": "Sun", "label": "Aug 16"}, {"d": "2026-08-17", "school": "Maryland", "name": "UM Summer Prospect Clinic \u2014 Session 1", "time": "10:00a\u20131:00p", "loc": "College Park, MD", "elig": "Grad 2028 & 2029", "price": 150, "elig2028": true, "status": "open", "url": "https://teamsportsinfo.com/um-girls-summerprospectclinics-2026", "note": "Exactly her class, and the cheapest thing in the window. Day after Clemson.", "dow": "Mon", "label": "Aug 17"}, {"d": "2026-08-20", "school": "Georgetown", "name": "Hoyas Lacrosse Prospect Night", "time": "6:00\u20139:00p", "loc": "Cooper Field, Washington, DC", "elig": "Grad 2028", "price": 150, "elig2028": true, "status": "open", "url": "https://www.hoyaslacrossecamps.com/2025-hoyas-lacrosse-prospect-night/", "note": "Targeted at grad year 2028 specifically. Evening event \u2014 pairs with a daytime DC-area visit.", "dow": "Thu", "label": "Aug 20"}, {"d": "2026-08-21", "school": "Maryland", "name": "UM Summer Prospect Clinic \u2014 Session 2", "time": "10:00a\u20131:00p", "loc": "College Park, MD", "elig": "Grad 2028 & 2029", "price": 150, "elig2028": true, "status": "open", "url": "https://teamsportsinfo.com/um-girls-summerprospectclinics-2026", "note": "Same clinic as the 17th. Ends at 1p \u2014 leaves time to reach Rutgers by 5p, about 3.5 hours.", "dow": "Fri", "label": "Aug 21"}, {"d": "2026-08-21", "school": "Rutgers", "name": "Summer Elite Prospect Clinic 2", "time": "5:00\u20137:00p", "loc": "Piscataway, NJ", "elig": "Grades 9\u201312", "price": 165, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?id=336039", "note": "The only program that said THEY WANT YOU AT CAMP, and no goalie in their 2027 class. Evening start makes a Maryland double-header possible.", "dow": "Fri", "label": "Aug 21"}, {"d": "2026-08-21", "school": "Michigan", "name": "August Elite Camp (day 1 of 2)", "time": "4:30\u20137:30p", "loc": "Ann Arbor, MI", "elig": "Grades 9\u201312", "price": 324, "elig2028": true, "status": "closing", "url": "https://camps.mgoblue.com/womenslacrosse/august-elite-camp.cfm", "note": "Registration closes Aug 14; refund cutoff Aug 10. Tier 2, and they already signed 2027 keeper Sydney Kiernan.", "dow": "Fri", "label": "Aug 21"}, {"d": "2026-08-22", "school": "Johns Hopkins", "name": "Hopkins Elite Clinic", "time": "11:30a\u20132:30p", "loc": "Homewood Field, Baltimore, MD", "elig": "Grad 2028\u20132029 only", "price": 200, "elig2028": true, "status": "open", "url": "https://www.heritagelacrossecamps.com/summer-events/hopkins-elite-id-clinic/", "note": "Explicitly her grad years. No 2027 keeper found, and they take goalies every other class. 2026 Final Four.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Pittsburgh", "name": "Pitt Elite Prospect Day Camp", "time": "11:00a\u20133:00p", "loc": "Pitt Sports Dome, Pittsburgh, PA", "elig": "Grad 2026\u20132029", "price": 263, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=333577", "note": "Tier 1 with no 2027 keeper. Head-to-head with Hopkins and JMU \u2014 same day, same hours. Note their separate goalie skills session that morning is already waitlisted.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "James Madison", "name": "JMU August Showcase", "time": "10:00a\u20131:00p", "loc": "Harrisonburg, VA", "elig": "Grades 9\u201312", "price": 225, "elig2028": true, "status": "open", "url": "https://laxology.totalcamps.com/shop/product/649828", "note": "Has a dedicated goalie registration. Campus tour after. Collides with Hopkins and Pitt.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Michigan", "name": "August Elite Camp (day 2 of 2)", "time": "8:45a\u20134:30p", "loc": "Ann Arbor, MI", "elig": "Grades 9\u201312", "price": 0, "elig2028": true, "status": "closing", "url": "https://camps.mgoblue.com/womenslacrosse/august-elite-camp.cfm", "note": "Included in the $324.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Oregon", "name": "Duck Prospect Weekend (day 1 of 2)", "time": "10:00a\u20134:00p", "loc": "Eugene, OR", "elig": "Grad 2027\u20132030", "price": 305, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=324960", "note": "Includes facility tours and a college Q&A. 2,700 miles \u2014 this is a trip, not a day.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-23", "school": "Brown", "name": "August Elite Summer Camp", "time": "10:00a\u20134:00p", "loc": "Stevenson-Pincince Field, Providence, RI", "elig": "Grades 8\u201312", "price": 296, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=337878", "note": "Her YES \u2014 TOP. Note this is the Elite Summer Camp, not the ID/Prospect Day \u2014 that format ran in 2025 and has no 2026 edition. Register by Aug 22.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-23", "school": "Notre Dame", "name": "\u2018Last Stop\u2019 Prospect Camp", "time": "not published", "loc": "Notre Dame, IN", "elig": "Grades 9\u201312", "price": 175, "elig2028": true, "status": "open", "url": "https://fightingirish.com/womens-lacrosse-camps/", "note": "They said they're watching more and would want her at camp \u2014 but they signed 2027 keeper Macyn Callahan, and this collides with Brown.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-23", "school": "Vanderbilt", "name": "Vanderbilt Prospect Clinic", "time": "10:00a\u20131:00p", "loc": "Indoor Field House, Nashville, TN", "elig": "Class of 2028 ONLY", "price": 235, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/VanderbiltWomensLacrosseCamps?regnow=camps-regnow&season=3834134&session=71351634", "note": "Class of 2028 exclusively, and Tier 1 with no 2027 keeper. Requires an NCAA Eligibility Number BEFORE registering. Collides with Brown.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-23", "school": "Oregon", "name": "Duck Prospect Weekend (day 2 of 2)", "time": "8:00a\u201312:00p", "loc": "Eugene, OR", "elig": "Grad 2027\u20132030", "price": 205, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=324960", "note": "Can be booked as a single day.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-26", "school": "St. Joseph's", "name": "Wednesday Night Lights Fall Elite Prospect Clinic", "time": "5:30\u20137:30p", "loc": "Hagan Arena, Philadelphia, PA", "elig": "Grades 9\u201312", "price": 212, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=339064", "note": "Register by Aug 25. Optional campus tour at 4:45p. Careful: saintjosephslacrosse.com is the MEN'S site.", "dow": "Wed", "label": "Aug 26"}, {"d": "2026-09-05", "school": "Denver", "name": "ID Elite Camp", "time": "9:00a\u201312:00p", "loc": "University of Denver, CO", "elig": "Grad 2027\u20132029", "price": 215, "elig2028": true, "status": "open", "url": "https://www.denverlacrossecamps.com/idcamp", "note": "Optional campus tour at noon. Page warns it will sell out. Pairs with Colorado the next morning.", "dow": "Sat", "label": "Sep 5"}, {"d": "2026-09-06", "school": "Colorado", "name": "CU Prospect Clinic", "time": "8:00a\u201312:00p", "loc": "Ford Practice Facility, Boulder, CO", "elig": "Class of 2028 ONLY", "price": 150, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71652436", "note": "Her class exclusively. Denver Saturday morning plus Boulder Sunday morning is one Front Range trip covering two Tier 1 schools \u2014 and it lands after Sept 1, when coaches can actually talk to her.", "dow": "Sun", "label": "Sep 6"}, {"d": "2026-09-09", "school": "St. Joseph's", "name": "Wednesday Night Lights Fall Elite Prospect Clinic", "time": "5:30\u20137:30p", "loc": "Hagan Arena, Philadelphia, PA", "elig": "Grades 9\u201312", "price": 212, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=339065", "note": "Second running of the same clinic. Register by Sept 8.", "dow": "Wed", "label": "Sep 9"}, {"d": "2026-09-20", "school": "St. Joseph's", "name": "Hawks Fall Elite Prospect Clinic", "time": "8:30\u201311:00a", "loc": "Hagan Arena, Philadelphia, PA", "elig": "Grades 9\u201312", "price": 265, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=339066", "note": "Longer-format fall clinic with an optional campus tour after. Register by Sept 19.", "dow": "Sun", "label": "Sep 20"}, {"d": "2026-09-26", "school": "Colorado", "name": "CU Prospect Clinic", "time": "2:00\u20135:30p", "loc": "Ford Practice Facility, Boulder, CO", "elig": "Grad 2028\u20132030", "price": 140, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71704338", "note": "Held right after CU's fall scrimmage against Denver at Folsom Field \u2014 she'd see both programs play.", "dow": "Sat", "label": "Sep 26"}, {"d": "2026-10-04", "school": "Michigan", "name": "Wolverine LAX 6v6", "time": "not published", "loc": "Ann Arbor, MI", "elig": "Grades 6\u201312", "price": 82, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=339741", "note": "A fall team tournament, not an ID day \u2014 but Michigan staff are there. $82 as a solo house-team player.", "dow": "Sun", "label": "Oct 4"}];
+const tiers = {}, picks = {}, answers = {};
+ROWS.forEach(r => tiers[r.name] = r.tier0);
+
+/* ---------- state: device storage + URL + live sync ---------- */
+let log = [];
+function stateBlob() {
+  const t = {};
+  ROWS.forEach(r => { if (tiers[r.name] !== r.tier0) t[r.name] = tiers[r.name]; });
+  return { t, p: picks, a: answers };
+}
+function logEvent(m) {
+  log.unshift({ t: Date.now(), m });
+  if (log.length > 150) log.length = 150;
+}
+function saveState() {
+  const s = { ...stateBlob(), log };
+  try { localStorage.setItem('rw5', JSON.stringify(s)); } catch (e) { }
+  try {
+    history.replaceState(null, '', '#' + btoa(unescape(encodeURIComponent(JSON.stringify(stateBlob())))));
+  } catch (e) { }
+  schedulePush();
+}
+function adoptState(s) {
+  Object.assign(tiers, s.t || {});
+  Object.assign(picks, s.p || {});
+  Object.assign(answers, s.a || {});
+  if (s.log) log = s.log;
+}
+function loadState() {
+  if (location.hash && location.hash.length > 2) {
+    try { adoptState(JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))))); return; }
+    catch (e) { }
+  }
+  try {
+    const s = JSON.parse(localStorage.getItem('rw5'));
+    if (s) adoptState(s);
+  } catch (e) { }
+}
+loadState();
+
+/* ---------- helpers ---------- */
+const tierOf = school => tiers[school] || 3;
+const gk27Of = school => (ROWS.find(r => r.name === school) || {}).gk27;
+const key = c => c.d + '|' + c.school + '|' + c.name;
+const money = n => '$' + n.toLocaleString();
+
+/* crude minute range so we can detect same-day overlaps */
+function span(t) {
+  const m = t.match(/(\d+):?(\d*)\s*([ap])[^0-9]*?(\d+):?(\d*)\s*([ap])/i);
+  if (!m) return null;
+  const to = (h, mi, ap) => {
+    h = +h % 12; if (ap.toLowerCase() === 'p') h += 12;
+    return h * 60 + (+mi || 0);
+  };
+  return [to(m[1], m[2], m[3]), to(m[4], m[5], m[6])];
+}
+
+/* ---------- calendar ---------- */
+let calFilter = 'all';
+const calWrap = document.getElementById('calendar');
+
+function calPass(c) {
+  const t = tierOf(c.school);
+  switch (calFilter) {
+    case 't1':   return t === 1;
+    case 't12':  return t <= 2;
+    case 'open': return gk27Of(c.school) === 'open';
+    case 'going':return picks[key(c)] === 'going';
+    default:     return true;
+  }
+}
+
+function renderCal() {
+  const list = CAMPS.filter(calPass);
+  const days = [...new Set(list.map(c => c.d))].sort();
+  let html = '', prev = null;
+  days.forEach(d => {
+    const items = list.filter(c => c.d === d);
+    const going = items.filter(c => picks[key(c)] === 'going' || c.status === 'booked');
+    let clash = false;
+    for (let i = 0; i < going.length; i++) for (let j = i + 1; j < going.length; j++) {
+      const a = span(going[i].time), b = span(going[j].time);
+      if (going[i].loc !== going[j].loc && (!a || !b || (a[0] < b[1] && b[0] < a[1]))) clash = true;
+    }
+    if (prev) {
+      const gapDays = (new Date(d) - new Date(prev)) / 86400000;
+      if (gapDays > 1) html += `<div class="gap">${gapDays - 1} day${gapDays > 2 ? 's' : ''} with nothing available</div>`;
+    }
+    prev = d;
+    const dt = new Date(d + 'T12:00:00');
+    const cls = clash ? 'clash' : (going.length ? 'hasgoing' : '');
+    const msg = clash
+      ? '<span class="clashmsg">Overlapping picks — choose one</span>'
+      : (going.length > 1 ? '<span class="okmsg">Both fit — check the drive</span>' : '');
+    html += `<div class="day ${cls}">
+      <div class="dayhead">
+        <div class="dayname">${dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+          <small>${dt.toLocaleDateString('en-US', { weekday: 'long' })}</small></div>
+        ${msg}
+        <div class="daymeta">${items.length} option${items.length > 1 ? 's' : ''}</div>
+      </div>`;
+    items.forEach(c => {
+      const k = key(c);
+      const st = c.status === 'booked' ? 'going' : (picks[k] || '');
+      const t = tierOf(c.school);
+      const flags = [];
+      if (c.status === 'booked') flags.push('<span class="flag paid">PAID</span>');
+      if (c.status === 'closing') flags.push('<span class="flag close">CLOSES AUG 14</span>');
+      if (/ONLY/.test(c.elig)) flags.push('<span class="flag only">YOUR CLASS ONLY</span>');
+      if (gk27Of(c.school) === 'open') flags.push('<span class="flag only">NO 2027 GK</span>');
+      const seg = ['going', 'maybe', 'skip'].map(s =>
+        `<button data-k="${k}" data-s="${s}" class="${st === s ? 'on' : ''}">${s[0].toUpperCase() + s.slice(1)}</button>`).join('');
+      html += `<div class="camp st-${st}">
+        <div class="campmain">
+          <div class="camptop">
+            <span class="tchip k${t}">TIER ${t}</span>
+            <span class="campschool">${c.school}</span>
+            <span class="campname">${c.name}</span>
+            ${flags.join(' ')}
+          </div>
+          <div class="campmeta">${c.time} · ${c.loc} · ${c.elig} · ${c.price ? money(c.price) : 'included'}
+            · <a href="${c.url}" target="_blank" rel="noopener">register</a></div>
+          <p class="campnote">${c.note}</p>
+        </div>
+        <span class="setgrp">${seg}</span>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  calWrap.innerHTML = html || '<div class="gap">Nothing matches this filter.</div>';
+  calWrap.querySelectorAll('.setgrp button').forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    picks[k] = (picks[k] === b.dataset.s) ? '' : b.dataset.s;
+    const [pd, pschool] = k.split('|');
+    logEvent(picks[k] ? `${pschool} camp (${pd.slice(5)}): marked ${picks[k]}` : `${pschool} camp (${pd.slice(5)}): cleared`);
+    saveState(); renderCal(); calTotals();
+  });
+  calTotals();
+}
+
+function calTotals() {
+  let going = 0, maybe = 0, cost = 0, costMax = 0, clashes = 0;
+  const byDay = {};
+  CAMPS.forEach(c => {
+    const st = c.status === 'booked' ? 'going' : (picks[key(c)] || '');
+    if (st === 'going') { going++; cost += c.price; costMax += c.price; (byDay[c.d] ||= []).push(c); }
+    if (st === 'maybe') { maybe++; costMax += c.price; }
+  });
+  Object.values(byDay).forEach(items => {
+    for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
+      const a = span(items[i].time), b = span(items[j].time);
+      if (items[i].loc !== items[j].loc && (!a || !b || (a[0] < b[1] && b[0] < a[1]))) clashes++;
+    }
+  });
+  document.getElementById('cGoing').textContent = going;
+  document.getElementById('cMaybe').textContent = maybe;
+  document.getElementById('cCost').textContent = money(cost);
+  document.getElementById('cCostMax').textContent = money(costMax);
+  document.getElementById('cClash').textContent = clashes
+    ? `${clashes} conflict${clashes > 1 ? 's' : ''} to resolve` : '';
+}
+
+document.querySelectorAll('.chip[data-c]').forEach(c => c.onclick = () => {
+  document.querySelectorAll('.chip[data-c]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  c.setAttribute('aria-pressed', 'true');
+  calFilter = c.dataset.c; renderCal();
+});
+document.getElementById('clearcal').onclick = () => {
+  Object.keys(picks).forEach(k => delete picks[k]);
+  saveState(); renderCal();
+};
+
+/* ---------- board ---------- */
+const tb = document.querySelector('#tbl tbody');
+let filter = 'all', sortK = null, sortAsc = true;
+const bars = (n, ret) => {
+  let s = '<span class="gkbar">';
+  for (let i = 0; i < n; i++) s += '<i class="' + (i < ret ? 'on' : '') + '"></i>';
+  return s + '</span>';
+};
+const roomWord = r => r.ret === 0 ? ['Wide open', 'g'] : (r.ngk >= 5 ? ['Crowded', 'c'] : ['Room', 'w']);
+
+function pass(r) {
+  const t = tiers[r.name];
+  switch (filter) {
+    case 't1': return t === 1;
+    case 't2': return t === 2;
+    case 't3': return t === 3;
+    case 'open': return r.gk27 === 'open';
+    case 'ivy': return /Ivy|tuition-free/.test(r.aid);
+    case 'close': return r.dist <= 500;
+    default: return true;
+  }
+}
+function stats() {
+  const c = [0, 0, 0];
+  ROWS.forEach(r => c[tiers[r.name] - 1]++);
+  document.getElementById('s1').textContent = c[0];
+  document.getElementById('s2').textContent = c[1];
+  document.getElementById('s3').textContent = c[2];
+  document.getElementById('s4').textContent =
+    ROWS.filter(r => tiers[r.name] === 1 && r.gk27 !== 'closed').length;
+}
+function render() {
+  let data = ROWS.filter(pass);
+  const kf = r => sortK === 'tier' ? tiers[r.name] : r[sortK];
+  if (sortK) data = data.slice().sort((a, b) => {
+    const x = kf(a), y = kf(b);
+    const c = (typeof x === 'number') ? x - y : String(x).localeCompare(String(y));
+    return sortAsc ? c : -c;
+  });
+  else data = data.slice().sort((a, b) => tiers[a.name] - tiers[b.name] || a.name.localeCompare(b.name));
+  tb.innerHTML = data.map((r, i) => {
+    const [rw, rc] = roomWord(r), t = tiers[r.name];
+    const seg = [1, 2, 3].map(n =>
+      `<button data-name="${r.name}" data-t="${n}" class="${n === t ? 'on' : ''}">${n}</button>`).join('');
+    return `<tr class="tier-${t}">
+      <td><span class="tiersel">${seg}</span>${t !== r.tier0 ? '<span class="moved">moved</span>' : ''}</td>
+      <td><div class="sch">${r.name}</div><div class="bkt">${r.bucket}</div></td>
+      <td><span class="dot ${r.vtone[0]}">${r.vglyph}</span>${r.note}</td>
+      <td><span class="${r.gtone[0]}">${r.glabel}</span></td>
+      <td>${r.conf}</td>
+      <td class="num">${r.dist.toLocaleString()}</td>
+      <td class="num">${r.undergrad.toLocaleString()}</td>
+      <td class="num">${r.admit}%</td>
+      <td class="num">${bars(r.ngk, r.ret)}<span class="${rc}">${rw}</span></td>
+      <td><button class="expand" data-i="${i}">Details</button></td>
+    </tr>`;
+  }).join('');
+  tb.querySelectorAll('.tiersel button').forEach(b => b.onclick = () => {
+    if (tiers[b.dataset.name] !== +b.dataset.t) logEvent(`Moved ${b.dataset.name} to Tier ${b.dataset.t}`);
+    tiers[b.dataset.name] = +b.dataset.t;
+    saveState(); stats(); render(); renderCal();
+  });
+  tb.querySelectorAll('.expand').forEach(b => b.onclick = () => {
+    const tr = b.closest('tr');
+    if (tr.nextElementSibling && tr.nextElementSibling.classList.contains('det')) {
+      tr.nextElementSibling.remove(); b.textContent = 'Details'; return;
+    }
+    const r = data[+b.dataset.i];
+    const d = document.createElement('tr');
+    d.className = 'det';
+    d.innerHTML = `<td colspan="10"><div class="detgrid">
+      <div><h4>2027 goalkeeper</h4><p>${r.gk27d}</p></div>
+      <div><h4>Keepers on the 2026 roster</h4><ul>${r.gks.map(g => '<li>' + g + '</li>').join('')}</ul>
+        <p style="margin-top:6px"><strong>GK coach:</strong> ${r.gkcoach}</p></div>
+      <div><h4>Next step</h4><p>${r.camp}</p>
+        <p style="margin-top:6px"><a href="${r.campurl}" target="_blank" rel="noopener">Open link &rarr;</a></p></div>
+      <div><h4>Program &amp; aid</h4><p>${r.prog}</p><p style="margin-top:6px">${r.aid}</p>
+        <p style="margin-top:6px"><strong>Final 2026 poll:</strong> ${r.rank}</p></div>
+    </div></td>`;
+    tr.after(d); b.textContent = 'Hide';
+  });
+}
+document.querySelectorAll('.chip[data-f]').forEach(c => c.onclick = () => {
+  document.querySelectorAll('.chip[data-f]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  c.setAttribute('aria-pressed', 'true');
+  filter = c.dataset.f; render();
+});
+document.querySelectorAll('#tbl th[data-k]').forEach(th => th.onclick = () => {
+  const k = th.dataset.k;
+  sortAsc = (sortK === k) ? !sortAsc : true;
+  sortK = k;
+  document.querySelectorAll('#tbl th').forEach(x => {
+    x.removeAttribute('data-sorted');
+    const c = x.querySelector('.car'); if (c) c.textContent = '▲';
+  });
+  th.setAttribute('data-sorted', '1');
+  th.querySelector('.car').textContent = sortAsc ? '▲' : '▼';
+  render();
+});
+document.getElementById('reset').onclick = () => {
+  ROWS.forEach(r => tiers[r.name] = r.tier0);
+  saveState(); stats(); render(); renderCal();
+};
+document.getElementById('copy').onclick = async (e) => {
+  let out = 'Rachel Wood — goalie recruiting tiers\n';
+  [1, 2, 3].forEach(t => {
+    const names = ROWS.filter(r => tiers[r.name] === t).map(r => r.name).sort();
+    out += `\nTier ${t} (${names.length})\n` + names.map(n => '  - ' + n).join('\n') + '\n';
+  });
+  const going = CAMPS.filter(c => picks[key(c)] === 'going' || c.status === 'booked');
+  if (going.length) {
+    out += '\nCamps — going\n' + going.map(c => `  - ${c.label}  ${c.school} (${c.name}) ${money(c.price)}`).join('\n') + '\n';
+  }
+  try { await navigator.clipboard.writeText(out); e.target.textContent = 'Copied'; }
+  catch (err) { e.target.textContent = 'Copy blocked'; }
+  setTimeout(() => e.target.textContent = 'Copy tiering', 1600);
+};
+
+/* ---------- answers ---------- */
+document.querySelectorAll('textarea.ans').forEach(t => {
+  if (answers[t.dataset.q]) t.value = answers[t.dataset.q];
+  t.addEventListener('input', () => {
+    answers[t.dataset.q] = t.value;
+    if (!t.dataset.logged && t.value.trim()) {
+      const qEl = t.closest('li').querySelector('.q');
+      logEvent(`Answered: “${qEl ? qEl.textContent.slice(0, 60) : t.dataset.q}”`);
+      t.dataset.logged = '1';
+    }
+    saveState();
+  });
+});
+
+document.getElementById('save').onclick = async (e) => {
+  saveState();
+  try { await navigator.clipboard.writeText(location.href); e.target.textContent = 'Link copied'; }
+  catch (err) { e.target.textContent = 'Copy blocked'; }
+  setTimeout(() => e.target.textContent = 'Copy my link', 1800);
+};
+document.getElementById('tg').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+};
+
+/* ---------- live sync ---------- */
+const FAM = 'wood2028-g33-t8r4m2';
+const DAD = new URLSearchParams(location.search).has('dad');
+const CANSYNC = location.protocol === 'http:' || location.protocol === 'https:';
+let lastRemote = 0, pushTimer = null;
+const syncEl = document.getElementById('sync');
+const SYNCTXT = { ok: 'Synced ✓', saving: 'Saving…', local: 'On this device', off: 'Offline — saved here' };
+function setSync(s) { syncEl.textContent = SYNCTXT[s] || s; }
+setSync(CANSYNC ? 'saving' : 'local');
+
+function schedulePush() {
+  if (!CANSYNC) return;
+  setSync('saving');
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(async () => {
+    pushTimer = null;
+    try {
+      const r = await fetch('/api/state', { method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ key: FAM, state: stateBlob(), log }) });
+      const j = await r.json();
+      if (j.configured === false) setSync('local');
+      else { lastRemote = j.updatedAt || Date.now(); setSync('ok'); }
+    } catch (e) { setSync('off'); }
+  }, 900);
+}
+
+function renderFeed() {
+  const feed = document.getElementById('feed');
+  if (!log.length) return;
+  feed.innerHTML = log.map(e => {
+    const d = new Date(e.t);
+    const when = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+      d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    return `<div class="feeditem"><span class="feedtime">${when}</span><span>${e.m}</span></div>`;
+  }).join('');
+  const seen = document.getElementById('lastseen');
+  if (seen) {
+    const d = new Date(log[0].t);
+    seen.textContent = 'last change ' + d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) +
+      ' at ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  }
+}
+
+async function pull() {
+  if (!CANSYNC || pushTimer) return;
+  try {
+    const r = await fetch('/api/state?key=' + FAM);
+    const j = await r.json();
+    if (j.configured === false) { setSync('local'); return; }
+    if (j.state && j.updatedAt > lastRemote) {
+      lastRemote = j.updatedAt;
+      if (j.log) log = j.log;
+      Object.keys(picks).forEach(k => delete picks[k]);
+      Object.keys(answers).forEach(k => delete answers[k]);
+      ROWS.forEach(r2 => tiers[r2.name] = r2.tier0);
+      adoptState(j.state);
+      document.querySelectorAll('textarea.ans').forEach(t => t.value = answers[t.dataset.q] || '');
+      stats(); render(); renderCal(); renderFeed();
+    }
+    setSync('ok');
+  } catch (e) { setSync('off'); }
+}
+
+if (DAD) {
+  document.getElementById('dadbar').style.display = '';
+  document.getElementById('activity').style.display = '';
+  document.getElementById('navact').style.display = '';
+  setInterval(pull, 10000);
+} else if (CANSYNC) {
+  setInterval(pull, 45000);
+}
+if (CANSYNC) pull().then(renderFeed);
+renderFeed();
+
+if ('serviceWorker' in navigator && CANSYNC) navigator.serviceWorker.register('sw.js').catch(() => {});
+
+stats(); render(); renderCal();
+</script>
+</body>
+</html>
