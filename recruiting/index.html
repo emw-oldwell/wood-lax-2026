@@ -760,6 +760,9 @@ if (DAD) {
   document.getElementById('dadbar').style.display = '';
   document.getElementById('activity').style.display = '';
   document.getElementById('navact').style.display = '';
+  document.title = 'Rachel Lax — Dad View';
+  const mt = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+  if (mt) mt.setAttribute('content', 'Lax Dad');
   setInterval(pull, 10000);
 } else if (CANSYNC) {
   setInterval(pull, 45000);
