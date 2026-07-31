@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#1a1a19">
-<link rel="icon" type="image/png" href="icon-192.png">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/recruiting/icon-192.png">
+<link rel="manifest" href="/recruiting/manifest.json">
+<link rel="apple-touch-icon" href="/recruiting/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -767,7 +767,7 @@ if (DAD) {
 if (CANSYNC) pull().then(renderFeed);
 renderFeed();
 
-if ('serviceWorker' in navigator && CANSYNC) navigator.serviceWorker.register('sw.js').catch(() => {});
+if ('serviceWorker' in navigator && CANSYNC) navigator.serviceWorker.register('/recruiting/sw.js').catch(() => {});
 
 stats(); render(); renderCal();
 </script>
