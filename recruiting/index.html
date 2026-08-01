@@ -177,6 +177,23 @@ textarea.ans{width:100%;max-width:640px;margin-top:7px;background:var(--plane);c
  resize:vertical}
 textarea.ans:focus{outline:2px solid var(--blue);outline-offset:-1px;border-color:transparent}
 
+.airow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+@media(max-width:760px){.airow{grid-template-columns:1fr}}
+.aicard{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:18px 20px}
+.aicard h3{font-size:15px;margin:0 0 10px}
+.aibig{font-size:44px;font-weight:680;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.aisub{font-size:12.5px;color:var(--mut);margin-top:3px}
+.aiband{font-size:14px;font-weight:650;margin:10px 0 0}
+input[type=range].sat{width:100%;accent-color:var(--blue);margin:14px 0 4px}
+.satline{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+.schoolchips{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.schoolchip{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;border-top:1px solid var(--grid);padding-top:7px}
+.schoolchip b{font-weight:640}
+.aifacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:14px}
+.aifact{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:16px 18px}
+.aifact h4{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 6px;font-weight:680}
+.aifact p, .aifact li{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
+.aifact ul{margin:0;padding-left:17px}
 .feed{background:var(--surface);border:1px solid var(--ring);border-radius:10px;overflow:hidden}
 .feeditem{display:flex;gap:12px;padding:10px 16px;border-top:1px solid var(--grid);font-size:13.5px;align-items:baseline}
 .feeditem:first-child{border-top:none}
@@ -206,6 +223,7 @@ footer p{margin:0 0 8px;max-width:86ch}
   <a href="#how">How to use this</a>
   <a href="#cal">Camp calendar</a>
   <a href="#board">The full board</a>
+  <a href="#academics">Academics</a>
   <a href="#email">Email, no camp</a>
   <a href="#quest">Your questions</a>
   <a href="#activity" id="navact" style="display:none">Activity</a>
@@ -293,6 +311,61 @@ footer p{margin:0 0 8px;max-width:86ch}
       <tbody></tbody>
     </table>
   </div>
+</section>
+
+<section class="block" id="academics">
+  <h2>The Academic Index &mdash; where Rachel stands</h2>
+  <p class="lede">Every Ivy on this board scores recruits on the <strong>Academic Index</strong> before a coach can support them &mdash; a 240-point number built from unweighted GPA and the SAT. Brown, Harvard, Cornell, Dartmouth, Penn and Princeton all use it, and every one of them <strong>requires a test score for her application cycle</strong> &mdash; test-optional is over. The good news is on the left. The whole remaining job is on the right.</p>
+  <div class="airow">
+    <div class="aicard">
+      <h3>The part that's already done</h3>
+      <div class="aibig g">~78<span style="font-size:20px;color:var(--mut)"> / 80</span></div>
+      <div class="aisub">what a 3.9 unweighted GPA contributes to the index</div>
+      <p class="a" style="margin-top:12px">The index uses her <strong>unweighted 3.9</strong> &mdash; the 4.3 weighted never enters the formula, though course rigor shows up in the pre-read. At 78 of a possible 80, her GPA is two points from perfect. <strong>Her admission math is now almost entirely SAT-driven</strong> &mdash; which is unusually good news, because a test score can be built in a way a four-year GPA can't.</p>
+      <p class="a" style="margin-top:8px">The one job between now and pre-reads: <strong>protect the 3.9 through junior year.</strong></p>
+    </div>
+    <div class="aicard">
+      <h3>The part the SAT decides &mdash; drag her target</h3>
+      <div class="aibig" ><span id="aiNum">218</span><span style="font-size:20px;color:var(--mut)"> / 240</span></div>
+      <div class="aisub">estimated Academic Index at SAT <b id="satNum">1400</b> (&asymp; ACT <span id="actNum">31</span>)</div>
+      <input type="range" class="sat" id="satRange" min="1000" max="1600" step="10" value="1400" aria-label="SAT target">
+      <div class="satline"><span>1000</span><span>1200</span><span>1400</span><span>1600</span></div>
+      <p class="aiband" id="aiBand"></p>
+      <div class="schoolchips" id="aiSchools"></div>
+    </div>
+  </div>
+  <div class="aifacts">
+    <div class="aifact">
+      <h4>The timeline that matters</h4>
+      <ul>
+        <li><strong>Junior year (2026&ndash;27):</strong> first real SAT sitting by spring 2027, so a score exists when it counts.</li>
+        <li><strong>June 2027:</strong> junior transcript + scores go to coaches.</li>
+        <li><strong>July 1, 2027:</strong> official Ivy pre-reads &mdash; admissions reviews her transcript and scores and gives coaches a green / yellow / red.</li>
+        <li><strong>Oct 1, 2027:</strong> earliest likely letters; ED application ~Nov 1.</li>
+      </ul>
+    </div>
+    <div class="aifact">
+      <h4>What the numbers mean in practice</h4>
+      <ul>
+        <li><strong>League floor is ~176</strong> &mdash; below it no Ivy coach can support anyone.</li>
+        <li>Coaches' rosters must average close to the student body, so <strong>women's lacrosse recruits live in the top bands</strong> &mdash; low-band slots go to football and hockey.</li>
+        <li>Rules of thumb coaches actually use: <strong>1350 = in the conversation, 1400 = Brown-tier safe, 1450+ = safe everywhere.</strong></li>
+      </ul>
+    </div>
+    <div class="aifact">
+      <h4>West Point &amp; the academies</h4>
+      <p>Different system &mdash; a Whole Candidate Score that's <strong>60% academics</strong>. Her 3.9 sits right at the West Point appointee average, and an SAT around <strong>1250+</strong> makes her a direct-entry academic profile (no prep-school year). Recruited-athlete screening floors are far lower. Academics are not her obstacle there.</p>
+    </div>
+    <div class="aifact">
+      <h4>NCAA housekeeping</h4>
+      <ul>
+        <li>Register with the <strong>NCAA Eligibility Center</strong> this year.</li>
+        <li>Core-course minimum is a 2.3 &mdash; a non-issue at 3.9. One audit worth doing: <strong>10 core courses (7 in English/Math/Science) completed before senior year starts.</strong></li>
+        <li>The NCAA itself no longer requires a test. Every Ivy on her list does.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="hint" style="margin-top:12px">Fine print: the Ivy League has never published the index formula &mdash; this uses the standard reconstruction (unweighted GPA &times; 20, plus SAT &divide; 10) that consulting firms and the Harvard Crimson's reporting converge on. Treat any single number as &plusmn;5&ndash;10 points, and the pre-read next July as the only answer that counts. Her SAT target saves and syncs like everything else on this page.</p>
 </section>
 
 <section class="block" id="email">
@@ -692,6 +765,63 @@ document.getElementById('tg').onclick = () => {
   document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
 };
 
+/* ---------- academic index ---------- */
+const CGS = 78; // 3.9 unweighted x 20
+const satEl = document.getElementById('satRange');
+const AI_SCHOOLS = [
+  ['Brown', 218, 'her YES — TOP'],
+  ['Dartmouth', 218, 'Tier 1 · no 2027 GK'],
+  ['Cornell', 218, 'Tier 1'],
+  ['Harvard', 223, 'Tier 1'],
+  ['Penn', 218, 'Tier 2'],
+  ['Princeton', 223, 'Tier 2'],
+];
+function actFromSat(s) {
+  if (s >= 1560) return 36; if (s >= 1520) return 35; if (s >= 1470) return 34;
+  if (s >= 1420) return 32; if (s >= 1390) return 31; if (s >= 1350) return 30;
+  if (s >= 1300) return 28; if (s >= 1250) return 27; if (s >= 1200) return 25;
+  if (s >= 1130) return 23; if (s >= 1060) return 21; return 19;
+}
+function paintAI() {
+  if (!satEl) return;
+  const sat = +satEl.value;
+  const ai = Math.round(CGS + sat / 10);
+  document.getElementById('aiNum').textContent = ai;
+  document.getElementById('satNum').textContent = sat;
+  document.getElementById('actNum').textContent = actFromSat(sat);
+  const bandEl = document.getElementById('aiBand');
+  let msg, cls;
+  if (ai < 176) { msg = 'Below the league floor — no Ivy coach can support this.'; cls = 'c'; }
+  else if (ai < 205) { msg = 'Above the floor, but below the practical band for her list.'; cls = 'c'; }
+  else if (ai < 213) { msg = 'Low band — possible, but a coach has to spend capital to carry it.'; cls = 's'; }
+  else if (ai < 218) { msg = 'In the conversation at every Ivy on her board.'; cls = 'w'; }
+  else if (ai < 223) { msg = 'Safe band at Brown, Dartmouth, Cornell and Penn.'; cls = 'g'; }
+  else { msg = 'Safe everywhere on the board — Harvard and Princeton included.'; cls = 'g'; }
+  bandEl.textContent = msg;
+  bandEl.className = 'aiband ' + cls;
+  document.getElementById('aiSchools').innerHTML = AI_SCHOOLS.map(([n, safe, tag]) => {
+    let st, sc;
+    if (ai >= safe) { st = 'safe band'; sc = 'g'; }
+    else if (ai >= 213) { st = 'in the conversation'; sc = 'w'; }
+    else if (ai >= 205) { st = 'low band'; sc = 's'; }
+    else { st = 'out of band'; sc = 'c'; }
+    return `<div class="schoolchip"><span><b>${n}</b> <span style="color:var(--mut);font-size:11.5px">${tag}</span></span><span class="${sc}">${st}</span></div>`;
+  }).join('');
+}
+function restoreAcademics() {
+  if (!satEl) return;
+  if (answers['satTarget']) satEl.value = answers['satTarget'];
+  paintAI();
+}
+if (satEl) {
+  satEl.addEventListener('input', paintAI);
+  satEl.addEventListener('change', () => {
+    answers['satTarget'] = satEl.value;
+    logEvent(`SAT target set to ${satEl.value} (AI ~${Math.round(CGS + satEl.value / 10)})`);
+    saveState();
+  });
+}
+
 /* ---------- live sync ---------- */
 const FAM = 'wood2028-g33-t8r4m2';
 const DAD = new URLSearchParams(location.search).has('dad');
@@ -750,6 +880,7 @@ async function pull() {
       ROWS.forEach(r2 => tiers[r2.name] = r2.tier0);
       adoptState(j.state);
       document.querySelectorAll('textarea.ans').forEach(t => t.value = answers[t.dataset.q] || '');
+      restoreAcademics();
       stats(); render(); renderCal(); renderFeed();
     }
     setSync('ok');
@@ -776,7 +907,7 @@ renderFeed();
 
 if ('serviceWorker' in navigator && CANSYNC) navigator.serviceWorker.register('/recruiting/sw.js').catch(() => {});
 
-stats(); render(); renderCal();
+stats(); render(); renderCal(); restoreAcademics();
 </script>
 </body>
 </html>
