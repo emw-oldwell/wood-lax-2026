@@ -177,6 +177,7 @@ textarea.ans{width:100%;max-width:640px;margin-top:7px;background:var(--plane);c
  resize:vertical}
 textarea.ans:focus{outline:2px solid var(--blue);outline-offset:-1px;border-color:transparent}
 
+#testMode button.on{background:var(--blue)}
 .airow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
 @media(max-width:760px){.airow{grid-template-columns:1fr}}
 .aicard{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:18px 20px}
@@ -315,7 +316,7 @@ footer p{margin:0 0 8px;max-width:86ch}
 
 <section class="block" id="academics">
   <h2>The Academic Index &mdash; where Rachel stands</h2>
-  <p class="lede">Every Ivy on this board scores recruits on the <strong>Academic Index</strong> before a coach can support them &mdash; a 240-point number built from unweighted GPA and the SAT. Brown, Harvard, Cornell, Dartmouth, Penn and Princeton all use it, and every one of them <strong>requires a test score for her application cycle</strong> &mdash; test-optional is over. The good news is on the left. The whole remaining job is on the right.</p>
+  <p class="lede">Every Ivy on this board scores recruits on the <strong>Academic Index</strong> before a coach can support them &mdash; a 240-point number built from unweighted GPA and the SAT or ACT. Brown, Harvard, Cornell, Dartmouth, Penn and Princeton all use it, and every one of them <strong>requires a test score for her application cycle</strong> &mdash; test-optional is over. The good news is on the left. The whole remaining job is on the right.</p>
   <div class="airow">
     <div class="aicard">
       <h3>The part that's already done</h3>
@@ -325,11 +326,14 @@ footer p{margin:0 0 8px;max-width:86ch}
       <p class="a" style="margin-top:8px">The one job between now and pre-reads: <strong>protect the 3.9 through junior year.</strong></p>
     </div>
     <div class="aicard">
-      <h3>The part the SAT decides &mdash; drag her target</h3>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <h3 style="margin:0">The part the test decides &mdash; drag her target</h3>
+        <span class="setgrp" id="testMode"><button data-m="sat" class="on">SAT</button><button data-m="act">ACT</button></span>
+      </div>
       <div class="aibig" ><span id="aiNum">218</span><span style="font-size:20px;color:var(--mut)"> / 240</span></div>
-      <div class="aisub">estimated Academic Index at SAT <b id="satNum">1400</b> (&asymp; ACT <span id="actNum">31</span>)</div>
+      <div class="aisub" id="aiSub">estimated Academic Index at SAT <b>1400</b> (&asymp; ACT 31)</div>
       <input type="range" class="sat" id="satRange" min="1000" max="1600" step="10" value="1400" aria-label="SAT target">
-      <div class="satline"><span>1000</span><span>1200</span><span>1400</span><span>1600</span></div>
+      <div class="satline" id="satLabels"><span>1000</span><span>1200</span><span>1400</span><span>1600</span></div>
       <p class="aiband" id="aiBand"></p>
       <div class="schoolchips" id="aiSchools"></div>
     </div>
@@ -349,12 +353,12 @@ footer p{margin:0 0 8px;max-width:86ch}
       <ul>
         <li><strong>League floor is ~176</strong> &mdash; below it no Ivy coach can support anyone.</li>
         <li>Coaches' rosters must average close to the student body, so <strong>women's lacrosse recruits live in the top bands</strong> &mdash; low-band slots go to football and hockey.</li>
-        <li>Rules of thumb coaches actually use: <strong>1350 = in the conversation, 1400 = Brown-tier safe, 1450+ = safe everywhere.</strong></li>
+        <li>Rules of thumb coaches actually use, either test: <strong>SAT 1350 / ACT 29 = in the conversation &middot; 1400 / 31 = Brown-tier safe &middot; 1450+ / 33 = safe everywhere.</strong></li>
       </ul>
     </div>
     <div class="aifact">
       <h4>West Point &amp; the academies</h4>
-      <p>Different system &mdash; a Whole Candidate Score that's <strong>60% academics</strong>. Her 3.9 sits right at the West Point appointee average, and an SAT around <strong>1250+</strong> makes her a direct-entry academic profile (no prep-school year). Recruited-athlete screening floors are far lower. Academics are not her obstacle there.</p>
+      <p>Different system &mdash; a Whole Candidate Score that's <strong>60% academics</strong>. Her 3.9 sits right at the West Point appointee average, and an SAT around <strong>1250+ (ACT ~27)</strong> makes her a direct-entry academic profile (no prep-school year). Recruited-athlete screening floors are far lower. Academics are not her obstacle there.</p>
     </div>
     <div class="aifact">
       <h4>NCAA housekeeping</h4>
@@ -768,6 +772,7 @@ document.getElementById('tg').onclick = () => {
 /* ---------- academic index ---------- */
 const CGS = 78; // 3.9 unweighted x 20
 const satEl = document.getElementById('satRange');
+const ACT2SAT = {19:1010,20:1040,21:1080,22:1110,23:1140,24:1180,25:1210,26:1240,27:1280,28:1310,29:1340,30:1370,31:1400,32:1430,33:1460,34:1500,35:1540,36:1590};
 const AI_SCHOOLS = [
   ['Brown', 218, 'her YES — TOP'],
   ['Dartmouth', 218, 'Tier 1 · no 2027 GK'],
@@ -777,18 +782,39 @@ const AI_SCHOOLS = [
   ['Princeton', 223, 'Tier 2'],
 ];
 function actFromSat(s) {
-  if (s >= 1560) return 36; if (s >= 1520) return 35; if (s >= 1470) return 34;
-  if (s >= 1420) return 32; if (s >= 1390) return 31; if (s >= 1350) return 30;
-  if (s >= 1300) return 28; if (s >= 1250) return 27; if (s >= 1200) return 25;
-  if (s >= 1130) return 23; if (s >= 1060) return 21; return 19;
+  let best = 19;
+  for (const [a, v] of Object.entries(ACT2SAT)) if (s >= v) best = Math.max(best, +a);
+  return best;
+}
+function testMode() { return answers['testMode'] === 'act' ? 'act' : 'sat'; }
+function applyModeUI() {
+  const m = testMode();
+  document.querySelectorAll('#testMode button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  if (m === 'act') {
+    satEl.min = 19; satEl.max = 36; satEl.step = 1;
+    satEl.value = answers['actTarget'] || 31;
+    document.getElementById('satLabels').innerHTML = '<span>19</span><span>25</span><span>31</span><span>36</span>';
+  } else {
+    satEl.min = 1000; satEl.max = 1600; satEl.step = 10;
+    satEl.value = answers['satTarget'] || 1400;
+    document.getElementById('satLabels').innerHTML = '<span>1000</span><span>1200</span><span>1400</span><span>1600</span>';
+  }
 }
 function paintAI() {
   if (!satEl) return;
-  const sat = +satEl.value;
+  const m = testMode();
+  let sat, sub;
+  if (m === 'act') {
+    const act = +satEl.value;
+    sat = ACT2SAT[act] || 1000;
+    sub = `estimated Academic Index at ACT <b>${act}</b> (≈ SAT ${sat})`;
+  } else {
+    sat = +satEl.value;
+    sub = `estimated Academic Index at SAT <b>${sat}</b> (≈ ACT ${actFromSat(sat)})`;
+  }
   const ai = Math.round(CGS + sat / 10);
   document.getElementById('aiNum').textContent = ai;
-  document.getElementById('satNum').textContent = sat;
-  document.getElementById('actNum').textContent = actFromSat(sat);
+  document.getElementById('aiSub').innerHTML = sub;
   const bandEl = document.getElementById('aiBand');
   let msg, cls;
   if (ai < 176) { msg = 'Below the league floor — no Ivy coach can support this.'; cls = 'c'; }
@@ -810,15 +836,23 @@ function paintAI() {
 }
 function restoreAcademics() {
   if (!satEl) return;
-  if (answers['satTarget']) satEl.value = answers['satTarget'];
+  applyModeUI();
   paintAI();
 }
 if (satEl) {
   satEl.addEventListener('input', paintAI);
   satEl.addEventListener('change', () => {
-    answers['satTarget'] = satEl.value;
-    logEvent(`SAT target set to ${satEl.value} (AI ~${Math.round(CGS + satEl.value / 10)})`);
+    const m = testMode();
+    const ai = Math.round(CGS + (m === 'act' ? (ACT2SAT[+satEl.value] || 1000) : +satEl.value) / 10);
+    if (m === 'act') { answers['actTarget'] = satEl.value; logEvent(`ACT target set to ${satEl.value} (AI ~${ai})`); }
+    else { answers['satTarget'] = satEl.value; logEvent(`SAT target set to ${satEl.value} (AI ~${ai})`); }
     saveState();
+  });
+  document.querySelectorAll('#testMode button').forEach(b => b.onclick = () => {
+    answers['testMode'] = b.dataset.m;
+    saveState();
+    applyModeUI();
+    paintAI();
   });
 }
 
