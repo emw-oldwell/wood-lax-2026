@@ -141,6 +141,24 @@ Status saves automatically on this device and syncs across your phones. "Follow 
 <script>
 const SCHOOLS = [{"name": "Brown", "tier": 1, "coach": "Katrina Dowd", "url": "https://www.bearswlaxcamps.com/", "loc": "Providence, RI"}, {"name": "Clemson", "tier": 1, "coach": "Allison Kwolek", "url": "https://clemsonlaxcamps.com/", "loc": "Clemson, SC"}, {"name": "Colorado", "tier": 1, "coach": "Ann Elliott Whidden", "url": "https://cubuffs.com/sports/2026/1/14/2025-lacrosse-summer-camp", "loc": "Boulder, CO"}, {"name": "Cornell", "tier": 1, "coach": "Jenny Graap", "url": "https://risingredlacrosse.totalcamps.com/", "loc": "Ithaca, NY"}, {"name": "Dartmouth", "tier": 1, "coach": "Alex McFadden", "url": "https://www.mountaindoglaxcamps.com/", "loc": "Hanover, NH"}, {"name": "Denver", "tier": 1, "coach": "Liza Kelly", "url": "https://www.duwlaxcamps.com/", "loc": "Denver, CO"}, {"name": "Harvard", "tier": 1, "coach": "Devon Wills", "url": "https://gocrimson.com/sports/2020/5/5/information-camps-index.aspx", "loc": "Cambridge, MA"}, {"name": "James Madison", "tier": 1, "coach": "Shelley Klaes", "url": "https://jmusports.com/sports/2020/7/5/lacrosse-recruiting", "loc": "Harrisonburg, VA"}, {"name": "Johns Hopkins", "tier": 1, "coach": "Tim McCormack", "url": "https://www.heritagelacrossecamps.com/", "loc": "Baltimore, MD"}, {"name": "Oregon", "tier": 1, "coach": "Jessica Drummond", "url": "https://www.ducklacrossecamps.com/", "loc": "Eugene, OR"}, {"name": "Pittsburgh", "tier": 1, "coach": "Emily Boissonneault", "url": "https://www.pittlacrossecamp.com/", "loc": "Pittsburgh, PA"}, {"name": "Rutgers", "tier": 1, "coach": "Melissa Lehman", "url": "https://www.scarletknightswlaxcamps.com/prospect-day.cfm", "loc": "Piscataway, NJ"}, {"name": "St. Joseph's", "tier": 1, "coach": "Alexandra Kahoe", "url": "https://www.hawkslacrossecamp.com/", "loc": "Philadelphia, PA"}, {"name": "Vanderbilt", "tier": 1, "coach": "Beth Hewitt", "url": "https://vucommodores.com/vanderbilt-lacrosse-camps", "loc": "Nashville, TN"}, {"name": "West Point (Army)", "tier": 1, "coach": "Michelle Tumolo", "url": "https://goarmywestpoint.com/staff-directory/army-womens-lacrosse-camps/1084", "loc": "West Point, NY"}, {"name": "Georgetown", "tier": 2, "coach": "Caitlyn Phipps", "url": "https://www.hoyaslacrossecamps.com/", "loc": "Washington, DC"}, {"name": "Maryland", "tier": 2, "coach": "Cathy Reese", "url": "https://terpslacrosse.com/prospect-elite-day-camp", "loc": "College Park, MD"}, {"name": "Michigan", "tier": 2, "coach": "Hannah Nielsen", "url": "https://camps.mgoblue.com/womenslacrosse/", "loc": "Ann Arbor, MI"}, {"name": "North Carolina", "tier": 2, "coach": "Jenny Levy", "url": "https://goheels.com/sports/womens-lacrosse", "loc": "Chapel Hill, NC"}, {"name": "Northwestern", "tier": 2, "coach": "Kelly Amonte Hiller", "url": "https://amontesports.com/", "loc": "Evanston, IL"}, {"name": "Notre Dame", "tier": 2, "coach": "Christine Halfpenny", "url": "https://fightingirish.com/womens-lacrosse-camps/", "loc": "South Bend, IN"}, {"name": "Penn", "tier": 2, "coach": "Karin Corbett", "url": "https://pennathletics.com/sports/womens-lacrosse", "loc": "Philadelphia, PA"}, {"name": "Princeton", "tier": 2, "coach": "Jenn Cook", "url": "https://princetonsportscamps.com/Page433.aspx", "loc": "Princeton, NJ"}, {"name": "Stanford", "tier": 2, "coach": "Danielle Spencer", "url": "https://stanfordgirlslacrossecamps.totalcamps.com/", "loc": "Stanford, CA"}, {"name": "USC", "tier": 2, "coach": "Sam Apuzzo", "url": "https://usctrojans.com/sports/womens-lacrosse/coaches", "loc": "Los Angeles, CA"}];
 const KEY = 'wood2028-g33-emails';
+const WBKEY = 'wood2028-g33-t8r4m2';   // full board (workbook) sync key
+const WBLS  = 'rw5';    // full board device storage key
+let tierMap = {};          // school -> tier set on the full board
+function tierOf(s){ return tierMap[s.name] || s.tier; }
+function loadTiers(){
+  try { const w = JSON.parse(localStorage.getItem(WBLS)); if (w && w.t) tierMap = { ...tierMap, ...w.t }; } catch(e){}
+}
+async function pullTiers(){
+  if (!CANSYNC) return;
+  try {
+    const r = await fetch('/api/state?key=' + WBKEY);
+    const j = await r.json();
+    if (j && j.state) {
+      const next = j.state.t || {};
+      if (JSON.stringify(next) !== JSON.stringify(tierMap)) { tierMap = next; render(); }
+    }
+  } catch(e){}
+}
 const CANSYNC = location.protocol === 'http:' || location.protocol === 'https:';
 let state = {}, log = [], lastRemote = 0, pushTimer = null, filter = 'all';
 const syncEl = document.getElementById('sync');
@@ -195,7 +213,7 @@ function pass(s){
     case 'notyet': return rs.st === 'notyet';
     case 'sent': return rs.st === 'sent';
     case 'replied': return rs.st === 'replied' || rs.st === 'talking';
-    case 't1': return s.tier === 1;
+    case 't1': return tierOf(s) === 1;
     default: return true;
   }
 }
@@ -213,7 +231,9 @@ function stats(){
 function render(){
   stats();
   const list = document.getElementById('list');
-  list.innerHTML = SCHOOLS.filter(pass).map(s => {
+  list.innerHTML = SCHOOLS.filter(pass)
+    .slice().sort((a, b) => tierOf(a) - tierOf(b) || a.name.localeCompare(b.name))
+    .map(s => {
     const rs = rowState(s.name);
     const needsBump = rs.st === 'sent' && rs.sentAt && daysAgo(rs.sentAt) >= 12;
     const seg = [['notyet','Not yet'],['sent','Sent'],['replied','Replied'],['talking','Talking']]
@@ -221,7 +241,7 @@ function render(){
     return `<div class="school st-${rs.st}">
       <div class="srow">
         <span class="sname">${s.name}</span>
-        <span class="tchip k${s.tier}">TIER ${s.tier}</span>
+        <span class="tchip k${tierOf(s)}">TIER ${tierOf(s)}</span>
         ${needsBump ? '<span class="badge">FOLLOW UP?</span>' : ''}
         <span class="when">${whenText(rs)}</span>
       </div>
@@ -257,8 +277,8 @@ document.getElementById('tg').onclick = () => {
   const dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
 };
-load(); render();
-if (CANSYNC) { pull(); setInterval(pull, 20000); }
+load(); loadTiers(); render();
+if (CANSYNC) { pull(); pullTiers(); setInterval(pull, 20000); setInterval(pullTiers, 20000); }
 </script>
 </body>
 </html>

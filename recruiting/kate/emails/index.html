@@ -141,6 +141,24 @@ Status saves automatically on this device and syncs across your phones. "Follow 
 <script>
 const SCHOOLS = [{"name": "Arizona State", "tier": 1, "coach": "Taryn VanThof Puls", "url": "https://sundevillacrossecamps.totalcamps.com/", "loc": "Tempe, AZ"}, {"name": "Brown", "tier": 1, "coach": "Katrina Dowd", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=337878", "loc": "Providence, RI"}, {"name": "Clemson", "tier": 1, "coach": "Allison Kwolek", "url": "https://clemsonlaxcamps.com/", "loc": "Clemson, SC"}, {"name": "Colorado", "tier": 1, "coach": "Ann Elliott Whidden", "url": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71652436", "loc": "Boulder, CO"}, {"name": "Denver", "tier": 1, "coach": "Liza Kelly", "url": "https://www.denverlacrossecamps.com/idcamp", "loc": "Denver, CO"}, {"name": "Florida State", "tier": 1, "coach": "Sara Tisdale", "url": "https://www.seminolelacrossecamps.com/", "loc": "Tallahassee, FL"}, {"name": "Georgetown", "tier": 1, "coach": "Caitlyn Phipps", "url": "https://www.hoyaslacrossecamps.com/", "loc": "Washington, DC"}, {"name": "James Madison", "tier": 1, "coach": "Shelley Klaes", "url": "https://jmusports.com/sports/2020/7/5/lacrosse-recruiting", "loc": "Harrisonburg, VA"}, {"name": "Loyola Maryland", "tier": 1, "coach": "Jen Adams \u2014 one of the great attackers ever to play", "url": "https://greyhoundlacrosse.totalcamps.com/", "loc": "Baltimore, MD"}, {"name": "Ohio State", "tier": 1, "coach": "Amanda Moore", "url": "https://ohiostatebuckeyes.com/sports/2023/5/31/ohio-state-womens-lacrosse-camps", "loc": "Columbus, OH"}, {"name": "Pittsburgh", "tier": 1, "coach": "Emily Boissonneault", "url": "https://www.pittlacrossecamp.com/", "loc": "Pittsburgh, PA"}, {"name": "Rutgers", "tier": 1, "coach": "Melissa Lehman", "url": "https://register.ryzer.com/camp.cfm?id=336039", "loc": "Piscataway, NJ"}, {"name": "Stony Brook", "tier": 1, "coach": "Joe Spallina", "url": "https://stonybrookathletics.com/sports/womens-lacrosse", "loc": "Stony Brook, NY"}, {"name": "Syracuse", "tier": 1, "coach": "Regy Thorpe", "url": "https://cusewlax.totalcamps.com", "loc": "Syracuse, NY"}, {"name": "URI", "tier": 1, "coach": "Jenna Slowey", "url": "https://gorhody.com/sports/womens-lacrosse", "loc": "Kingston, RI"}, {"name": "USF", "tier": 1, "coach": "Mindy McCord", "url": "https://www.usflaxcamps.com/prospect-days", "loc": "Tampa, FL"}, {"name": "Vanderbilt", "tier": 1, "coach": "Beth Hewitt", "url": "https://campscui.active.com/orgs/VanderbiltWomensLacrosseCamps?regnow=camps-regnow&season=3834134&session=71351634", "loc": "Nashville, TN"}, {"name": "Virginia Tech", "tier": 1, "coach": "Kristen Skiera", "url": "https://skieralacrossecamps.com/", "loc": "Blacksburg, VA"}, {"name": "Penn", "tier": 2, "coach": "Karin Corbett", "url": "https://pennathletics.com/sports/womens-lacrosse", "loc": "Philadelphia, PA"}];
 const KEY = 'wood2028-k15-emails';
+const WBKEY = 'wood2028-k15-m4x7q2';   // full board (workbook) sync key
+const WBLS  = 'kw5';    // full board device storage key
+let tierMap = {};          // school -> tier set on the full board
+function tierOf(s){ return tierMap[s.name] || s.tier; }
+function loadTiers(){
+  try { const w = JSON.parse(localStorage.getItem(WBLS)); if (w && w.t) tierMap = { ...tierMap, ...w.t }; } catch(e){}
+}
+async function pullTiers(){
+  if (!CANSYNC) return;
+  try {
+    const r = await fetch('/api/state?key=' + WBKEY);
+    const j = await r.json();
+    if (j && j.state) {
+      const next = j.state.t || {};
+      if (JSON.stringify(next) !== JSON.stringify(tierMap)) { tierMap = next; render(); }
+    }
+  } catch(e){}
+}
 const CANSYNC = location.protocol === 'http:' || location.protocol === 'https:';
 let state = {}, log = [], lastRemote = 0, pushTimer = null, filter = 'all';
 const syncEl = document.getElementById('sync');
@@ -195,7 +213,7 @@ function pass(s){
     case 'notyet': return rs.st === 'notyet';
     case 'sent': return rs.st === 'sent';
     case 'replied': return rs.st === 'replied' || rs.st === 'talking';
-    case 't1': return s.tier === 1;
+    case 't1': return tierOf(s) === 1;
     default: return true;
   }
 }
@@ -213,7 +231,9 @@ function stats(){
 function render(){
   stats();
   const list = document.getElementById('list');
-  list.innerHTML = SCHOOLS.filter(pass).map(s => {
+  list.innerHTML = SCHOOLS.filter(pass)
+    .slice().sort((a, b) => tierOf(a) - tierOf(b) || a.name.localeCompare(b.name))
+    .map(s => {
     const rs = rowState(s.name);
     const needsBump = rs.st === 'sent' && rs.sentAt && daysAgo(rs.sentAt) >= 12;
     const seg = [['notyet','Not yet'],['sent','Sent'],['replied','Replied'],['talking','Talking']]
@@ -221,7 +241,7 @@ function render(){
     return `<div class="school st-${rs.st}">
       <div class="srow">
         <span class="sname">${s.name}</span>
-        <span class="tchip k${s.tier}">TIER ${s.tier}</span>
+        <span class="tchip k${tierOf(s)}">TIER ${tierOf(s)}</span>
         ${needsBump ? '<span class="badge">FOLLOW UP?</span>' : ''}
         <span class="when">${whenText(rs)}</span>
       </div>
@@ -257,8 +277,8 @@ document.getElementById('tg').onclick = () => {
   const dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
 };
-load(); render();
-if (CANSYNC) { pull(); setInterval(pull, 20000); }
+load(); loadTiers(); render();
+if (CANSYNC) { pull(); pullTiers(); setInterval(pull, 20000); setInterval(pullTiers, 20000); }
 </script>
 </body>
 </html>

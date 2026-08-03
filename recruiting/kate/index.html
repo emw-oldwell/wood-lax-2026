@@ -211,7 +211,7 @@ footer p{margin:0 0 8px;max-width:86ch}
   <div>
     <img src="/recruiting/kate/logo.png" alt="Kate Wood #15" style="display:block;height:88px;width:auto;background:#fff;border-radius:12px;padding:10px 16px;border:1px solid var(--ring);margin-bottom:14px">
     <h1>Kate's Recruiting Workbook</h1>
-    <p class="sub">Class of 2028 · Attack · #15 · Lake Norman HS / Big 4 HHH Philly</p>
+    <p class="sub">Class of 2028 · Attack · #15 · Lake Norman HS / HHH Philly</p>
     <p class="stamp">Coach feedback, camp dates and the NCAA calendar verified August 1, 2026. Everything you change saves automatically on this device and syncs to the family view.</p>
   </div>
   <div class="hdbtns">
@@ -243,13 +243,12 @@ footer p{margin:0 0 8px;max-width:86ch}
     <li><strong>Set your tiers on the full board.</strong> Every school has a 1 · 2 · 3 toggle. Tier 1 started as everyone who put you on their list — move them as you learn things. Nothing here is fixed.</li>
     <li><strong>Then work the schedule.</strong> Every camp you're eligible for is listed by day underneath. Mark each one <em>Going</em>, <em>Maybe</em> or <em>Skip</em> — the page flags days that collide.</li>
   </ol>
-  <p class="a" style="margin-top:11px">One thing to carry into every camp: ask the staff <strong>“how many attackers are you taking in 2028, and what role would I compete for?”</strong> A number and a role beat a whole day of vague interest.</p>
 </div>
 
 <div class="alert warn">
   <p class="countdown">September 1, 2026</p>
   <h2>The date the whole calendar points at</h2>
-  <p>Sept 1 of junior year is the first day D1 coaches can contact you and the first day you can take visits. In the class of 2027, girls' commitments went from about 6 in August to <strong>595 in September</strong> — roughly ninety percent of a class goes in the first month. August exists so you're a name with a face attached when the phones open. Also: <strong>Aug 1–14 is an NCAA recruiting shutdown</strong> (no contact of any kind, so nobody will answer email) and <strong>Aug 28–Sep 3 is a dead period</strong>.</p>
+  <p>Sept 1 of junior year is the first day D1 coaches can contact you and the first day you can take visits. In the class of 2027, girls' commitments went from about 6 in August to <strong>595 in September</strong> — roughly ninety percent of a class goes in the first month. August exists so you're a name with a face attached when the phones open. Also: <strong>Aug 1–14 is an NCAA recruiting shutdown</strong>.</p>
 </div>
 
 <div class="stats">
@@ -351,7 +350,7 @@ function logEvent(m) {
 }
 function saveState() {
   const s = { ...stateBlob(), log };
-  try { localStorage.setItem('rw5', JSON.stringify(s)); } catch (e) { }
+  try { localStorage.setItem('kw5', JSON.stringify(s)); } catch (e) { }
   try {
     history.replaceState(null, '', '#' + btoa(unescape(encodeURIComponent(JSON.stringify(stateBlob())))));
   } catch (e) { }
@@ -369,7 +368,7 @@ function loadState() {
     catch (e) { }
   }
   try {
-    const s = JSON.parse(localStorage.getItem('rw5'));
+    const s = JSON.parse(localStorage.getItem('kw5'));
     if (s) adoptState(s);
   } catch (e) { }
 }
