@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a19">
+<link rel="icon" type="image/png" href="/recruiting/kate/icon-192.png">
+<link rel="manifest" href="/recruiting/kate/manifest.json">
+<link rel="apple-touch-icon" href="/recruiting/kate/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kate Lax">
+<title>Kate Wood · Recruiting Workbook · Class of 2028</title>
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+  --grid:#e1e0d9; --line:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b; --blue:#2a78d6;
+  --t1:#2a78d6; --t2:#eb6834; --t3:#898781;
+}
+@media (prefers-color-scheme: dark){ :root:where(:not([data-theme="light"])){
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; --t3:#898781; } }
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; --t3:#898781; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 20px 110px}
+a{color:var(--blue)}
+h1{font-size:31px;line-height:1.14;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+h3{font-size:16px;margin:0 0 4px}
+.sub{color:var(--ink2);margin:0;font-size:15px}
+.stamp{color:var(--mut);font-size:12.5px;margin:10px 0 0;max-width:66ch}
+header.top{border-bottom:1px solid var(--grid);padding-bottom:22px;margin-bottom:24px;
+ display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.hdbtns{display:flex;gap:8px;flex-wrap:wrap}
+.toggle{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 13px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.toggle:hover{border-color:var(--ink2)}
+nav.jump{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+nav.jump a{font-size:12.5px;text-decoration:none;border:1px solid var(--line);color:var(--ink2);
+ border-radius:999px;padding:6px 13px}
+nav.jump a:hover{border-color:var(--ink);color:var(--ink)}
+
+.howto{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--blue);
+ border-radius:10px;padding:20px 22px;margin:0 0 12px}
+.howto ol{margin:10px 0 0;padding-left:20px;color:var(--ink2);font-size:14.5px}
+.howto li{margin-bottom:7px}
+.alert{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--blue);
+ border-radius:10px;padding:17px 20px;margin:0 0 12px}
+.alert.go{border-left-color:var(--good)} .alert.warn{border-left-color:var(--warn)}
+.alert h2{font-size:17px} .alert p{margin:6px 0 0;color:var(--ink2);font-size:14.5px}
+.countdown{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;font-weight:650;margin:0 0 4px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0 8px}
+.stat{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:15px 17px}
+.stat .v{font-size:29px;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+.stat .k{font-size:12.5px;color:var(--ink2);margin-top:3px}
+.v.c1{color:var(--t1)} .v.c2{color:var(--t2)} .v.c3{color:var(--t3)}
+
+section.block{margin:52px 0 0;scroll-margin-top:14px}
+.lede{color:var(--ink2);font-size:15px;margin:0 0 18px;max-width:78ch}
+
+/* ---- calendar ---- */
+.day{background:var(--surface);border:1px solid var(--ring);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.day.hasgoing{border-left:3px solid var(--good)}
+.day.clash{border-left:3px solid var(--crit)}
+.dayhead{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--grid);flex-wrap:wrap}
+.dayname{font-weight:650;font-size:15px;min-width:96px}
+.dayname small{color:var(--mut);font-weight:500;font-size:12px;display:block;text-transform:uppercase;letter-spacing:.07em}
+.daymeta{font-size:12.5px;color:var(--mut);margin-left:auto;text-align:right}
+.clashmsg{color:var(--crit);font-weight:650;font-size:12.5px}
+.okmsg{color:var(--good);font-weight:650;font-size:12.5px}
+.camp{display:flex;gap:12px;padding:11px 16px;border-top:1px solid var(--grid);align-items:flex-start;flex-wrap:wrap}
+.camp:first-of-type{border-top:none}
+.camp.st-going{background:color-mix(in srgb, var(--good) 7%, transparent)}
+.camp.st-maybe{background:color-mix(in srgb, var(--warn) 8%, transparent)}
+.camp.st-skip{opacity:.42}
+.campmain{flex:1;min-width:260px}
+.camptop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.campschool{font-weight:650;font-size:14.5px}
+.campname{color:var(--ink2);font-size:13.5px}
+.campmeta{font-size:12.5px;color:var(--mut);margin-top:2px}
+.campnote{font-size:13px;color:var(--ink2);margin:5px 0 0;max-width:72ch}
+.tchip{font-size:10px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:999px;color:#fff}
+.tchip.k1{background:var(--t1)} .tchip.k2{background:var(--t2)} .tchip.k3{background:var(--t3)}
+.flag{font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:4px;
+ border:1px solid currentColor;white-space:nowrap}
+.flag.paid{color:var(--good)} .flag.close{color:var(--crit)} .flag.only{color:var(--blue)}
+.setgrp{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;flex:none}
+.setgrp button{background:none;border:none;color:var(--mut);font-family:inherit;font-size:11.5px;
+ font-weight:650;padding:5px 10px;cursor:pointer}
+.setgrp button + button{border-left:1px solid var(--line)}
+.setgrp button:hover{color:var(--ink)}
+.setgrp button.on{color:#fff}
+.setgrp button.on[data-s="going"]{background:var(--good)}
+.setgrp button.on[data-s="maybe"]{background:var(--warn);color:#0b0b0b}
+.setgrp button.on[data-s="skip"]{background:var(--t3)}
+.gap{padding:9px 16px;font-size:13px;color:var(--mut);background:var(--surface);
+ border:1px dashed var(--line);border-radius:10px;margin-bottom:9px}
+.totalbar{position:sticky;bottom:0;background:var(--surface);border:1px solid var(--ring);
+ border-radius:10px;padding:12px 18px;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;
+ align-items:center;box-shadow:0 -2px 12px rgba(0,0,0,.06);z-index:5}
+.totalbar b{font-size:17px} .totalbar span{font-size:13px;color:var(--ink2)}
+
+/* ---- table ---- */
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 8px}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 13px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.chip.act{border-style:dashed}
+.hint{font-size:12.5px;color:var(--mut);margin:0 0 14px;max-width:76ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--ring);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:1040px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);
+ font-weight:650;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
+ cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface);z-index:1}
+th:hover{color:var(--ink)} th.nosort{cursor:default}
+th .car{opacity:.3;font-size:9px;margin-left:3px}
+th[data-sorted] .car{opacity:1}
+td{padding:11px 12px;border-bottom:1px solid var(--grid);vertical-align:top}
+tr.det td{background:color-mix(in srgb, var(--blue) 5%, var(--surface));border-bottom:1px solid var(--line)}
+tr.tier-1 td:first-child{box-shadow:inset 3px 0 0 var(--t1)}
+tr.tier-2 td:first-child{box-shadow:inset 3px 0 0 var(--t2)}
+tr.tier-3 td:first-child{box-shadow:inset 3px 0 0 var(--t3)}
+.sch{font-weight:650;font-size:14px;white-space:nowrap}
+.bkt{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.dot{font-size:11px;line-height:1;margin-right:5px}
+.g{color:var(--good)} .w{color:var(--warn)} .s{color:var(--serious)} .c{color:var(--crit)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tiersel{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.tiersel button{background:none;border:none;color:var(--mut);font-family:inherit;font-size:12px;
+ font-weight:700;padding:4px 9px;cursor:pointer;line-height:1.3}
+.tiersel button + button{border-left:1px solid var(--line)}
+.tiersel button:hover{color:var(--ink)} .tiersel button.on{color:#fff}
+.tiersel button.on[data-t="1"]{background:var(--t1)}
+.tiersel button.on[data-t="2"]{background:var(--t2)}
+.tiersel button.on[data-t="3"]{background:var(--t3)}
+.moved{display:inline-block;font-size:10px;color:var(--warn);margin-left:6px;font-weight:700}
+.gkbar{display:inline-flex;gap:3px;margin-right:7px;vertical-align:middle}
+.gkbar i{width:7px;height:7px;border-radius:2px;background:var(--line);display:block}
+.gkbar i.on{background:var(--blue)}
+.badge{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:4px;
+ border:1px solid var(--ring);color:var(--ink2);white-space:nowrap}
+.badge.now{border-color:var(--good);color:var(--good);font-weight:650}
+.badge.mail{border-color:var(--blue);color:var(--blue);font-weight:650}
+.badge.warn{border-color:var(--warn);color:var(--warn)}
+.expand{background:none;border:none;color:var(--blue);font-size:12px;cursor:pointer;padding:0;font-family:inherit}
+.detgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:4px 0 6px}
+.detgrid h4{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 4px;font-weight:650}
+.detgrid p{margin:0;font-size:13px;color:var(--ink2)}
+.detgrid ul{margin:0;padding-left:16px;font-size:13px;color:var(--ink2)}
+
+.qblock{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:20px 22px;margin-bottom:12px}
+.qblock h3{display:flex;align-items:center;gap:10px;font-size:16.5px}
+.qnum{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;
+ display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:none}
+.qblurb{color:var(--ink2);font-size:14px;margin:0 0 14px}
+.qlist{margin:0;padding-left:20px} .qlist li{margin-bottom:16px}
+.qlist li::marker{color:var(--mut);font-size:12px}
+ol.plain{list-style:none;padding:0;margin:0}
+ol.plain li{border-top:1px solid var(--grid);padding:12px 0}
+.q{margin:0;font-weight:600;font-size:14.5px}
+.a{margin:3px 0 0;color:var(--ink2);font-size:13.5px}
+textarea.ans{width:100%;max-width:640px;margin-top:7px;background:var(--plane);color:var(--ink);
+ border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-family:inherit;font-size:13.5px;
+ resize:vertical}
+textarea.ans:focus{outline:2px solid var(--blue);outline-offset:-1px;border-color:transparent}
+
+#testMode button.on{background:var(--blue)}
+.airow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+@media(max-width:760px){.airow{grid-template-columns:1fr}}
+.aicard{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:18px 20px}
+.aicard h3{font-size:15px;margin:0 0 10px}
+.aibig{font-size:44px;font-weight:680;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.aisub{font-size:12.5px;color:var(--mut);margin-top:3px}
+.aiband{font-size:14px;font-weight:650;margin:10px 0 0}
+input[type=range].sat{width:100%;accent-color:var(--blue);margin:14px 0 4px}
+.satline{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+.schoolchips{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.schoolchip{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;border-top:1px solid var(--grid);padding-top:7px}
+.schoolchip b{font-weight:640}
+.aifacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:14px}
+.aifact{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:16px 18px}
+.aifact h4{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 6px;font-weight:680}
+.aifact p, .aifact li{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
+.aifact ul{margin:0;padding-left:17px}
+.feed{background:var(--surface);border:1px solid var(--ring);border-radius:10px;overflow:hidden}
+.feeditem{display:flex;gap:12px;padding:10px 16px;border-top:1px solid var(--grid);font-size:13.5px;align-items:baseline}
+.feeditem:first-child{border-top:none}
+.feedtime{color:var(--mut);font-size:12px;min-width:88px;font-variant-numeric:tabular-nums;flex:none}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--grid);color:var(--mut);font-size:12.5px}
+footer p{margin:0 0 8px;max-width:86ch}
+@media(max-width:640px){h1{font-size:24px} .wrap{padding:22px 14px 90px} .daymeta{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1>Kate's Recruiting Workbook</h1>
+    <p class="sub">Class of 2028 · Attack · #15 · Lake Norman HS / Big 4 HHH Philly</p>
+    <p class="stamp">Coach feedback, camp dates and the NCAA calendar verified August 1, 2026. Everything you change saves automatically on this device and syncs to the family view.</p>
+  </div>
+  <div class="hdbtns">
+    <span class="toggle" id="sync" style="cursor:default">…</span>
+    <button class="toggle" id="save">Copy my link</button>
+    <button class="toggle" id="tg">Dark / light</button>
+  </div>
+</header>
+
+<nav class="jump">
+  <a href="#how">How to use this</a>
+  <a href="#cal">Camp calendar</a>
+  <a href="#board">The full board</a>
+  <a href="#email">Email, no camp</a>
+  <a href="#quest">Your questions</a>
+  <a href="#activity" id="navact" style="display:none">Activity</a>
+</nav>
+
+<div id="dadbar" class="alert" style="display:none;border-left-color:var(--t2)">
+  <p class="countdown">Parent view</p>
+  <h2>Live view of Kate's workbook</h2>
+  <p>This page updates automatically as she works — <span id="lastseen">no changes yet</span>. Anything you change here syncs back to her too.</p>
+</div>
+
+<div class="howto" id="how">
+  <h2>Kate — start here</h2>
+  <p class="a">This is a working document, not a report. Three things to do, in this order:</p>
+  <ol>
+    <li><strong>Work the calendar.</strong> Every women's lacrosse camp from Aug 15 into the fall that you're eligible for is listed by day. Mark each one <em>Going</em>, <em>Maybe</em> or <em>Skip</em>. The page flags days where you've picked two camps that overlap, and keeps a running cost total at the bottom.</li>
+    <li><strong>Set your own tiers.</strong> The board has a 1 · 2 · 3 toggle on every school. Move them as you learn things. Nothing here is fixed.</li>
+    <li><strong>Answer the questions at the bottom.</strong> Not tonight, and not all at once. Each answer moves schools between tiers, and a shorter Tier 1 makes a much better September.</li>
+  </ol>
+  <p class="a" style="margin-top:11px">One thing to carry into every camp: ask the staff <strong>“how many attackers are you taking in 2028, and what role would I compete for?”</strong> A number and a role beat a whole day of vague interest.</p>
+</div>
+
+<div class="alert warn">
+  <p class="countdown">September 1, 2026</p>
+  <h2>The date the whole calendar points at</h2>
+  <p>Sept 1 of junior year is the first day D1 coaches can contact you and the first day you can take visits. In the class of 2027, girls' commitments went from about 6 in August to <strong>595 in September</strong> — roughly ninety percent of a class goes in the first month. August exists so you're a name with a face attached when the phones open. Also: <strong>Aug 1–14 is an NCAA recruiting shutdown</strong> (no contact of any kind, so nobody will answer email) and <strong>Aug 28–Sep 3 is a dead period</strong>.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="v c1" id="s1">18</div><div class="k">Tier 1</div></div>
+  <div class="stat"><div class="v c2" id="s2">1</div><div class="k">Tier 2</div></div>
+  <div class="stat"><div class="v c3" id="s3">7</div><div class="k">Tier 3</div></div>
+  <div class="stat"><div class="v g" id="s4">17</div><div class="k">programs that said she's on their list</div></div>
+</div>
+
+<section class="block" id="cal">
+  <h2>Camp calendar</h2>
+  <p class="lede">Every verified women's lacrosse prospect day, ID clinic and elite camp on her radar, Aug 15 into the fall. Mark each one and the page will flag time conflicts and total the cost. Tier colours follow whatever you set on the board below.</p>
+  <div class="controls">
+    <button class="chip" data-c="all" aria-pressed="true">All camps</button>
+    <button class="chip" data-c="t1" aria-pressed="false">Tier 1 only</button>
+    <button class="chip" data-c="t12" aria-pressed="false">Tier 1 + 2</button>
+    <button class="chip" data-c="going" aria-pressed="false">My picks</button>
+    <button class="chip act" id="clearcal">Clear picks</button>
+  </div>
+  <div id="calendar"></div>
+  <div class="totalbar">
+    <span><b id="cGoing">0</b> going</span>
+    <span><b id="cMaybe">0</b> maybe</span>
+    <span>Committed cost <b id="cCost">$0</b></span>
+    <span>If maybes go too <b id="cCostMax">$0</b></span>
+    <span id="cClash" class="clashmsg"></span>
+  </div>
+</section>
+
+<section class="block" id="board">
+  <h2>The full board — all 26 schools</h2>
+  <p class="lede">Coach feedback is verbatim from her doc: <span class="g">on list</span>, <span class="c">not on list</span>, or unresolved. Tier 1 started as everyone who said yes (plus Clemson), Tier 2 is to be determined, Tier 3 is the noes. Use the <strong>1 / 2 / 3</strong> control to move schools — the calendar, counts and filters all follow. Click <em>Details</em> for programs and next steps.</p>
+  <div class="controls">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="t1" aria-pressed="false">Tier 1</button>
+    <button class="chip" data-f="t2" aria-pressed="false">Tier 2</button>
+    <button class="chip" data-f="t3" aria-pressed="false">Tier 3</button>
+    <button class="chip" data-f="ivy" aria-pressed="false">No athletic money</button>
+    <button class="chip" data-f="close" aria-pressed="false">Within 500 miles</button>
+    <button class="chip act" id="copy">Copy tiering</button>
+    <button class="chip act" id="reset">Reset tiers</button>
+  </div>
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead><tr>
+        <th data-k="tier">Tier<span class="car">▲</span></th>
+        <th data-k="name">School<span class="car">▲</span></th>
+        <th data-k="note">Coach feedback<span class="car">▲</span></th>
+        <th data-k="conf">Conference<span class="car">▲</span></th>
+        <th data-k="dist" class="num">Miles<span class="car">▲</span></th>
+        <th data-k="undergrad" class="num">Undergrad<span class="car">▲</span></th>
+        <th data-k="admit" class="num">Admit<span class="car">▲</span></th>
+        <th class="nosort"></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="email">
+  <h2>No clean date — email these instead</h2>
+  <p class="lede">Nine schools that want her — or might — have no clean August date. That is not a reason to wait; it is a reason to write this week, before Sept 1 turns every coach's inbox into a firehose.</p>
+  <ol class="plain"><li><p class="q">Stony Brook</p><p class="a">The best team on her list — No. 5 in the country, a national semifinalist, and a program famous for making great attackers. No fall prospect day is published; their camps announce through @StonyBrookWLAX. Email the staff this week.</p></li>
+<li><p class="q">Loyola Maryland</p><p class="a">Jen Adams is one of the greatest attackers who ever played, now coaching an NCAA tournament team that has Kate on its list. No published date — email.</p></li>
+<li><p class="q">USF</p><p class="a">On her list, and they run a class-of-2028-only prospect camp in November around Presidents Cup weekend. That&#x27;s the one to book — watch usflaxcamps.com.</p></li>
+<li><p class="q">Virginia Tech</p><p class="a">On her list, close, and ACC — but the Aug 15 session collides with Syracuse. Ask for a fall look.</p></li>
+<li><p class="q">Pittsburgh, James Madison, Florida State</p><p class="a">All three on her list, all three stuck behind the Aug 22 pileup. One email each keeps the doors open.</p></li>
+<li><p class="q">Vanderbilt</p><p class="a">On her list, class-of-2028-only clinic, elite academics with scholarship money — but it collides with Brown on the 23rd. Email for fall or winter.</p></li>
+<li><p class="q">URI</p><p class="a">Year-two program on her list. Nothing published — email, and be direct about what role she&#x27;d play in a building roster.</p></li>
+<li><p class="q">Arizona State</p><p class="a">On her list, but 2,050 miles. Before any email, answer the distance question honestly.</p></li>
+<li><p class="q">Penn</p><p class="a">Her doc has U Penn with nothing after the dash. Find out what was actually said before it gets a tier.</p></li></ol>
+</section>
+
+<section class="block" id="activity" style="display:none">
+  <h2>Activity</h2>
+  <p class="lede">Everything that's changed, newest first — tier moves, camp picks, and answered questions.</p>
+  <div class="feed" id="feed"><div class="feeditem"><span class="feedtime">—</span><span>No changes yet.</span></div></div>
+</section>
+
+<section class="block" id="quest">
+  <h2>Your questions</h2>
+  <p class="lede">Four things to work out. Type your answers straight into the boxes — they save into the page's link along with everything else, so use <em>Copy my link</em> when you're done.</p>
+  
+    <section class="qblock">
+      <h3><span class="qnum">1</span>Non-negotiables</h3>
+      <p class="qblurb">Answer these first — each one cuts the board before anything else does.</p>
+      <ol class="qlist"><li><p class="q">How far from home is too far?</p><p class="a">Her list runs from Clemson at 130 miles to Arizona State at 2,050. URI is 840. A real number of hours settles three schools immediately.</p>
+        <textarea class="ans" data-q="1-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Big school or small school?</p><p class="a">Loyola is 4,000 undergrads. Arizona State is 57,000. Both said she's on their list — and they are completely different lives.</p>
+        <textarea class="ans" data-q="1-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">If lacrosse ended after freshman year, would you still want to be there?</p><p class="a">Ask it about every school before spending a Saturday and $300 at its camp.</p>
+        <textarea class="ans" data-q="1-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">2</span>Academics and major</h3>
+      <p class="qblurb">Her list spans a 5.4% admit rate (Brown) to 89% (Arizona State) — the widest spread on any dimension.</p>
+      <ol class="qlist"><li><p class="q">What does she want to study, or what three things is she closest to sure about?</p><p class="a">Brown, Georgetown and Vanderbilt versus FSU, USF and ASU draw completely different maps.</p>
+        <textarea class="ans" data-q="2-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Where do her grades and scores sit right now?</p><p class="a">Brown and Penn are Ivies: need-based aid only, test scores required for her cycle, and admissions runs on an academic index. Send her GPA over and this page gets the same Academic Index calculator treatment — it changes which of those two are real.</p>
+        <textarea class="ans" data-q="2-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Does she want a place where lacrosse is the identity, or one thing she does?</p><p class="a">Syracuse and Stony Brook versus Brown and Georgetown. Both are good answers; they are not the same answer.</p>
+        <textarea class="ans" data-q="2-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">3</span>The attacker math</h3>
+      <p class="qblurb">Different game than most positions: programs take two to four attackers per class, so the question isn&#x27;t whether there&#x27;s a slot — it&#x27;s where she&#x27;d sit in it.</p>
+      <ol class="qlist"><li><p class="q">At every camp, ask one question: how many attackers are you taking in 2028, and what role would I compete for?</p><p class="a">Vague interest is cheap. A number and a role is information.</p>
+        <textarea class="ans" data-q="3-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Feature scorer at a building program, or fight for minutes at a made one?</p><p class="a">FSU, USF and URI are new programs recruiting their first real classes — early playing time is genuinely on the table. Stony Brook and Syracuse are made programs where minutes are earned behind proven attackers. There is no wrong answer, but there is a wrong answer for her.</p>
+        <textarea class="ans" data-q="3-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Whose offense fits how she plays?</p><p class="a">Stony Brook under Spallina is famous for high-volume attacking units. Jen Adams at Loyola teaches the position as well as anyone alive. Watch film of the on-list teams and ask which offense she can see herself in.</p>
+        <textarea class="ans" data-q="3-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
+    </section>
+
+    <section class="qblock">
+      <h3><span class="qnum">4</span>Campus and life</h3>
+      <p class="qblurb">The part nobody asks until April of senior year.</p>
+      <ol class="qlist"><li><p class="q">City, college town, or campus?</p><p class="a">DC and Baltimore versus Clemson and Columbus versus Kingston and Tempe — all on her list.</p>
+        <textarea class="ans" data-q="4-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Does weather matter?</p><p class="a">Tampa, Tallahassee, Tempe, Boulder, Long Island and Rhode Island are all on the same list.</p>
+        <textarea class="ans" data-q="4-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">How often does she want family at games?</p><p class="a">Clemson is a day trip. Arizona State is a flight. That one answer re-sorts the whole board.</p>
+        <textarea class="ans" data-q="4-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
+    </section>
+</section>
+
+<footer>
+  <p><strong>Sources.</strong> Kate's coach-feedback doc (August 2026) and <em>WoodCampTrackerAug2026</em>. Conferences, program results, coaches and camp dates verified against official athletics sites and registration hosts (Ryzer, TotalCamps, Active, CampDoc, Camp Network) on August 1, 2026. Recruiting periods from the NCAA D1 women's lacrosse calendar.</p>
+  <p><strong>Where this could be wrong.</strong> USF's August prospect-day dates are not confirmed on their own site — their November class-of-2028 camp is the likelier play. Loyola, Stony Brook, URI and Arizona State publish no readable camp dates. Enrollment, admit rates and mileages for the newer schools on her list are close approximations. "On list" is a snapshot of one conversation — lists change every season, especially at programs with new staffs like Penn State.</p>
+  <p><strong>Scholarships.</strong> Every school on her list except Brown and Penn offers athletic scholarship money; the two Ivies are need-based aid only and require test scores for her application cycle. New programs (FSU, USF, URI) are still building rosters — that usually means real scholarship room and real playing time earlier.</p>
+</footer>
+</div>
+
+<script>
+const ROWS = [{"name": "Arizona State", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big 12", "loc": "Tempe, AZ", "dist": 2050, "undergrad": 57000, "admit": 89.0, "rank": "NR", "aid": "Athletic scholarships (Big 12)", "camp": "A Sixes clinic exists on their camp site but the date is unreadable \u2014 email the staff. The real question first: is 2,050 miles a yes?", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://sundevillacrossecamps.totalcamps.com/", "prog": "HC Taryn VanThof Puls. 2026: 8\u20139, 3\u20132 Big 12. Farthest school on the board by a factor of two."}, {"name": "Brown", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Ivy League", "loc": "Providence, RI", "dist": 780, "undergrad": 7196, "admit": 5.4, "rank": "NR", "aid": "Need-based only (Ivy) \u2014 and tests required for her cycle", "camp": "August Elite Summer Camp, Aug 23, 10a\u20134p, Providence, $296.50. Her strongest academic option that said yes \u2014 register by Aug 22.", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://register.ryzer.com/camp.cfm?sport=27&id=337878", "prog": "HC Katrina Dowd. 2026: Ivy tournament semifinalist."}, {"name": "Clemson", "tier0": 1, "bucket": "Top 10", "note": "Top ten \u2014 no feedback note", "vlabel": "Unresolved", "vtone": "warning", "vglyph": "\u25cb", "verdict": "tbd", "conf": "ACC", "loc": "Clemson, SC", "dist": 130, "undergrad": 24060, "admit": 42.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "camp": "Tiger LC Sunday Session, Aug 16 \u2014 REGISTERED AND PAID $375. Closest school on the board.", "wlabel": "Booked & paid", "wtone": "book", "campurl": "https://clemsonlaxcamps.com/", "prog": "HC Allison Kwolek. Program launched 2023; ranked as high as No. 8 in 2026, NCAA second round."}, {"name": "Colorado", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big 12", "loc": "Boulder, CO", "dist": 1500, "undergrad": 32200, "admit": 78.0, "rank": "\u2014", "aid": "Athletic scholarships (Big 12)", "camp": "CU Prospect Clinic \u2014 Sept 6 (class of 2028 ONLY, $150) and Sept 26 (2028\u201330, $140, right after their fall scrimmage vs Denver).", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71652436", "prog": "HC Ann Elliott Whidden. 2026 NCAA quarterfinal \u2014 lost to eventual champ Northwestern 10\u20138."}, {"name": "Denver", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big East (lacrosse affiliate)", "loc": "Denver, CO", "dist": 1450, "undergrad": 6613, "admit": 78.0, "rank": "\u2014", "aid": "Athletic scholarships", "camp": "ID Elite Camp \u2014 Sept 5, 9a\u201312p, $215, grad years 2027\u201329. Pairs with Colorado the next morning \u2014 one Front Range weekend covers two on-list schools, after Sept 1 when coaches can finally talk to her.", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://www.denverlacrossecamps.com/idcamp", "prog": "HC Liza Kelly. 2026: 16\u20134, sixth straight Big East title, eighth straight NCAA appearance."}, {"name": "Florida State", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "ACC", "loc": "Tallahassee, FL", "dist": 460, "undergrad": 33000, "admit": 25.0, "rank": "NR", "aid": "Athletic scholarships \u2014 brand-new ACC program with roster spots to fill", "camp": "Garnet Showcase Aug 15 (collides with Syracuse) and Gold Showcase Aug 22 (collides with Ohio State), 9:30a\u201312:30p, $170\u2013200, capped at 80. Email for what's next.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://www.seminolelacrossecamps.com/", "prog": "HC Sara Tisdale. 2026 was the inaugural season (4\u201312). An ACC program building its first real recruiting classes \u2014 maximum opportunity for an attacker."}, {"name": "Georgetown", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big East", "loc": "Washington, DC", "dist": 400, "undergrad": 7833, "admit": 12.9, "rank": "\u2014", "aid": "Athletic scholarships (Big East)", "camp": "Prospect Night \u2014 Aug 20, 6\u20139p, Cooper Field, $150, explicitly targets grad year 2028. Open evening, zero conflicts: register it.", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://www.hoyaslacrossecamps.com/", "prog": "HC Caitlyn Phipps (yr 2). 2026: 12\u20136, Big East finalist."}, {"name": "James Madison", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "American (lacrosse affiliate)", "loc": "Harrisonburg, VA", "dist": 330, "undergrad": 21358, "admit": 72.0, "rank": "\u2014", "aid": "Athletic scholarships", "camp": "August Showcase Aug 22 collides with Ohio State. Fill out their recruiting questionnaire and ask for a fall look.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://jmusports.com/sports/2020/7/5/lacrosse-recruiting", "prog": "HC Shelley Klaes. 2018 national champion; 2026 American champs again, NCAA first-round win over Notre Dame."}, {"name": "Loyola Maryland", "tier0": 1, "bucket": "Top 10", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Patriot League", "loc": "Baltimore, MD", "dist": 440, "undergrad": 4000, "admit": 80.0, "rank": "RV", "aid": "Athletic scholarships (Patriot League)", "camp": "No fall date published \u2014 their Elite ID Clinic brand exists but the camp portal is unreadable. Email the staff.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://greyhoundlacrosse.totalcamps.com/", "prog": "HC Jen Adams \u2014 one of the great attackers ever to play, now a veteran coach. 2026: 12\u20137, NCAA at-large, fell to Syracuse in the first round."}, {"name": "Ohio State", "tier0": 1, "bucket": "Top 10", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big Ten", "loc": "Columbus, OH", "dist": 430, "undergrad": 46800, "admit": 55.0, "rank": "RV", "aid": "Athletic scholarships (Big Ten)", "camp": "Summer Send Off, Aug 22 \u2014 field-player registration $175, sitting unbooked in the tracker. They put her on their list: register it.", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://ohiostatebuckeyes.com/sports/2023/5/31/ohio-state-womens-lacrosse-camps", "prog": "HC Amanda Moore. 2026: 9\u20138; beat No. 4 Northwestern during the season."}, {"name": "Pittsburgh", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "ACC", "loc": "Pittsburgh, PA", "dist": 400, "undergrad": 21388, "admit": 58.0, "rank": "RV", "aid": "Athletic scholarships (ACC)", "camp": "Elite Prospect Day Aug 22 ($263) collides with Ohio State. Email \u2014 young ACC program actively building classes.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://www.pittlacrossecamp.com/", "prog": "HC Emily Boissonneault, founding coach. 2026: first-ever national top-25 ranking."}, {"name": "Rutgers", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Big Ten", "loc": "Piscataway, NJ", "dist": 570, "undergrad": 37750, "admit": 58.0, "rank": "\u2014", "aid": "Athletic scholarships (Big Ten)", "camp": "Summer Elite Prospect Clinic 2 \u2014 Aug 21, 5\u20137p, Piscataway, $165. Evening session, no conflicts: register it.", "wlabel": "Register \u2014 open now", "wtone": "now", "campurl": "https://register.ryzer.com/camp.cfm?id=336039", "prog": "HC Melissa Lehman. 2026: upset No. 17 Princeton in the NCAA first round."}, {"name": "Stony Brook", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "CAA", "loc": "Stony Brook, NY", "dist": 700, "undergrad": 18000, "admit": 49.0, "rank": "5", "aid": "Athletic scholarships", "camp": "No fall prospect day published \u2014 their elite camps announce via @StonyBrookWLAX. Email the staff and watch their socials.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://stonybrookathletics.com/sports/womens-lacrosse", "prog": "HC Joe Spallina. 2026: fourth straight CAA title, No. 5 seed, NATIONAL SEMIFINALIST \u2014 lost 13\u201312 to Johns Hopkins. The best team on her list, and famous for prolific attackers."}, {"name": "Syracuse", "tier0": 1, "bucket": "Top 10", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "ACC", "loc": "Syracuse, NY", "dist": 700, "undergrad": 15480, "admit": 46.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "camp": "Cuse Prospect Day, Aug 15, 9a\u20133p at the Lally Complex \u2014 REGISTERED AND PAID $318.", "wlabel": "Booked & paid", "wtone": "book", "campurl": "https://cusewlax.totalcamps.com", "prog": "HC Regy Thorpe (yr 1). 2026: 14\u20136, No. 9 national seed, NCAA second round."}, {"name": "URI", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "Atlantic 10", "loc": "Kingston, RI", "dist": 840, "undergrad": 14500, "admit": 75.0, "rank": "NR", "aid": "Athletic scholarships \u2014 new program scaling up", "camp": "No camps found. Email the staff \u2014 a year-two program recruiting hungry.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://gorhody.com/sports/womens-lacrosse", "prog": "HC Jenna Slowey. First NCAA season was 2025; 2026: 6\u201310. Building from scratch \u2014 early playing time is the honest pitch here."}, {"name": "USF", "tier0": 1, "bucket": "Other", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "American", "loc": "Tampa, FL", "dist": 585, "undergrad": 38000, "admit": 44.0, "rank": "NR", "aid": "Athletic scholarships \u2014 young program (founded 2022) still building classes", "camp": "August prospect days listed but dates unconfirmed on their site; they historically run a 2028-ONLY prospect camp in November tied to Presidents Cup weekend. That November date is the one to book \u2014 confirm at usflaxcamps.com.", "wlabel": "Dates unpublished", "wtone": "later", "campurl": "https://www.usflaxcamps.com/prospect-days", "prog": "HC Mindy McCord. 2026: won the American regular-season title outright, then was controversially left out of the NCAA field. Ascending fast."}, {"name": "Vanderbilt", "tier0": 1, "bucket": "List", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "American (lacrosse affiliate)", "loc": "Nashville, TN", "dist": 410, "undergrad": 7366, "admit": 5.3, "rank": "NR", "aid": "Athletic scholarships", "camp": "Prospect Clinic Aug 23 (class of 2028 only, $235) collides with Brown. Email and ask for a fall or winter look.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://campscui.active.com/orgs/VanderbiltWomensLacrosseCamps?regnow=camps-regnow&season=3834134&session=71351634", "prog": "HC Beth Hewitt. 2026: 8\u20139, 3\u20133 American. Top-5 academics with scholarship money."}, {"name": "Virginia Tech", "tier0": 1, "bucket": "Top 10", "note": "On list", "vlabel": "On list", "vtone": "good", "vglyph": "\u25cf", "verdict": "yes", "conf": "ACC", "loc": "Blacksburg, VA", "dist": 220, "undergrad": 31536, "admit": 55.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "camp": "Skiera Lacrosse Camps run summer sessions; the Aug 15 option collides with her booked Syracuse day. Email for a fall look instead.", "wlabel": "Date conflict", "wtone": "warn", "campurl": "https://skieralacrossecamps.com/", "prog": "HC Kristen Skiera. 2026: 9\u20138, 3\u20137 ACC. Second-closest school that wants her."}, {"name": "Penn", "tier0": 2, "bucket": "Other", "note": "Blank in her doc", "vlabel": "Unresolved", "vtone": "warning", "vglyph": "\u25cb", "verdict": "tbd", "conf": "Ivy League", "loc": "Philadelphia, PA", "dist": 530, "undergrad": 10500, "admit": 5.4, "rank": "RV", "aid": "Need-based only (Ivy) \u2014 tests required for her cycle", "camp": "Her doc lists U Penn with nothing after the dash. Find out what was said \u2014 or not said \u2014 before deciding a tier.", "wlabel": "Email, no camp", "wtone": "mail", "campurl": "https://pennathletics.com/sports/womens-lacrosse", "prog": "HC Karin Corbett. Received votes in the final 2026 poll."}, {"name": "Florida", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "Big 12 (lacrosse affiliate)", "loc": "Gainesville, FL", "dist": 470, "undergrad": 35000, "admit": 24.0, "rank": "16", "aid": "Athletic scholarships", "camp": "Prospect Camp Aug 16 ($425, register by Aug 7) was her tracker alternate \u2014 it collides with the paid Clemson day AND they said not on list. Skip and save the $425.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://floridagators.com/sports/2025/12/17/2026-lacrosse-prospect-camp", "prog": "HC Amanda O'Leary. 2026: 14\u20132, back-to-back Big 12 regular-season champs."}, {"name": "Maryland", "tier0": 3, "bucket": "Other", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "Big Ten", "loc": "College Park, MD", "dist": 400, "undergrad": 31133, "admit": 45.0, "rank": "4", "aid": "Athletic scholarships (Big Ten)", "camp": "The Aug 17/21 prospect clinics in her tracker were built around Maryland interest that isn't there. Her money goes elsewhere.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://teamsportsinfo.com/um-girls-summerprospectclinics-2026", "prog": "HC Cathy Reese. 2026: 18\u20134, national semifinalist."}, {"name": "Michigan", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "Big Ten", "loc": "Ann Arbor, MI", "dist": 600, "undergrad": 35358, "admit": 15.6, "rank": "10", "aid": "Athletic scholarships (Big Ten)", "camp": "August Elite Camp was in her tracker \u2014 registration closes Aug 14. Let it lapse \u2014 Rutgers, who put her on their list, holds the same evening.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://camps.mgoblue.com/womenslacrosse/", "prog": "HC Hannah Nielsen. 2026 NCAA quarterfinal."}, {"name": "North Carolina", "tier0": 3, "bucket": "Other", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "ACC", "loc": "Chapel Hill, NC", "dist": 140, "undergrad": 20000, "admit": 17.0, "rank": "2", "aid": "Athletic scholarships (ACC)", "camp": "Nothing to do \u2014 the closest big program said no for now. A spring game visit costs nothing if the answer ever changes.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://goheels.com/sports/womens-lacrosse", "prog": "HC Jenny Levy. 2026 national runner-up."}, {"name": "Notre Dame", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "ACC", "loc": "South Bend, IN", "dist": 690, "undergrad": 8923, "admit": 9.0, "rank": "\u2014", "aid": "Athletic scholarships (ACC)", "camp": "Last Stop Prospect Camp Aug 23 \u2014 skip; Brown holds that date.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://fightingirish.com/womens-lacrosse-camps/", "prog": "HC Christine Halfpenny. 2026 NCAA first round."}, {"name": "Penn State", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "Big Ten", "loc": "University Park, PA", "dist": 430, "undergrad": 42000, "admit": 55.0, "rank": "19", "aid": "Athletic scholarships (Big Ten)", "camp": "Elite Clinic Aug 22 ($275) \u2014 skip while the answer is no; the day is taken anyway.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://gopsusports.com/girls-lacrosse-camps", "prog": "HC Kayla Treanor (yr 1, ex-Syracuse). 2026: 12\u20137, NCAA first round \u2014 sharply up. Worth re-checking in the spring; new staffs re-do lists."}, {"name": "Virginia", "tier0": 3, "bucket": "Top 10", "note": "Not on list", "vlabel": "Not on list", "vtone": "critical", "vglyph": "\u2715", "verdict": "no", "conf": "ACC", "loc": "Charlottesville, VA", "dist": 270, "undergrad": 18000, "admit": 16.5, "rank": "RV", "aid": "Athletic scholarships (ACC)", "camp": "UVA Aug 22 was in her tracker \u2014 drop it. That day now belongs to Ohio State, who actually want her.", "wlabel": "Off the plan", "wtone": "past", "campurl": "https://www.lamonicasports.com/", "prog": "HC Sonia LaMonica. 2026: 8\u20139, missed NCAAs."}];
+const CAMPS = [{"d": "2026-08-15", "school": "Syracuse", "name": "Cuse Prospect Day", "time": "9:00a\u20133:00p", "loc": "Lally Complex, Syracuse, NY", "elig": "Grad 2026\u20132030", "price": 318, "elig2028": true, "status": "booked", "url": "https://cusewlax.totalcamps.com", "note": "REGISTERED AND PAID. Check-in 8:15a. On her list \u2014 this is a live audition, not just exposure.", "dow": "Sat", "label": "Aug 15"}, {"d": "2026-08-15", "school": "Florida State", "name": "Garnet Showcase", "time": "9:30a\u201312:30p", "loc": "Tallahassee, FL", "elig": "2+ yrs competitive", "price": 200, "elig2028": true, "status": "open", "url": "https://www.seminolelacrossecamps.com/", "note": "On her list, but same day as the paid Syracuse trip. The Gold Showcase on the 22nd has the same problem \u2014 email FSU instead.", "dow": "Sat", "label": "Aug 15"}, {"d": "2026-08-16", "school": "Clemson", "name": "Tiger LC Sunday Session", "time": "all day", "loc": "Clemson, SC", "elig": "Grades 8\u201311", "price": 375, "elig2028": true, "status": "booked", "url": "https://clemsonlaxcamps.com/", "note": "REGISTERED AND PAID. Closest school on the board at 130 miles.", "dow": "Sun", "label": "Aug 16"}, {"d": "2026-08-16", "school": "Florida", "name": "Prospect Camp", "time": "all day", "loc": "Gainesville, FL", "elig": "Grad 2028\u20132032", "price": 425, "elig2028": true, "status": "open", "url": "https://floridagators.com/sports/2025/12/17/2026-lacrosse-prospect-camp", "note": "Not on her list, collides with the paid Clemson day, and costs $425 with an Aug 7 deadline. Skip.", "dow": "Sun", "label": "Aug 16"}, {"d": "2026-08-20", "school": "Georgetown", "name": "Prospect Night", "time": "6:00\u20139:00p", "loc": "Cooper Field, Washington, DC", "elig": "Grad 2028", "price": 150, "elig2028": true, "status": "open", "url": "https://www.hoyaslacrossecamps.com/", "note": "On her list, targets her class specifically, and sits on an open evening. Register it.", "dow": "Thu", "label": "Aug 20"}, {"d": "2026-08-21", "school": "Rutgers", "name": "Summer Elite Prospect Clinic 2", "time": "5:00\u20137:00p", "loc": "Piscataway, NJ", "elig": "Grades 9\u201312", "price": 165, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?id=336039", "note": "On her list. Evening session \u2014 register it.", "dow": "Fri", "label": "Aug 21"}, {"d": "2026-08-21", "school": "Michigan", "name": "August Elite Camp (day 1 of 2)", "time": "4:30\u20137:30p", "loc": "Ann Arbor, MI", "elig": "Grades 9\u201312", "price": 324, "elig2028": true, "status": "closing", "url": "https://camps.mgoblue.com/womenslacrosse/", "note": "Not on her list. Registration closes Aug 14 \u2014 let it lapse and keep the $324.", "dow": "Fri", "label": "Aug 21"}, {"d": "2026-08-22", "school": "Ohio State", "name": "Summer Send Off (field player)", "time": "all day", "loc": "Columbus, OH", "elig": "Grades 9\u201312", "price": 175, "elig2028": true, "status": "open", "url": "https://ohiostatebuckeyes.com/sports/2023/5/31/ohio-state-womens-lacrosse-camps", "note": "On her list and already in her plan \u2014 it just was never booked. Register the field-player spot.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Pittsburgh", "name": "Elite Prospect Day", "time": "11:00a\u20133:00p", "loc": "Pitt Sports Dome, Pittsburgh, PA", "elig": "Grad 2026\u20132029", "price": 263, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=333577", "note": "On her list, but head-to-head with Ohio State. Email Pitt for a fall look instead.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "James Madison", "name": "August Showcase", "time": "10:00a\u20131:00p", "loc": "Harrisonburg, VA", "elig": "Grades 9\u201312", "price": 225, "elig2028": true, "status": "open", "url": "https://laxology.totalcamps.com/shop/product/649828", "note": "On her list, same collision. Their recruiting questionnaire plus an email keeps the door open.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Florida State", "name": "Gold Showcase", "time": "9:30a\u201312:30p", "loc": "Tallahassee, FL", "elig": "2+ yrs competitive", "price": 200, "elig2028": true, "status": "open", "url": "https://www.seminolelacrossecamps.com/", "note": "Second FSU chance, same conflict. Email them.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-22", "school": "Penn State", "name": "Elite Clinic", "time": "12:00\u20134:00p", "loc": "University Park, PA", "elig": "Grades 8\u201312", "price": 275, "elig2028": true, "status": "open", "url": "https://gopsusports.com/girls-lacrosse-camps", "note": "Not on her list. Skip \u2014 though with a new staff that just made the NCAAs, worth re-checking in spring.", "dow": "Sat", "label": "Aug 22"}, {"d": "2026-08-23", "school": "Brown", "name": "August Elite Summer Camp", "time": "10:00a\u20134:00p", "loc": "Stevenson-Pincince Field, Providence, RI", "elig": "Grades 8\u201312", "price": 296, "elig2028": true, "status": "open", "url": "https://register.ryzer.com/camp.cfm?sport=27&id=337878", "note": "On her list, and her strongest academic option that said yes. Register by Aug 22.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-23", "school": "Vanderbilt", "name": "Prospect Clinic", "time": "10:00a\u20131:00p", "loc": "Indoor Field House, Nashville, TN", "elig": "Class of 2028 ONLY", "price": 235, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/VanderbiltWomensLacrosseCamps?regnow=camps-regnow&season=3834134&session=71351634", "note": "On her list and her class only \u2014 but it collides with Brown. Requires an NCAA Eligibility Number to register. Email for a fall look.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-08-23", "school": "USF", "name": "Prospect Day (date unconfirmed)", "time": "8:30a\u20133:00p", "loc": "Tampa, FL", "elig": "Class of 2028 ONLY", "price": 0, "elig2028": true, "status": "open", "url": "https://www.usflaxcamps.com/prospect-days", "note": "Their site says August and November prospect days but doesn't confirm dates. The November 2028-only camp is the better play \u2014 confirm both before booking anything.", "dow": "Sun", "label": "Aug 23"}, {"d": "2026-09-05", "school": "Denver", "name": "ID Elite Camp", "time": "9:00a\u201312:00p", "loc": "University of Denver, CO", "elig": "Grad 2027\u20132029", "price": 215, "elig2028": true, "status": "open", "url": "https://www.denverlacrossecamps.com/idcamp", "note": "On her list. Optional campus tour at noon; page warns it will sell out. Pairs with Boulder the next morning.", "dow": "Sat", "label": "Sep 5"}, {"d": "2026-09-06", "school": "Colorado", "name": "CU Prospect Clinic", "time": "8:00a\u201312:00p", "loc": "Ford Practice Facility, Boulder, CO", "elig": "Class of 2028 ONLY", "price": 150, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71652436", "note": "On her list and her class exclusively \u2014 and it lands after Sept 1, when coaches can finally talk to her directly.", "dow": "Sun", "label": "Sep 6"}, {"d": "2026-09-26", "school": "Colorado", "name": "CU Prospect Clinic (fall)", "time": "2:00\u20135:30p", "loc": "Boulder, CO", "elig": "Grad 2028\u20132030", "price": 140, "elig2028": true, "status": "open", "url": "https://campscui.active.com/orgs/ColoradoLacrosse?regnow=camps-regnow&season=3843936&session=71704338", "note": "Runs right after CU's fall scrimmage against Denver at Folsom Field \u2014 she'd watch two on-list programs play, then train.", "dow": "Sat", "label": "Sep 26"}];
+const tiers = {}, picks = {}, answers = {};
+ROWS.forEach(r => tiers[r.name] = r.tier0);
+
+/* ---------- state: device storage + URL + live sync ---------- */
+let log = [];
+function stateBlob() {
+  const t = {};
+  ROWS.forEach(r => { if (tiers[r.name] !== r.tier0) t[r.name] = tiers[r.name]; });
+  return { t, p: picks, a: answers };
+}
+function logEvent(m) {
+  log.unshift({ t: Date.now(), m });
+  if (log.length > 150) log.length = 150;
+}
+function saveState() {
+  const s = { ...stateBlob(), log };
+  try { localStorage.setItem('rw5', JSON.stringify(s)); } catch (e) { }
+  try {
+    history.replaceState(null, '', '#' + btoa(unescape(encodeURIComponent(JSON.stringify(stateBlob())))));
+  } catch (e) { }
+  schedulePush();
+}
+function adoptState(s) {
+  Object.assign(tiers, s.t || {});
+  Object.assign(picks, s.p || {});
+  Object.assign(answers, s.a || {});
+  if (s.log) log = s.log;
+}
+function loadState() {
+  if (location.hash && location.hash.length > 2) {
+    try { adoptState(JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))))); return; }
+    catch (e) { }
+  }
+  try {
+    const s = JSON.parse(localStorage.getItem('rw5'));
+    if (s) adoptState(s);
+  } catch (e) { }
+}
+loadState();
+
+/* ---------- helpers ---------- */
+const tierOf = school => tiers[school] || 3;
+const gk27Of = school => (ROWS.find(r => r.name === school) || {}).gk27;
+const key = c => c.d + '|' + c.school + '|' + c.name;
+const money = n => '$' + n.toLocaleString();
+
+/* crude minute range so we can detect same-day overlaps */
+function span(t) {
+  const m = t.match(/(\d+):?(\d*)\s*([ap])[^0-9]*?(\d+):?(\d*)\s*([ap])/i);
+  if (!m) return null;
+  const to = (h, mi, ap) => {
+    h = +h % 12; if (ap.toLowerCase() === 'p') h += 12;
+    return h * 60 + (+mi || 0);
+  };
+  return [to(m[1], m[2], m[3]), to(m[4], m[5], m[6])];
+}
+
+/* ---------- calendar ---------- */
+let calFilter = 'all';
+const calWrap = document.getElementById('calendar');
+
+function calPass(c) {
+  const t = tierOf(c.school);
+  switch (calFilter) {
+    case 't1':   return t === 1;
+    case 't12':  return t <= 2;
+    case 'open': return gk27Of(c.school) === 'open';
+    case 'going':return picks[key(c)] === 'going';
+    default:     return true;
+  }
+}
+
+function renderCal() {
+  const list = CAMPS.filter(calPass);
+  const days = [...new Set(list.map(c => c.d))].sort();
+  let html = '', prev = null;
+  days.forEach(d => {
+    const items = list.filter(c => c.d === d);
+    const going = items.filter(c => picks[key(c)] === 'going' || c.status === 'booked');
+    let clash = false;
+    for (let i = 0; i < going.length; i++) for (let j = i + 1; j < going.length; j++) {
+      const a = span(going[i].time), b = span(going[j].time);
+      if (going[i].loc !== going[j].loc && (!a || !b || (a[0] < b[1] && b[0] < a[1]))) clash = true;
+    }
+    if (prev) {
+      const gapDays = (new Date(d) - new Date(prev)) / 86400000;
+      if (gapDays > 1) html += `<div class="gap">${gapDays - 1} day${gapDays > 2 ? 's' : ''} with nothing available</div>`;
+    }
+    prev = d;
+    const dt = new Date(d + 'T12:00:00');
+    const cls = clash ? 'clash' : (going.length ? 'hasgoing' : '');
+    const msg = clash
+      ? '<span class="clashmsg">Overlapping picks — choose one</span>'
+      : (going.length > 1 ? '<span class="okmsg">Both fit — check the drive</span>' : '');
+    html += `<div class="day ${cls}">
+      <div class="dayhead">
+        <div class="dayname">${dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+          <small>${dt.toLocaleDateString('en-US', { weekday: 'long' })}</small></div>
+        ${msg}
+        <div class="daymeta">${items.length} option${items.length > 1 ? 's' : ''}</div>
+      </div>`;
+    items.forEach(c => {
+      const k = key(c);
+      const st = c.status === 'booked' ? 'going' : (picks[k] || '');
+      const t = tierOf(c.school);
+      const flags = [];
+      if (c.status === 'booked') flags.push('<span class="flag paid">PAID</span>');
+      if (c.status === 'closing') flags.push('<span class="flag close">CLOSES AUG 14</span>');
+      if (/ONLY/.test(c.elig)) flags.push('<span class="flag only">YOUR CLASS ONLY</span>');
+      if (gk27Of(c.school) === 'open') flags.push('<span class="flag only">NO 2027 GK</span>');
+      const seg = ['going', 'maybe', 'skip'].map(s =>
+        `<button data-k="${k}" data-s="${s}" class="${st === s ? 'on' : ''}">${s[0].toUpperCase() + s.slice(1)}</button>`).join('');
+      html += `<div class="camp st-${st}">
+        <div class="campmain">
+          <div class="camptop">
+            <span class="tchip k${t}">TIER ${t}</span>
+            <span class="campschool">${c.school}</span>
+            <span class="campname">${c.name}</span>
+            ${flags.join(' ')}
+          </div>
+          <div class="campmeta">${c.time} · ${c.loc} · ${c.elig} · ${c.price ? money(c.price) : 'included'}
+            · <a href="${c.url}" target="_blank" rel="noopener">register</a></div>
+          <p class="campnote">${c.note}</p>
+        </div>
+        <span class="setgrp">${seg}</span>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  calWrap.innerHTML = html || '<div class="gap">Nothing matches this filter.</div>';
+  calWrap.querySelectorAll('.setgrp button').forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    picks[k] = (picks[k] === b.dataset.s) ? '' : b.dataset.s;
+    const [pd, pschool] = k.split('|');
+    logEvent(picks[k] ? `${pschool} camp (${pd.slice(5)}): marked ${picks[k]}` : `${pschool} camp (${pd.slice(5)}): cleared`);
+    saveState(); renderCal(); calTotals();
+  });
+  calTotals();
+}
+
+function calTotals() {
+  let going = 0, maybe = 0, cost = 0, costMax = 0, clashes = 0;
+  const byDay = {};
+  CAMPS.forEach(c => {
+    const st = c.status === 'booked' ? 'going' : (picks[key(c)] || '');
+    if (st === 'going') { going++; cost += c.price; costMax += c.price; (byDay[c.d] ||= []).push(c); }
+    if (st === 'maybe') { maybe++; costMax += c.price; }
+  });
+  Object.values(byDay).forEach(items => {
+    for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
+      const a = span(items[i].time), b = span(items[j].time);
+      if (items[i].loc !== items[j].loc && (!a || !b || (a[0] < b[1] && b[0] < a[1]))) clashes++;
+    }
+  });
+  document.getElementById('cGoing').textContent = going;
+  document.getElementById('cMaybe').textContent = maybe;
+  document.getElementById('cCost').textContent = money(cost);
+  document.getElementById('cCostMax').textContent = money(costMax);
+  document.getElementById('cClash').textContent = clashes
+    ? `${clashes} conflict${clashes > 1 ? 's' : ''} to resolve` : '';
+}
+
+document.querySelectorAll('.chip[data-c]').forEach(c => c.onclick = () => {
+  document.querySelectorAll('.chip[data-c]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  c.setAttribute('aria-pressed', 'true');
+  calFilter = c.dataset.c; renderCal();
+});
+document.getElementById('clearcal').onclick = () => {
+  Object.keys(picks).forEach(k => delete picks[k]);
+  saveState(); renderCal();
+};
+
+/* ---------- board ---------- */
+const tb = document.querySelector('#tbl tbody');
+let filter = 'all', sortK = null, sortAsc = true;
+const bars = (n, ret) => {
+  let s = '<span class="gkbar">';
+  for (let i = 0; i < n; i++) s += '<i class="' + (i < ret ? 'on' : '') + '"></i>';
+  return s + '</span>';
+};
+const roomWord = r => r.ret === 0 ? ['Wide open', 'g'] : (r.ngk >= 5 ? ['Crowded', 'c'] : ['Room', 'w']);
+
+function pass(r) {
+  const t = tiers[r.name];
+  switch (filter) {
+    case 't1': return t === 1;
+    case 't2': return t === 2;
+    case 't3': return t === 3;
+    case 'ivy': return /Ivy|tuition-free/.test(r.aid);
+    case 'close': return r.dist <= 500;
+    default: return true;
+  }
+}
+function stats() {
+  const c = [0, 0, 0];
+  ROWS.forEach(r => c[tiers[r.name] - 1]++);
+  document.getElementById('s1').textContent = c[0];
+  document.getElementById('s2').textContent = c[1];
+  document.getElementById('s3').textContent = c[2];
+  document.getElementById('s4').textContent =
+    ROWS.filter(r => r.verdict === 'yes').length;
+}
+function render() {
+  let data = ROWS.filter(pass);
+  const kf = r => sortK === 'tier' ? tiers[r.name] : r[sortK];
+  if (sortK) data = data.slice().sort((a, b) => {
+    const x = kf(a), y = kf(b);
+    const c = (typeof x === 'number') ? x - y : String(x).localeCompare(String(y));
+    return sortAsc ? c : -c;
+  });
+  else data = data.slice().sort((a, b) => tiers[a.name] - tiers[b.name] || a.name.localeCompare(b.name));
+  tb.innerHTML = data.map((r, i) => {
+    const t = tiers[r.name];
+    const seg = [1, 2, 3].map(n =>
+      `<button data-name="${r.name}" data-t="${n}" class="${n === t ? 'on' : ''}">${n}</button>`).join('');
+    return `<tr class="tier-${t}">
+      <td><span class="tiersel">${seg}</span>${t !== r.tier0 ? '<span class="moved">moved</span>' : ''}</td>
+      <td><div class="sch">${r.name}</div><div class="bkt">${r.bucket}</div></td>
+      <td><span class="dot ${r.vtone[0]}">${r.vglyph}</span>${r.note}</td>
+      <td>${r.conf}</td>
+      <td class="num">${r.dist.toLocaleString()}</td>
+      <td class="num">${r.undergrad.toLocaleString()}</td>
+      <td class="num">${r.admit}%</td>
+      <td><button class="expand" data-i="${i}">Details</button></td>
+    </tr>`;
+  }).join('');
+  tb.querySelectorAll('.tiersel button').forEach(b => b.onclick = () => {
+    if (tiers[b.dataset.name] !== +b.dataset.t) logEvent(`Moved ${b.dataset.name} to Tier ${b.dataset.t}`);
+    tiers[b.dataset.name] = +b.dataset.t;
+    saveState(); stats(); render(); renderCal();
+  });
+  tb.querySelectorAll('.expand').forEach(b => b.onclick = () => {
+    const tr = b.closest('tr');
+    if (tr.nextElementSibling && tr.nextElementSibling.classList.contains('det')) {
+      tr.nextElementSibling.remove(); b.textContent = 'Details'; return;
+    }
+    const r = data[+b.dataset.i];
+    const d = document.createElement('tr');
+    d.className = 'det';
+    d.innerHTML = `<td colspan="8"><div class="detgrid">
+      <div><h4>Next step</h4><p>${r.camp}</p>
+        <p style="margin-top:6px"><a href="${r.campurl}" target="_blank" rel="noopener">Open link &rarr;</a></p></div>
+      <div><h4>Program &amp; aid</h4><p>${r.prog}</p><p style="margin-top:6px">${r.aid}</p>
+        <p style="margin-top:6px"><strong>Final 2026 poll:</strong> ${r.rank}</p></div>
+    </div></td>`;
+    tr.after(d); b.textContent = 'Hide';
+  });
+}
+document.querySelectorAll('.chip[data-f]').forEach(c => c.onclick = () => {
+  document.querySelectorAll('.chip[data-f]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  c.setAttribute('aria-pressed', 'true');
+  filter = c.dataset.f; render();
+});
+document.querySelectorAll('#tbl th[data-k]').forEach(th => th.onclick = () => {
+  const k = th.dataset.k;
+  sortAsc = (sortK === k) ? !sortAsc : true;
+  sortK = k;
+  document.querySelectorAll('#tbl th').forEach(x => {
+    x.removeAttribute('data-sorted');
+    const c = x.querySelector('.car'); if (c) c.textContent = '▲';
+  });
+  th.setAttribute('data-sorted', '1');
+  th.querySelector('.car').textContent = sortAsc ? '▲' : '▼';
+  render();
+});
+document.getElementById('reset').onclick = () => {
+  ROWS.forEach(r => tiers[r.name] = r.tier0);
+  saveState(); stats(); render(); renderCal();
+};
+document.getElementById('copy').onclick = async (e) => {
+  let out = 'Kate Wood — recruiting tiers\n';
+  [1, 2, 3].forEach(t => {
+    const names = ROWS.filter(r => tiers[r.name] === t).map(r => r.name).sort();
+    out += `\nTier ${t} (${names.length})\n` + names.map(n => '  - ' + n).join('\n') + '\n';
+  });
+  const going = CAMPS.filter(c => picks[key(c)] === 'going' || c.status === 'booked');
+  if (going.length) {
+    out += '\nCamps — going\n' + going.map(c => `  - ${c.label}  ${c.school} (${c.name}) ${money(c.price)}`).join('\n') + '\n';
+  }
+  try { await navigator.clipboard.writeText(out); e.target.textContent = 'Copied'; }
+  catch (err) { e.target.textContent = 'Copy blocked'; }
+  setTimeout(() => e.target.textContent = 'Copy tiering', 1600);
+};
+
+/* ---------- answers ---------- */
+document.querySelectorAll('textarea.ans').forEach(t => {
+  if (answers[t.dataset.q]) t.value = answers[t.dataset.q];
+  t.addEventListener('input', () => {
+    answers[t.dataset.q] = t.value;
+    if (!t.dataset.logged && t.value.trim()) {
+      const qEl = t.closest('li').querySelector('.q');
+      logEvent(`Answered: “${qEl ? qEl.textContent.slice(0, 60) : t.dataset.q}”`);
+      t.dataset.logged = '1';
+    }
+    saveState();
+  });
+});
+
+document.getElementById('save').onclick = async (e) => {
+  saveState();
+  try { await navigator.clipboard.writeText(location.href); e.target.textContent = 'Link copied'; }
+  catch (err) { e.target.textContent = 'Copy blocked'; }
+  setTimeout(() => e.target.textContent = 'Copy my link', 1800);
+};
+document.getElementById('tg').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+};
+
+/* ---------- academic index ---------- */
+const CGS = 78; // 3.9 unweighted x 20
+const satEl = document.getElementById('satRange');
+const ACT2SAT = {19:1010,20:1040,21:1080,22:1110,23:1140,24:1180,25:1210,26:1240,27:1280,28:1310,29:1340,30:1370,31:1400,32:1430,33:1460,34:1500,35:1540,36:1590};
+const AI_SCHOOLS = [
+  ['Brown', 218, 'her YES — TOP'],
+  ['Dartmouth', 218, 'Tier 1 · no 2027 GK'],
+  ['Cornell', 218, 'Tier 1'],
+  ['Harvard', 223, 'Tier 1'],
+  ['Penn', 218, 'Tier 2'],
+  ['Princeton', 223, 'Tier 2'],
+];
+function actFromSat(s) {
+  let best = 19;
+  for (const [a, v] of Object.entries(ACT2SAT)) if (s >= v) best = Math.max(best, +a);
+  return best;
+}
+function testMode() { return answers['testMode'] === 'act' ? 'act' : 'sat'; }
+function applyModeUI() {
+  const m = testMode();
+  document.querySelectorAll('#testMode button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  if (m === 'act') {
+    satEl.min = 19; satEl.max = 36; satEl.step = 1;
+    satEl.value = answers['actTarget'] || 31;
+    document.getElementById('satLabels').innerHTML = '<span>19</span><span>25</span><span>31</span><span>36</span>';
+  } else {
+    satEl.min = 1000; satEl.max = 1600; satEl.step = 10;
+    satEl.value = answers['satTarget'] || 1400;
+    document.getElementById('satLabels').innerHTML = '<span>1000</span><span>1200</span><span>1400</span><span>1600</span>';
+  }
+}
+function paintAI() {
+  if (!satEl) return;
+  const m = testMode();
+  let sat, sub;
+  if (m === 'act') {
+    const act = +satEl.value;
+    sat = ACT2SAT[act] || 1000;
+    sub = `estimated Academic Index at ACT <b>${act}</b> (≈ SAT ${sat})`;
+  } else {
+    sat = +satEl.value;
+    sub = `estimated Academic Index at SAT <b>${sat}</b> (≈ ACT ${actFromSat(sat)})`;
+  }
+  const ai = Math.round(CGS + sat / 10);
+  document.getElementById('aiNum').textContent = ai;
+  document.getElementById('aiSub').innerHTML = sub;
+  const bandEl = document.getElementById('aiBand');
+  let msg, cls;
+  if (ai < 176) { msg = 'Below the league floor — no Ivy coach can support this.'; cls = 'c'; }
+  else if (ai < 205) { msg = 'Above the floor, but below the practical band for her list.'; cls = 'c'; }
+  else if (ai < 213) { msg = 'Low band — possible, but a coach has to spend capital to carry it.'; cls = 's'; }
+  else if (ai < 218) { msg = 'In the conversation at every Ivy on her board.'; cls = 'w'; }
+  else if (ai < 223) { msg = 'Safe band at Brown, Dartmouth, Cornell and Penn.'; cls = 'g'; }
+  else { msg = 'Safe everywhere on the board — Harvard and Princeton included.'; cls = 'g'; }
+  bandEl.textContent = msg;
+  bandEl.className = 'aiband ' + cls;
+  document.getElementById('aiSchools').innerHTML = AI_SCHOOLS.map(([n, safe, tag]) => {
+    let st, sc;
+    if (ai >= safe) { st = 'safe band'; sc = 'g'; }
+    else if (ai >= 213) { st = 'in the conversation'; sc = 'w'; }
+    else if (ai >= 205) { st = 'low band'; sc = 's'; }
+    else { st = 'out of band'; sc = 'c'; }
+    return `<div class="schoolchip"><span><b>${n}</b> <span style="color:var(--mut);font-size:11.5px">${tag}</span></span><span class="${sc}">${st}</span></div>`;
+  }).join('');
+}
+function restoreAcademics() {
+  if (!satEl) return;
+  applyModeUI();
+  paintAI();
+}
+if (satEl) {
+  satEl.addEventListener('input', paintAI);
+  satEl.addEventListener('change', () => {
+    const m = testMode();
+    const ai = Math.round(CGS + (m === 'act' ? (ACT2SAT[+satEl.value] || 1000) : +satEl.value) / 10);
+    if (m === 'act') { answers['actTarget'] = satEl.value; logEvent(`ACT target set to ${satEl.value} (AI ~${ai})`); }
+    else { answers['satTarget'] = satEl.value; logEvent(`SAT target set to ${satEl.value} (AI ~${ai})`); }
+    saveState();
+  });
+  document.querySelectorAll('#testMode button').forEach(b => b.onclick = () => {
+    answers['testMode'] = b.dataset.m;
+    saveState();
+    applyModeUI();
+    paintAI();
+  });
+}
+
+/* ---------- live sync ---------- */
+const FAM = 'wood2028-k15-m4x7q2';
+const DAD = new URLSearchParams(location.search).has('dad');
+const CANSYNC = location.protocol === 'http:' || location.protocol === 'https:';
+let lastRemote = 0, pushTimer = null;
+const syncEl = document.getElementById('sync');
+const SYNCTXT = { ok: 'Synced ✓', saving: 'Saving…', local: 'On this device', off: 'Offline — saved here' };
+function setSync(s) { syncEl.textContent = SYNCTXT[s] || s; }
+setSync(CANSYNC ? 'saving' : 'local');
+
+function schedulePush() {
+  if (!CANSYNC) return;
+  setSync('saving');
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(async () => {
+    pushTimer = null;
+    try {
+      const r = await fetch('/api/state', { method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ key: FAM, state: stateBlob(), log }) });
+      const j = await r.json();
+      if (j.configured === false) setSync('local');
+      else { lastRemote = j.updatedAt || Date.now(); setSync('ok'); }
+    } catch (e) { setSync('off'); }
+  }, 900);
+}
+
+function renderFeed() {
+  const feed = document.getElementById('feed');
+  if (!log.length) return;
+  feed.innerHTML = log.map(e => {
+    const d = new Date(e.t);
+    const when = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+      d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    return `<div class="feeditem"><span class="feedtime">${when}</span><span>${e.m}</span></div>`;
+  }).join('');
+  const seen = document.getElementById('lastseen');
+  if (seen) {
+    const d = new Date(log[0].t);
+    seen.textContent = 'last change ' + d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) +
+      ' at ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  }
+}
+
+async function pull() {
+  if (!CANSYNC || pushTimer) return;
+  try {
+    const r = await fetch('/api/state?key=' + FAM);
+    const j = await r.json();
+    if (j.configured === false) { setSync('local'); return; }
+    if (j.state && j.updatedAt > lastRemote) {
+      lastRemote = j.updatedAt;
+      if (j.log) log = j.log;
+      Object.keys(picks).forEach(k => delete picks[k]);
+      Object.keys(answers).forEach(k => delete answers[k]);
+      ROWS.forEach(r2 => tiers[r2.name] = r2.tier0);
+      adoptState(j.state);
+      document.querySelectorAll('textarea.ans').forEach(t => t.value = answers[t.dataset.q] || '');
+      restoreAcademics();
+      stats(); render(); renderCal(); renderFeed();
+    }
+    setSync('ok');
+  } catch (e) { setSync('off'); }
+}
+
+if (DAD) {
+  document.getElementById('dadbar').style.display = '';
+  document.getElementById('activity').style.display = '';
+  document.getElementById('navact').style.display = '';
+  document.title = 'Kate Lax — Dad View';
+  const mt = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+  if (mt) mt.setAttribute('content', 'Kate Dad');
+  const h1 = document.querySelector('header.top h1');
+  if (h1) h1.textContent = 'Lax Dad — Kate';
+  const sub = document.querySelector('header.top .sub');
+  if (sub) sub.textContent = "Live view of Kate's workbook · Class of 2028 · Attack · #15";
+  setInterval(pull, 10000);
+} else if (CANSYNC) {
+  setInterval(pull, 45000);
+}
+if (CANSYNC) pull().then(renderFeed);
+renderFeed();
+
+if ('serviceWorker' in navigator && CANSYNC) navigator.serviceWorker.register('/recruiting/sw.js').catch(() => {});
+
+stats(); render(); renderCal(); restoreAcademics();
+</script>
+</body>
+</html>
