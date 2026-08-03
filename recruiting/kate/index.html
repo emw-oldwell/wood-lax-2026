@@ -222,10 +222,9 @@ footer p{margin:0 0 8px;max-width:86ch}
 
 <nav class="jump">
   <a href="#how">How to use this</a>
-  <a href="#cal">Camp calendar</a>
   <a href="#board">The full board</a>
+  <a href="#cal">Camp schedule</a>
   <a href="#email">Email, no camp</a>
-  <a href="#quest">Your questions</a>
   <a href="#activity" id="navact" style="display:none">Activity</a>
 </nav>
 
@@ -239,9 +238,8 @@ footer p{margin:0 0 8px;max-width:86ch}
   <h2>Kate — start here</h2>
   <p class="a">This is a working document, not a report. Three things to do, in this order:</p>
   <ol>
-    <li><strong>Work the calendar.</strong> Every women's lacrosse camp from Aug 15 into the fall that you're eligible for is listed by day. Mark each one <em>Going</em>, <em>Maybe</em> or <em>Skip</em>. The page flags days where you've picked two camps that overlap, and keeps a running cost total at the bottom.</li>
-    <li><strong>Set your own tiers.</strong> The board has a 1 · 2 · 3 toggle on every school. Move them as you learn things. Nothing here is fixed.</li>
-    <li><strong>Answer the questions at the bottom.</strong> Not tonight, and not all at once. Each answer moves schools between tiers, and a shorter Tier 1 makes a much better September.</li>
+    <li><strong>Set your tiers on the full board.</strong> Every school has a 1 · 2 · 3 toggle. Tier 1 started as everyone who put you on their list — move them as you learn things. Nothing here is fixed.</li>
+    <li><strong>Then work the schedule.</strong> Every camp you're eligible for is listed by day underneath. Mark each one <em>Going</em>, <em>Maybe</em> or <em>Skip</em> — the page flags days that collide and keeps a running cost total.</li>
   </ol>
   <p class="a" style="margin-top:11px">One thing to carry into every camp: ask the staff <strong>“how many attackers are you taking in 2028, and what role would I compete for?”</strong> A number and a role beat a whole day of vague interest.</p>
 </div>
@@ -258,26 +256,6 @@ footer p{margin:0 0 8px;max-width:86ch}
   <div class="stat"><div class="v c3" id="s3">7</div><div class="k">Tier 3</div></div>
   <div class="stat"><div class="v g" id="s4">17</div><div class="k">programs that said she's on their list</div></div>
 </div>
-
-<section class="block" id="cal">
-  <h2>Camp calendar</h2>
-  <p class="lede">Every verified women's lacrosse prospect day, ID clinic and elite camp on her radar, Aug 15 into the fall. Mark each one and the page will flag time conflicts and total the cost. Tier colours follow whatever you set on the board below.</p>
-  <div class="controls">
-    <button class="chip" data-c="all" aria-pressed="true">All camps</button>
-    <button class="chip" data-c="t1" aria-pressed="false">Tier 1 only</button>
-    <button class="chip" data-c="t12" aria-pressed="false">Tier 1 + 2</button>
-    <button class="chip" data-c="going" aria-pressed="false">My picks</button>
-    <button class="chip act" id="clearcal">Clear picks</button>
-  </div>
-  <div id="calendar"></div>
-  <div class="totalbar">
-    <span><b id="cGoing">0</b> going</span>
-    <span><b id="cMaybe">0</b> maybe</span>
-    <span>Committed cost <b id="cCost">$0</b></span>
-    <span>If maybes go too <b id="cCostMax">$0</b></span>
-    <span id="cClash" class="clashmsg"></span>
-  </div>
-</section>
 
 <section class="block" id="board">
   <h2>The full board — all 26 schools</h2>
@@ -309,6 +287,26 @@ footer p{margin:0 0 8px;max-width:86ch}
   </div>
 </section>
 
+<section class="block" id="cal">
+  <h2>Camp schedule</h2>
+  <p class="lede">Every verified women's lacrosse prospect day, ID clinic and elite camp on her radar, Aug 15 into the fall. Mark each one and the page will flag time conflicts and total the cost. Tier colours follow whatever you set on the board below.</p>
+  <div class="controls">
+    <button class="chip" data-c="all" aria-pressed="true">All camps</button>
+    <button class="chip" data-c="t1" aria-pressed="false">Tier 1 only</button>
+    <button class="chip" data-c="t12" aria-pressed="false">Tier 1 + 2</button>
+    <button class="chip" data-c="going" aria-pressed="false">My picks</button>
+    <button class="chip act" id="clearcal">Clear picks</button>
+  </div>
+  <div id="calendar"></div>
+  <div class="totalbar">
+    <span><b id="cGoing">0</b> going</span>
+    <span><b id="cMaybe">0</b> maybe</span>
+    <span>Committed cost <b id="cCost">$0</b></span>
+    <span>If maybes go too <b id="cCostMax">$0</b></span>
+    <span id="cClash" class="clashmsg"></span>
+  </div>
+</section>
+
 <section class="block" id="email">
   <h2>No clean date — email these instead</h2>
   <p class="lede">Nine schools that want her — or might — have no clean August date. That is not a reason to wait; it is a reason to write this week, before Sept 1 turns every coach's inbox into a firehose.</p>
@@ -327,47 +325,6 @@ footer p{margin:0 0 8px;max-width:86ch}
   <h2>Activity</h2>
   <p class="lede">Everything that's changed, newest first — tier moves, camp picks, and answered questions.</p>
   <div class="feed" id="feed"><div class="feeditem"><span class="feedtime">—</span><span>No changes yet.</span></div></div>
-</section>
-
-<section class="block" id="quest">
-  <h2>Your questions</h2>
-  <p class="lede">Four things to work out. Type your answers straight into the boxes — they save into the page's link along with everything else, so use <em>Copy my link</em> when you're done.</p>
-  
-    <section class="qblock">
-      <h3><span class="qnum">1</span>Non-negotiables</h3>
-      <p class="qblurb">Answer these first — each one cuts the board before anything else does.</p>
-      <ol class="qlist"><li><p class="q">How far from home is too far?</p><p class="a">Her list runs from Clemson at 130 miles to Arizona State at 2,050. URI is 840. A real number of hours settles three schools immediately.</p>
-        <textarea class="ans" data-q="1-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Big school or small school?</p><p class="a">Loyola is 4,000 undergrads. Arizona State is 57,000. Both said she's on their list — and they are completely different lives.</p>
-        <textarea class="ans" data-q="1-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">If lacrosse ended after freshman year, would you still want to be there?</p><p class="a">Ask it about every school before spending a Saturday and $300 at its camp.</p>
-        <textarea class="ans" data-q="1-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
-    </section>
-
-    <section class="qblock">
-      <h3><span class="qnum">2</span>Academics and major</h3>
-      <p class="qblurb">Her list spans a 5.4% admit rate (Brown) to 89% (Arizona State) — the widest spread on any dimension.</p>
-      <ol class="qlist"><li><p class="q">What does she want to study, or what three things is she closest to sure about?</p><p class="a">Brown, Georgetown and Vanderbilt versus FSU, USF and ASU draw completely different maps.</p>
-        <textarea class="ans" data-q="2-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Where do her grades and scores sit right now?</p><p class="a">Brown and Penn are Ivies: need-based aid only, test scores required for her cycle, and admissions runs on an academic index. Send her GPA over and this page gets the same Academic Index calculator treatment — it changes which of those two are real.</p>
-        <textarea class="ans" data-q="2-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Does she want a place where lacrosse is the identity, or one thing she does?</p><p class="a">Syracuse and Stony Brook versus Brown and Georgetown. Both are good answers; they are not the same answer.</p>
-        <textarea class="ans" data-q="2-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
-    </section>
-
-    <section class="qblock">
-      <h3><span class="qnum">3</span>The attacker math</h3>
-      <p class="qblurb">Different game than most positions: programs take two to four attackers per class, so the question isn&#x27;t whether there&#x27;s a slot — it&#x27;s where she&#x27;d sit in it.</p>
-      <ol class="qlist"><li><p class="q">At every camp, ask one question: how many attackers are you taking in 2028, and what role would I compete for?</p><p class="a">Vague interest is cheap. A number and a role is information.</p>
-        <textarea class="ans" data-q="3-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Feature scorer at a building program, or fight for minutes at a made one?</p><p class="a">FSU, USF and URI are new programs recruiting their first real classes — early playing time is genuinely on the table. Stony Brook and Syracuse are made programs where minutes are earned behind proven attackers. There is no wrong answer, but there is a wrong answer for her.</p>
-        <textarea class="ans" data-q="3-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Whose offense fits how she plays?</p><p class="a">Stony Brook under Spallina is famous for high-volume attacking units. Jen Adams at Loyola teaches the position as well as anyone alive. Watch film of the on-list teams and ask which offense she can see herself in.</p>
-        <textarea class="ans" data-q="3-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
-    </section>
-
-    <section class="qblock">
-      <h3><span class="qnum">4</span>Campus and life</h3>
-      <p class="qblurb">The part nobody asks until April of senior year.</p>
-      <ol class="qlist"><li><p class="q">City, college town, or campus?</p><p class="a">DC and Baltimore versus Clemson and Columbus versus Kingston and Tempe — all on her list.</p>
-        <textarea class="ans" data-q="4-0" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">Does weather matter?</p><p class="a">Tampa, Tallahassee, Tempe, Boulder, Long Island and Rhode Island are all on the same list.</p>
-        <textarea class="ans" data-q="4-1" rows="2" placeholder="Kate's answer…"></textarea></li><li><p class="q">How often does she want family at games?</p><p class="a">Clemson is a day trip. Arizona State is a flight. That one answer re-sorts the whole board.</p>
-        <textarea class="ans" data-q="4-2" rows="2" placeholder="Kate's answer…"></textarea></li></ol>
-    </section>
 </section>
 
 <footer>
