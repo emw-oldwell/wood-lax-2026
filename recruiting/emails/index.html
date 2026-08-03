@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1a1a19">
+<link rel="icon" type="image/png" href="/recruiting/icon-192.png">
+<link rel="apple-touch-icon" href="/recruiting/apple-touch-icon.png">
+<title>Rachel · Email Tracker</title>
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+  --grid:#e1e0d9; --line:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b; --blue:#2a78d6;
+  --t1:#2a78d6; --t2:#eb6834;
+}
+@media (prefers-color-scheme: dark){ :root:where(:not([data-theme="light"])){
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; } }
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+  --grid:#2c2c2a; --line:#383835; --ring:rgba(255,255,255,.10);
+  --blue:#3987e5; --t1:#3987e5; --t2:#d95926; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:26px 16px 90px}
+a{color:var(--blue)}
+h1{font-size:26px;line-height:1.15;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--ink2);margin:0;font-size:14.5px}
+header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+ border-bottom:1px solid var(--grid);padding-bottom:18px;margin-bottom:16px;flex-wrap:wrap}
+.hdbtns{display:flex;gap:8px;flex-wrap:wrap}
+.toggle{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 12px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap;text-decoration:none}
+.toggle:hover{border-color:var(--ink2)}
+.note{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--blue);
+ border-radius:10px;padding:14px 16px;margin:0 0 12px;font-size:13.5px;color:var(--ink2)}
+.note b{color:var(--ink)}
+details.howto{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+ padding:12px 16px;margin:0 0 16px;font-size:13.5px;color:var(--ink2)}
+details.howto summary{cursor:pointer;font-weight:650;color:var(--ink);font-size:14px}
+details.howto ul{margin:10px 0 4px;padding-left:18px}
+details.howto li{margin-bottom:6px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stat{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:10px 12px;text-align:center}
+.stat .v{font-size:22px;font-weight:680;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .k{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--ink2);border-radius:999px;
+ padding:6px 12px;font-size:12px;cursor:pointer;font-family:inherit}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.school{background:var(--surface);border:1px solid var(--ring);border-radius:12px;
+ padding:13px 15px;margin-bottom:9px;border-left:3px solid var(--line)}
+.school.st-sent{border-left-color:var(--warn)}
+.school.st-replied{border-left-color:var(--good)}
+.school.st-talking{border-left-color:var(--blue)}
+.srow{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.sname{font-weight:660;font-size:15.5px}
+.tchip{font-size:9.5px;font-weight:750;letter-spacing:.06em;padding:2px 7px;border-radius:999px;color:#fff}
+.tchip.k1{background:var(--t1)} .tchip.k2{background:var(--t2)}
+.coach{font-size:12.5px;color:var(--mut);margin-top:1px}
+.coach a{color:var(--mut)}
+.badge{font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:4px;
+ border:1px solid var(--crit);color:var(--crit);white-space:nowrap}
+.when{font-size:11.5px;color:var(--mut);margin-left:auto;font-variant-numeric:tabular-nums}
+.setgrp{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:9px}
+.setgrp button{background:none;border:none;color:var(--mut);font-family:inherit;font-size:12px;
+ font-weight:650;padding:7px 11px;cursor:pointer}
+.setgrp button + button{border-left:1px solid var(--line)}
+.setgrp button.on{color:#fff}
+.setgrp button.on[data-s="notyet"]{background:var(--mut)}
+.setgrp button.on[data-s="sent"]{background:var(--warn);color:#0b0b0b}
+.setgrp button.on[data-s="replied"]{background:var(--good)}
+.setgrp button.on[data-s="talking"]{background:var(--blue)}
+textarea.nte{width:100%;margin-top:9px;background:var(--plane);color:var(--ink);
+ border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:13px;
+ resize:vertical;min-height:34px;display:none}
+textarea.nte.show, textarea.nte.hasnote{display:block}
+.ntbtn{background:none;border:none;color:var(--blue);font-size:12px;cursor:pointer;padding:0;
+ font-family:inherit;margin-top:8px;margin-left:10px}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--grid);color:var(--mut);font-size:12px}
+@media(max-width:480px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div>
+    <h1>Email Tracker</h1>
+    <p class="sub">Your coach outreach — every school on your board, one place</p>
+  </div>
+  <div class="hdbtns">
+    <span class="toggle" id="sync" style="cursor:default">…</span>
+    <a class="toggle" href="/recruiting">&larr; Workbook</a>
+    <button class="toggle" id="tg">Dark / light</button>
+  </div>
+</header>
+
+<div class="note"><b>The timing that matters:</b> Aug 1–14 is an NCAA shutdown — nobody will answer, so it's drafting week. Send from <b>Aug 15</b> on. Coaches can't reply directly to you until <b>Sept 1</b> — but they read everything, and the goal is being a name they already know when the phones open. Send every email from <b>your own address</b>, not a parent's.</div>
+
+<details class="howto">
+  <summary>What goes in every email</summary>
+  <ul>
+    <li><b>Subject:</b> Class of 2028 Goalie — [Your Name], HHH Philly / Lake Norman HS — [event you'll be at]</li>
+    <li>Who you are in one line: name, grad year, position, jersey number, club, high school.</li>
+    <li>Your film link, right up top. Coaches decide in 30 seconds whether to keep reading.</li>
+    <li>Your upcoming schedule — especially their camp or a tournament they'll scout.</li>
+    <li>One specific sentence about <i>their</i> program — why them, not a school swap-in.</li>
+    <li>End with a question — questions get replies. Then log it here.</li>
+  </ul>
+</details>
+
+<div class="stats">
+  <div class="stat"><div class="v" id="nTot">0</div><div class="k">schools</div></div>
+  <div class="stat"><div class="v" id="nSent" style="color:var(--warn)">0</div><div class="k">sent</div></div>
+  <div class="stat"><div class="v" id="nRep" style="color:var(--good)">0</div><div class="k">replied</div></div>
+  <div class="stat"><div class="v" id="nTalk" style="color:var(--blue)">0</div><div class="k">talking</div></div>
+</div>
+
+<div class="chips">
+  <button class="chip" data-f="all" aria-pressed="true">All</button>
+  <button class="chip" data-f="notyet" aria-pressed="false">Not sent yet</button>
+  <button class="chip" data-f="sent" aria-pressed="false">Waiting on reply</button>
+  <button class="chip" data-f="replied" aria-pressed="false">Replied / talking</button>
+  <button class="chip" data-f="t1" aria-pressed="false">Tier 1</button>
+</div>
+
+<div id="list"></div>
+
+<footer>
+Status saves automatically on this device and syncs across your phones. "Follow up?" appears when an email has sat unanswered for 12+ days — after Sept 1, that's your cue to send a short bump.
+</footer>
+</div>
+
+<script>
+const SCHOOLS = [{"name": "Brown", "tier": 1, "coach": "Katrina Dowd", "url": "https://www.bearswlaxcamps.com/", "loc": "Providence, RI"}, {"name": "Clemson", "tier": 1, "coach": "Allison Kwolek", "url": "https://clemsonlaxcamps.com/", "loc": "Clemson, SC"}, {"name": "Colorado", "tier": 1, "coach": "Ann Elliott Whidden", "url": "https://cubuffs.com/sports/2026/1/14/2025-lacrosse-summer-camp", "loc": "Boulder, CO"}, {"name": "Cornell", "tier": 1, "coach": "Jenny Graap", "url": "https://risingredlacrosse.totalcamps.com/", "loc": "Ithaca, NY"}, {"name": "Dartmouth", "tier": 1, "coach": "Alex McFadden", "url": "https://www.mountaindoglaxcamps.com/", "loc": "Hanover, NH"}, {"name": "Denver", "tier": 1, "coach": "Liza Kelly", "url": "https://www.duwlaxcamps.com/", "loc": "Denver, CO"}, {"name": "Harvard", "tier": 1, "coach": "Devon Wills", "url": "https://gocrimson.com/sports/2020/5/5/information-camps-index.aspx", "loc": "Cambridge, MA"}, {"name": "James Madison", "tier": 1, "coach": "Shelley Klaes", "url": "https://jmusports.com/sports/2020/7/5/lacrosse-recruiting", "loc": "Harrisonburg, VA"}, {"name": "Johns Hopkins", "tier": 1, "coach": "Tim McCormack", "url": "https://www.heritagelacrossecamps.com/", "loc": "Baltimore, MD"}, {"name": "Oregon", "tier": 1, "coach": "Jessica Drummond", "url": "https://www.ducklacrossecamps.com/", "loc": "Eugene, OR"}, {"name": "Pittsburgh", "tier": 1, "coach": "Emily Boissonneault", "url": "https://www.pittlacrossecamp.com/", "loc": "Pittsburgh, PA"}, {"name": "Rutgers", "tier": 1, "coach": "Melissa Lehman", "url": "https://www.scarletknightswlaxcamps.com/prospect-day.cfm", "loc": "Piscataway, NJ"}, {"name": "St. Joseph's", "tier": 1, "coach": "Alexandra Kahoe", "url": "https://www.hawkslacrossecamp.com/", "loc": "Philadelphia, PA"}, {"name": "Vanderbilt", "tier": 1, "coach": "Beth Hewitt", "url": "https://vucommodores.com/vanderbilt-lacrosse-camps", "loc": "Nashville, TN"}, {"name": "West Point (Army)", "tier": 1, "coach": "Michelle Tumolo", "url": "https://goarmywestpoint.com/staff-directory/army-womens-lacrosse-camps/1084", "loc": "West Point, NY"}, {"name": "Georgetown", "tier": 2, "coach": "Caitlyn Phipps", "url": "https://www.hoyaslacrossecamps.com/", "loc": "Washington, DC"}, {"name": "Maryland", "tier": 2, "coach": "Cathy Reese", "url": "https://terpslacrosse.com/prospect-elite-day-camp", "loc": "College Park, MD"}, {"name": "Michigan", "tier": 2, "coach": "Hannah Nielsen", "url": "https://camps.mgoblue.com/womenslacrosse/", "loc": "Ann Arbor, MI"}, {"name": "North Carolina", "tier": 2, "coach": "Jenny Levy", "url": "https://goheels.com/sports/womens-lacrosse", "loc": "Chapel Hill, NC"}, {"name": "Northwestern", "tier": 2, "coach": "Kelly Amonte Hiller", "url": "https://amontesports.com/", "loc": "Evanston, IL"}, {"name": "Notre Dame", "tier": 2, "coach": "Christine Halfpenny", "url": "https://fightingirish.com/womens-lacrosse-camps/", "loc": "South Bend, IN"}, {"name": "Penn", "tier": 2, "coach": "Karin Corbett", "url": "https://pennathletics.com/sports/womens-lacrosse", "loc": "Philadelphia, PA"}, {"name": "Princeton", "tier": 2, "coach": "Jenn Cook", "url": "https://princetonsportscamps.com/Page433.aspx", "loc": "Princeton, NJ"}, {"name": "Stanford", "tier": 2, "coach": "Danielle Spencer", "url": "https://stanfordgirlslacrossecamps.totalcamps.com/", "loc": "Stanford, CA"}, {"name": "USC", "tier": 2, "coach": "Sam Apuzzo", "url": "https://usctrojans.com/sports/womens-lacrosse/coaches", "loc": "Los Angeles, CA"}];
+const KEY = 'wood2028-g33-emails';
+const CANSYNC = location.protocol === 'http:' || location.protocol === 'https:';
+let state = {}, log = [], lastRemote = 0, pushTimer = null, filter = 'all';
+const syncEl = document.getElementById('sync');
+const TXT = { ok: 'Synced \u2713', saving: 'Saving\u2026', local: 'On this device', off: 'Offline \u2014 saved here' };
+function setSync(k){ syncEl.textContent = TXT[k] || k; }
+setSync(CANSYNC ? 'saving' : 'local');
+
+function load(){
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) { state = s.state || {}; log = s.log || []; } } catch(e){}
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify({ state, log })); } catch(e){}
+  schedulePush();
+}
+function schedulePush(){
+  if (!CANSYNC) return;
+  setSync('saving');
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(async () => {
+    pushTimer = null;
+    try {
+      const r = await fetch('/api/state', { method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ key: KEY, state, log }) });
+      const j = await r.json();
+      if (j.configured === false) setSync('local');
+      else { lastRemote = j.updatedAt || Date.now(); setSync('ok'); }
+    } catch(e){ setSync('off'); }
+  }, 800);
+}
+async function pull(){
+  if (!CANSYNC || pushTimer) return;
+  try {
+    const r = await fetch('/api/state?key=' + KEY);
+    const j = await r.json();
+    if (j.configured === false) { setSync('local'); return; }
+    if (j.state && j.updatedAt > lastRemote) { lastRemote = j.updatedAt; state = j.state; if (j.log) log = j.log; render(); }
+    setSync('ok');
+  } catch(e){ setSync('off'); }
+}
+function logEvent(m){ log.unshift({ t: Date.now(), m }); if (log.length > 150) log.length = 150; }
+
+function rowState(n){ return state[n] || (state[n] = { st: 'notyet', sentAt: 0, note: '' }); }
+function daysAgo(ts){ return Math.floor((Date.now() - ts) / 86400000); }
+function whenText(rs){
+  if (rs.st === 'notyet' || !rs.sentAt) return '';
+  const d = new Date(rs.sentAt);
+  return (rs.st === 'sent' ? 'sent ' : 'since ') + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+function pass(s){
+  const rs = rowState(s.name);
+  switch (filter) {
+    case 'notyet': return rs.st === 'notyet';
+    case 'sent': return rs.st === 'sent';
+    case 'replied': return rs.st === 'replied' || rs.st === 'talking';
+    case 't1': return s.tier === 1;
+    default: return true;
+  }
+}
+function stats(){
+  let sent = 0, rep = 0, talk = 0;
+  SCHOOLS.forEach(s => { const st = rowState(s.name).st;
+    if (st !== 'notyet') sent++;
+    if (st === 'replied' || st === 'talking') rep++;
+    if (st === 'talking') talk++; });
+  document.getElementById('nTot').textContent = SCHOOLS.length;
+  document.getElementById('nSent').textContent = sent;
+  document.getElementById('nRep').textContent = rep;
+  document.getElementById('nTalk').textContent = talk;
+}
+function render(){
+  stats();
+  const list = document.getElementById('list');
+  list.innerHTML = SCHOOLS.filter(pass).map(s => {
+    const rs = rowState(s.name);
+    const needsBump = rs.st === 'sent' && rs.sentAt && daysAgo(rs.sentAt) >= 12;
+    const seg = [['notyet','Not yet'],['sent','Sent'],['replied','Replied'],['talking','Talking']]
+      .map(([k,l]) => `<button data-n="${s.name}" data-s="${k}" class="${rs.st === k ? 'on' : ''}">${l}</button>`).join('');
+    return `<div class="school st-${rs.st}">
+      <div class="srow">
+        <span class="sname">${s.name}</span>
+        <span class="tchip k${s.tier}">TIER ${s.tier}</span>
+        ${needsBump ? '<span class="badge">FOLLOW UP?</span>' : ''}
+        <span class="when">${whenText(rs)}</span>
+      </div>
+      <div class="coach">${s.coach ? 'Coach ' + s.coach + ' \u00b7 ' : ''}${s.loc} \u00b7 <a href="${s.url}" target="_blank" rel="noopener">program page</a></div>
+      <span class="setgrp">${seg}</span><button class="ntbtn" data-nt="${s.name}">note</button>
+      <textarea class="nte ${rs.note ? 'hasnote' : ''}" data-n="${s.name}" placeholder="who you emailed, what they said\u2026">${rs.note || ''}</textarea>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.setgrp button').forEach(b => b.onclick = () => {
+    const rs = rowState(b.dataset.n);
+    if (rs.st === b.dataset.s) return;
+    rs.st = b.dataset.s;
+    if (b.dataset.s === 'sent' && !rs.sentAt) rs.sentAt = Date.now();
+    if (b.dataset.s === 'notyet') rs.sentAt = 0;
+    logEvent(`${b.dataset.n}: ${b.dataset.s === 'notyet' ? 'reset' : b.dataset.s}`);
+    save(); render();
+  });
+  list.querySelectorAll('.ntbtn').forEach(b => b.onclick = () => {
+    const t = list.querySelector(`textarea[data-n="${CSS.escape(b.dataset.nt)}"]`);
+    t.classList.toggle('show'); if (t.classList.contains('show')) t.focus();
+  });
+  list.querySelectorAll('textarea.nte').forEach(t => t.addEventListener('input', () => {
+    rowState(t.dataset.n).note = t.value; save();
+  }));
+}
+document.querySelectorAll('.chip[data-f]').forEach(c => c.onclick = () => {
+  document.querySelectorAll('.chip[data-f]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  c.setAttribute('aria-pressed', 'true');
+  filter = c.dataset.f; render();
+});
+document.getElementById('tg').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+};
+load(); render();
+if (CANSYNC) { pull(); setInterval(pull, 20000); }
+</script>
+</body>
+</html>
